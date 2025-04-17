@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Data\PicController;
 use App\Http\Controllers\Data\MitraController;
+use App\Http\Controllers\ProjectsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -58,6 +59,17 @@ Route::prefix('/data')->name('data.')->group(function() {
         });
         Route::get('/', [MitraController::class, 'index'])->name('index');
     });
+});
+
+Route::prefix('/project')->name('project.')->group(function() {
+    Route::group(['middleware' => ['auth']], function() {
+        Route::get('/create', [ProjectsController::class, 'create'])->name('create');
+        Route::post('/', [ProjectsController::class, 'store'])->name('store');
+        Route::put('/{project}', [ProjectsController::class, 'update'])->name('update');
+        Route::delete('/{project}', [ProjectsController::class, 'destroy'])->name('destroy');
+        Route::get('/{project}/edit', [ProjectsController::class, 'edit'])->name('edit');
+    });
+    Route::get('/', [ProjectsController::class, 'index'])->name('index');
 });
 
 require __DIR__.'/auth.php';

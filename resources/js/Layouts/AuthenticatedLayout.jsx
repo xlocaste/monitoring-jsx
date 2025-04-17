@@ -43,6 +43,9 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
                 <Link href={route('dashboard')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Telkom</Link>
             </div>
           )}
+          <li className="mb-4">
+            <Link href={route('project.index')} className='mb-4 hover:text-yellow-300'>Project</Link>
+          </li>
           <li className="mb-4"><a href="#" className="hover:text-yellow-300">Laporan</a></li>
           <li className="mb-4"><a href="#" className="hover:text-yellow-300">Data User/Hak Akses</a></li>
         </ul>

@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
+import PrimaryButton from '@/Components/PrimaryButton';
 
 export default function List({ auth, Pic }) {
     return (
@@ -10,6 +11,14 @@ export default function List({ auth, Pic }) {
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
 
                 <div className="overflow-x-auto">
+                    <div className='flex justify-between m-4'>
+                        <p>Show</p>
+                        <PrimaryButton>
+                            <Link href={route('data.pic.create')}>
+                            TAMBAH PIC
+                            </Link>
+                        </PrimaryButton>
+                    </div>
                     <table className="min-w-full bg-white border border-gray-200 rounded shadow">
                         <thead className="bg-gray-100">
                             <tr>

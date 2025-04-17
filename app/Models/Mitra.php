@@ -16,4 +16,9 @@ class Mitra extends Model
         'tipe_kemitraan',
         'gl_account',
     ];
+
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

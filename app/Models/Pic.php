@@ -16,4 +16,9 @@ class Pic extends Model
         'pic_project',
         'waspang_ta',
     ];
+    
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

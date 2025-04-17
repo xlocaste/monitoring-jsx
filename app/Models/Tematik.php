@@ -15,4 +15,9 @@ class Tematik extends Model
         'witel',
         'tematik',
     ];
+
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

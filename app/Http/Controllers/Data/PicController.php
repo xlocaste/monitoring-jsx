@@ -36,6 +36,24 @@ class PicController extends Controller
         return redirect()->route('data.pic.index');
     }
 
+    public function update(UpdateRequest $request, Pic $pic)
+    {
+        $pic->update([
+            'pic_admin'=>$request->pic_admin,
+            'pic_project'=>$request->pic_project,
+            'waspang_ta'=>$request->waspang_ta,
+        ]);
+
+        return redirect()->route('data.pic.index');
+    }
+
+    public function edit(Pic $pic)
+    {
+        return Inertia::render('Data/Pic/Update', [
+            'pic' => $pic
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Data/Pic/Add');

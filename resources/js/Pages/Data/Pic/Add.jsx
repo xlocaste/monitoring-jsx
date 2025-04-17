@@ -23,7 +23,7 @@ export default function Add({ auth }) {
 
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='space-y-4'>
                     <div>
                         <label htmlFor="pic_admin" className="block text-sm font-medium text-gray-700 mb-1">PIC Admin</label>
                         <input

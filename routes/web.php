@@ -41,9 +41,9 @@ Route::prefix('/data')->name('data.')->group(function() {
         Route::group(['middleware' => ['auth']], function() {
             Route::get('/create', [PicController::class, 'create'])->name('create');
             Route::post('/', [PicController::class, 'store'])->name('store');
-            // Route::put('/{alumni}', [PicController::class, 'update'])->name('update');
-            // Route::delete('/{alumni}', [PicController::class, 'destroy'])->name('destroy');
-            // Route::get('/{alumni}/edit', [PicController::class, 'edit'])->name('edit');
+            Route::put('/{pic}', [PicController::class, 'update'])->name('update');
+            // Route::delete('/{pic}', [PicController::class, 'destroy'])->name('destroy');
+            Route::get('/{pic}/edit', [PicController::class, 'edit'])->name('edit');
         });
         Route::get('/', [PicController::class, 'index'])->name('index');
     });

@@ -22,7 +22,7 @@ export default function List({ auth, Pic }) {
                     <div className='flex justify-end m-4'>
                         <PrimaryButton>
                             <Link href={route('data.pic.create')}>
-                                TAMBAH PIC
+                                + TAMBAH PIC
                             </Link>
                         </PrimaryButton>
                     </div>
@@ -49,7 +49,7 @@ export default function List({ auth, Pic }) {
                                             <td className="px-6 py-1 border-b text-sm text-gray-700">
                                                 <div className='flex gap-2'>
                                                     <Link
-                                                        href={route('data.pic.index', item.id)}
+                                                        href={route('data.pic.edit', item.id)}
                                                         className='text-yellow-500'
                                                     >
                                                         <FaRegEdit />

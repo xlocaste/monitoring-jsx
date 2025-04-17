@@ -25,7 +25,7 @@ export default function List({ auth, Mitra }) {
 
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
                 <div className="overflow-x-auto">
-                    <div className="flex justify-end items-center mb-4">
+                    <div className="flex justify-end items-center m-4">
                         <PrimaryButton>
                             <Link href={route('data.mitra.create')}>
                                 + Tambah Mitra
@@ -70,13 +70,17 @@ export default function List({ auth, Mitra }) {
                     </table>
 
                     <div className="flex justify-end mt-4 gap-4 items-center">
-                        <SecondaryButton onClick={() => handlePageChange(Mitra.prev_page_url)} disabled={!Mitra.prev_page_url}>
+                        <SecondaryButton onClick={() => handlePageChange(Mitra.prev_page_url)} disabled={!Mitra.prev_page_url}
+                         className='text-xs'
+                        >
                             Previous
                         </SecondaryButton>
-                        <span className="text-sm text-gray-700">
+                        <span className="text-xs text-gray-700">
                             Page {Mitra.current_page} of {Mitra.last_page}
                         </span>
-                        <SecondaryButton onClick={() => handlePageChange(Mitra.next_page_url)} disabled={!Mitra.next_page_url}>
+                        <SecondaryButton onClick={() => handlePageChange(Mitra.next_page_url)} disabled={!Mitra.next_page_url}
+                         className='text-xs'
+                        >
                             Next
                         </SecondaryButton>
                     </div>

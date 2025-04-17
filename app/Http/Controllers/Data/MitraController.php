@@ -24,4 +24,20 @@ class MitraController extends Controller
             ],
         ]);
     }
+
+    public function store(StoreRequest $request)
+    {
+        $mitra = Mitra::create([
+            'nama_mitra'=>$request->nama_mitra,
+            'tipe_kemitraan'=>$request->tipe_kemitraan,
+            'gl_account'=>$request->gl_account,
+        ]);
+
+        return redirect()->route('data.mitra.index');
+    }
+
+    public function create()
+    {
+        return Inertia::render('Data/Mitra/Add');
+    }
 }

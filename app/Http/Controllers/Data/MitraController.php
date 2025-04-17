@@ -36,6 +36,24 @@ class MitraController extends Controller
         return redirect()->route('data.mitra.index');
     }
 
+    public function update(UpdateRequest $request, Mitra $mitra)
+    {
+        $mitra->update([
+            'nama_mitra'=>$request->nama_mitra,
+            'tipe_kemitraan'=>$request->tipe_kemitraan,
+            'gl_account'=>$request->gl_account,
+        ]);
+
+        return redirect()->route('data.mitra.index');
+    }
+
+    public function edit(Mitra $mitra)
+    {
+        return Inertia::render('Data/Mitra/Update', [
+            'mitra' => $mitra
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Data/Mitra/Add');

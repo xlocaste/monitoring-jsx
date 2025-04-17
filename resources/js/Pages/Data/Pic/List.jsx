@@ -46,8 +46,8 @@ export default function List({ auth, Pic }) {
                                         <td className="px-6 py-1 border-b text-sm text-gray-700">{item.pic_project}</td>
                                         <td className="px-6 py-1 border-b text-sm text-gray-700">{item.waspang_ta}</td>
                                         {auth.user && (
-                                            <td className="px-6 py-1 border-b text-sm text-gray-700">
-                                                <div className='flex gap-2'>
+                                            <td className="px-4 py-1 border-b text-center">
+                                                <div className='flex gap-2 justify-center'>
                                                     <Link
                                                         href={route('data.pic.edit', item.id)}
                                                         className='text-yellow-500'

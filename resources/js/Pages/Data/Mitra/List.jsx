@@ -36,20 +36,20 @@ export default function List({ auth, Mitra }) {
                     <table className="min-w-full bg-white border border-gray-200 rounded">
                         <thead className="bg-gray-100">
                             <tr>
-                                <th className="px-4 py-2 border-b text-left text-sm font-semibold text-gray-700">Nama Mitra</th>
-                                <th className="px-4 py-2 border-b text-left text-sm font-semibold text-gray-700">Tipe Kemitraan</th>
-                                <th className="px-4 py-2 border-b text-left text-sm font-semibold text-gray-700">GL Account</th>
-                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Action</th>
+                                <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">NAMA MITRA</th>
+                                <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">TIPE KEMITRAAN</th>
+                                <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">GL ACCOUNT</th>
+                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
                             {Mitra.data.length > 0 ? (
                                 Mitra.data.map((item) => (
                                     <tr key={item.id} className="hover:bg-gray-50">
-                                        <td className="px-4 py-2 border-b text-sm">{item.nama_mitra}</td>
-                                        <td className="px-4 py-2 border-b text-sm">{item.tipe_kemitraan}</td>
-                                        <td className="px-4 py-2 border-b text-sm">{item.gl_account}</td>
-                                        <td className="px-4 py-2 border-b text-center">
+                                        <td className="px-4 py-1 border-b text-sm">{item.nama_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-sm">{item.tipe_kemitraan}</td>
+                                        <td className="px-4 py-1 border-b text-sm">{item.gl_account}</td>
+                                        <td className="px-4 py-1 border-b text-center">
                                             <div className="flex gap-2 justify-center">
                                                 <Link href={route('data.mitra.edit', item.id)} className="text-yellow-500">
                                                     <FaRegEdit />
@@ -69,13 +69,13 @@ export default function List({ auth, Mitra }) {
                         </tbody>
                     </table>
 
-                    <div className="flex justify-end mt-4 gap-4 items-center">
+                    <div className="flex justify-end p-4 gap-4">
                         <SecondaryButton onClick={() => handlePageChange(Mitra.prev_page_url)} disabled={!Mitra.prev_page_url}
                          className='text-xs'
                         >
                             Previous
                         </SecondaryButton>
-                        <span className="text-xs text-gray-700">
+                        <span className="text-gray-700 self-center text-xs">
                             Page {Mitra.current_page} of {Mitra.last_page}
                         </span>
                         <SecondaryButton onClick={() => handlePageChange(Mitra.next_page_url)} disabled={!Mitra.next_page_url}

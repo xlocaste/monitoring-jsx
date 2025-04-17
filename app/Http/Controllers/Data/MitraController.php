@@ -47,6 +47,13 @@ class MitraController extends Controller
         return redirect()->route('data.mitra.index');
     }
 
+    public function destroy(Mitra $mitra)
+    {
+        $mitra->delete();
+
+        return Redirect::route('data.mitra.index')->with('message', 'Data berhasil dihapus');
+    }
+
     public function edit(Mitra $mitra)
     {
         return Inertia::render('Data/Mitra/Update', [

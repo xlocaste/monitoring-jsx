@@ -15,7 +15,7 @@ class PicController extends Controller
 {
     public function index()
     {
-        $daftarPic = Pic::all();
+        $daftarPic = Pic::paginate(10);
 
         return Inertia::render('Data/Pic/List', [
             'Pic' => $daftarPic,

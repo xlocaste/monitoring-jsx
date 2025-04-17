@@ -19,26 +19,28 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
         </div>
         <ul>
           <li className="mb-4"><a href="#" className="hover:text-yellow-300">Home</a></li>
-          <button onClick={() => setShowData((prev) => !prev)} className="mb-4 flex w-full"><a href="#" className="hover:text-yellow-300 flex items-center w-full justify-between">Data
-          <svg
-                                className="ms-2 -me-0.5 h-4 w-4"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
-          </a></button>
+          <button onClick={() => setShowData((prev) => !prev)} className="mb-4 flex w-full">
+            <a href="#" className="hover:text-yellow-300 flex items-center w-full justify-between">Data
+                <svg
+                    className="ms-2 -me-0.5 h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                />
+                </svg>
+            </a>
+          </button>
           {showData && (
             <div className='flex flex-col'>
-                <Link href={route('dashboard')} className='mb-4 pl-4'>Data PIC</Link>
-                <Link href={route('dashboard')} className='mb-4 pl-4'>Data Mitra</Link>
-                <Link href={route('dashboard')} className='mb-4 pl-4'>Data Status Mitra</Link>
-                <Link href={route('dashboard')} className='mb-4 pl-4'>Data Status Telkom</Link>
+                <Link href={route('data.pic.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data PIC</Link>
+                <Link href={route('dashboard')} className='mb-4 pl-4 hover:text-yellow-300'>Data Mitra</Link>
+                <Link href={route('dashboard')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Mitra</Link>
+                <Link href={route('dashboard')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Telkom</Link>
             </div>
           )}
           <li className="mb-4"><a href="#" className="hover:text-yellow-300">Laporan</a></li>

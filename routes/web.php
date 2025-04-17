@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Data\PicController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,6 +34,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::prefix('/data')->name('data.')->group(function() {
+    Route::prefix('/pic')->name('pic.')->group(function() {
+        Route::group(['middleware' => ['auth']], function() {
+            // Route::get('/create', [PicController::class, 'create'])->name('create');
+            // Route::post('/', [PicController::class, 'store'])->name('store');
+            // Route::put('/{alumni}', [PicController::class, 'update'])->name('update');
+            // Route::delete('/{alumni}', [PicController::class, 'destroy'])->name('destroy');
+            // Route::get('/{alumni}/edit', [PicController::class, 'edit'])->name('edit');
+        });
+        Route::get('/', [PicController::class, 'index'])->name('index');
+    });
 });
 
 require __DIR__.'/auth.php';

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Data\PicController;
+use App\Http\Controllers\Data\MitraController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -46,6 +47,16 @@ Route::prefix('/data')->name('data.')->group(function() {
             Route::get('/{pic}/edit', [PicController::class, 'edit'])->name('edit');
         });
         Route::get('/', [PicController::class, 'index'])->name('index');
+    });
+    Route::prefix('/mitra')->name('mitra.')->group(function() {
+        Route::group(['middleware' => ['auth']], function() {
+            Route::get('/create', [MitraController::class, 'create'])->name('create');
+            Route::post('/', [MitraController::class, 'store'])->name('store');
+            Route::put('/{mitra}', [MitraController::class, 'update'])->name('update');
+            Route::delete('/{mitra}', [MitraController::class, 'destroy'])->name('destroy');
+            Route::get('/{mitra}/edit', [MitraController::class, 'edit'])->name('edit');
+        });
+        Route::get('/', [MitraController::class, 'index'])->name('index');
     });
 });
 

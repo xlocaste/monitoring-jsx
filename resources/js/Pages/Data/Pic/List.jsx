@@ -55,8 +55,13 @@ export default function List({ auth, Pic }) {
                                                         <FaRegEdit />
                                                     </Link>
                                                     <Link
-                                                        href={route('data.pic.index', item.id)}
-                                                        className='text-red-400'
+                                                        as="button"
+                                                        className="text-red-400"
+                                                        onClick={() => {
+                                                            if (confirm('Yakin ingin menghapus data ini?')) {
+                                                                router.delete(route('data.pic.destroy', item.id));
+                                                            }
+                                                        }}
                                                     >
                                                         <FaTrash />
                                                     </Link>

@@ -42,7 +42,7 @@ Route::prefix('/data')->name('data.')->group(function() {
             Route::get('/create', [PicController::class, 'create'])->name('create');
             Route::post('/', [PicController::class, 'store'])->name('store');
             Route::put('/{pic}', [PicController::class, 'update'])->name('update');
-            // Route::delete('/{pic}', [PicController::class, 'destroy'])->name('destroy');
+            Route::delete('/{pic}', [PicController::class, 'destroy'])->name('destroy');
             Route::get('/{pic}/edit', [PicController::class, 'edit'])->name('edit');
         });
         Route::get('/', [PicController::class, 'index'])->name('index');

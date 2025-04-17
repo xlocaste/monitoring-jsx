@@ -47,6 +47,13 @@ class PicController extends Controller
         return redirect()->route('data.pic.index');
     }
 
+    public function destroy(Pic $pic)
+    {
+        $pic->delete();
+
+        return Redirect::route('data.pic.index')->with('message', 'Data berhasil dihapus');
+    }
+
     public function edit(Pic $pic)
     {
         return Inertia::render('Data/Pic/Update', [

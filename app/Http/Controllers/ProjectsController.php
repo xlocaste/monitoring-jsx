@@ -63,6 +63,13 @@ class ProjectsController extends Controller
         return redirect()->route('project.index');
     }
 
+    public function destroy(Project $project)
+    {
+        $project->delete();
+
+        return Redirect::route('project.index')->with('message', 'Data berhasil dihapus');
+    }
+
     public function edit(Project $project)
     {
         return Inertia::render('Projects/Update', [

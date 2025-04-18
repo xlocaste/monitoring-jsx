@@ -44,7 +44,36 @@ class ProjectsController extends Controller
 
         return redirect()->route('project.index');
     }
+    
+    public function update(UpdateRequest $request, Project $project)
+    {
+        $project->update([
+            'pic_id' => $request -> pic_id,
+            'mitra_id' => $request -> mitra_id,
+            'tematik_id' => $request -> tematik_id,
+            'sto_id' => $request -> sto_id,
+            'id_sap' => $request -> id_sap,
+            'tahun' => $request -> tahun,
+            'bulan' => $request -> bulan,
+            'lokasi_wo_lop' => $request -> lokasi_wo_lop,
+            'no_kontrak' => $request -> no_kontrak,
+            'uraian_pekerjaan' => $request -> uraian_pekerjaan,
+        ]);
 
+        return redirect()->route('project.index');
+    }
+
+    public function edit(Project $project)
+    {
+        return Inertia::render('Projects/Update', [
+            'project' => $project,
+            'Tematik' => Tematik::all(['id', 'tematik']),
+            'Sto' => Sto::all(['id', 'sto']),
+            'Pic' => Pic::all(['id', 'pic_admin']),
+            'Mitra' => Mitra::all(['id', 'nama_mitra']),
+        ]);
+    }
+    
     public function create()
     {
         return Inertia::render('Projects/Add', [
@@ -54,4 +83,5 @@ class ProjectsController extends Controller
         'Mitra' => Mitra::all(['id', 'nama_mitra']),
         ]);
     }
+
 }

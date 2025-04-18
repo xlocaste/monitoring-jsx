@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Sto;
+use App\Models\Tematik;
+use App\Models\Pic;
+use App\Models\Mitra;
 use App\Http\Requests\Projects\StoreRequest;
 use App\Http\Requests\Projects\UpdateRequest;
 use Illuminate\Support\Facades\Redirect;
@@ -43,6 +47,11 @@ class ProjectsController extends Controller
 
     public function create()
     {
-        return Inertia::render('Projects/Add');
+        return Inertia::render('Projects/Add', [
+        'Tematik' => Tematik::all(['id', 'tematik']),
+        'Sto' => Sto::all(['id', 'sto']),
+        'Pic' => Pic::all(['id', 'pic_admin']),
+        'Mitra' => Mitra::all(['id', 'nama_mitra']),
+        ]);
     }
 }

@@ -49,8 +49,8 @@ export default function List({ auth, projects }) {
                                         <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.id_sap}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.pic_admin || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.mitra?.nama_mitra || '-'}</td>
-                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.tematik?.nama_tematik || '-'}</td>
-                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.sto?.nama_sto || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.tematik?.tematik || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.sto?.sto || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.tahun}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.bulan}</td>
                                         {auth.user && (

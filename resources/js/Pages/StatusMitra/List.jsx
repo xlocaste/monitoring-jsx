@@ -30,7 +30,7 @@ export default function List({ auth, statusMitra }) {
                     <table className="min-w-full bg-white border border-gray-200 rounded text-sm">
                         <thead className="bg-gray-100">
                             <tr>
-                                <th className="px-4 py-2 border-b text-center font-semibold">Project</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">TOC</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Material</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Jasa</th>

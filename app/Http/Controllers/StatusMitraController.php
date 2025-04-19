@@ -78,6 +78,13 @@ class StatusMitraController extends Controller
         return redirect()->route('status-mitra.index');
     }
 
+    public function destroy(StatusMitra $statusMitra)
+    {
+        $statusMitra->delete();
+
+        return Redirect::route('status-mitra.index')->with('message', 'Data berhasil dihapus');
+    }
+
     public function edit(StatusMitra $statusMitra)
     {
         return Inertia::render('StatusMitra/Update', [

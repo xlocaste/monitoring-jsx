@@ -29,7 +29,6 @@ class ProjectsController extends Controller
     public function store(StoreRequest $request)
     {
         $project = Project::create([
-
             'pic_id' => $request -> pic_id,
             'mitra_id' => $request -> mitra_id,
             'tematik_id' => $request -> tematik_id,

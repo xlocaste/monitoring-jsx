@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TematikSeeder::class,
             StoSeeder::class,
+            StatusPekerjaanSeeder::class,
+            StatusRekonMitraSeeder::class,
+            StatusTagihanMitraSeeder::class,
+            KetStatusTagihanMitraSeeder::class,
         ]);
     }
 }

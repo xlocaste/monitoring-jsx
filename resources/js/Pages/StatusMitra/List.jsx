@@ -51,10 +51,10 @@ export default function List({ auth, statusMitra }) {
                                         <td className="px-4 py-1 border-b">{item.material_mitra}</td>
                                         <td className="px-4 py-1 border-b">{item.jasa_mitra}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.nilai_sp_mitra}</td>
-                                        <td className="px-4 py-1 border-b text-center">{item.status_pekerjaan?.nama_status || '-'}</td>
-                                        <td className="px-4 py-1 border-b text-center">{item.status_rekon_mitra?.nama_status || '-'}</td>
-                                        <td className="px-4 py-1 border-b text-center">{item.status_tagihan_mitra?.nama_status || '-'}</td>
-                                        <td className="px-4 py-1 border-b text-center">{item.ket_status_tagihan_mitra?.nama_keterangan || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.status_pekerjaan?.status_pekerjaan || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.status_rekon_mitra?.status_rekon_mitra || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.status_tagihan_mitra?.status_tagihan_mitra || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.ket_status_tagihan_mitra?.ket_status_tagihan_mitra || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">
                                             <div className="flex justify-center gap-2">
                                                 <Link

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Data\PicController;
 use App\Http\Controllers\Data\MitraController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\StatusMitraController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -70,6 +71,17 @@ Route::prefix('/project')->name('project.')->group(function() {
         Route::get('/{project}/edit', [ProjectsController::class, 'edit'])->name('edit');
     });
     Route::get('/', [ProjectsController::class, 'index'])->name('index');
+});
+
+Route::prefix('/status-mitra')->name('status-mitra.')->group(function() {
+    Route::group(['middleware' => ['auth']], function() {
+        Route::get('/create', [StatusMitraController::class, 'create'])->name('create');
+        Route::post('/', [StatusMitraController::class, 'store'])->name('store');
+        Route::put('/{statusMitra}', [StatusMitraController::class, 'update'])->name('update');
+        Route::delete('/{statusMitra}', [StatusMitraController::class, 'destroy'])->name('destroy');
+        Route::get('/{statusMitra}/edit', [StatusMitraController::class, 'edit'])->name('edit');
+    });
+    Route::get('/', [StatusMitraController::class, 'index'])->name('index');
 });
 
 require __DIR__.'/auth.php';

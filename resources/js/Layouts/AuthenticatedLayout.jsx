@@ -39,7 +39,7 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
             <div className='flex flex-col'>
                 <Link href={route('data.pic.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data PIC</Link>
                 <Link href={route('data.mitra.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Mitra</Link>
-                <Link href={route('dashboard')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Mitra</Link>
+                <Link href={route('status-mitra.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Mitra</Link>
                 <Link href={route('dashboard')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Telkom</Link>
             </div>
           )}

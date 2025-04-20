@@ -19,7 +19,7 @@ class Laporan extends Model
 
     public function statusTelkom()
     {
-        return $this->belongsTo(statusTelkom::class, 'status_telkom_id');
+        return $this->belongsTo(StatusTelkom::class, 'status_telkom_id');
     }
 
     public function statusMitra()

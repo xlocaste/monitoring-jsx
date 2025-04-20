@@ -41,7 +41,7 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
                 <Link href={route('data.mitra.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Mitra</Link>
                 <Link href={route('project.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Project</Link>
                 <Link href={route('status-mitra.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Mitra</Link>
-                <Link href={route('dashboard')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Telkom</Link>
+                <Link href={route('status-telkom.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Telkom</Link>
             </div>
           )}
           <li className="mb-4">

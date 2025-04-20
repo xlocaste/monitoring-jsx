@@ -55,6 +55,13 @@ class LaporanController extends Controller
         return redirect()->route('laporan.index');
     }
 
+    public function destroy(Laporan $laporan)
+    {
+        $laporan->delete();
+
+        return Redirect::route('laporan.index')->with('message', 'Data berhasil dihapus');
+    }
+
     public function edit(Laporan $laporan)
     {
         return Inertia::render('Laporan/Update', [

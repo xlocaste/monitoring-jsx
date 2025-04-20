@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TematikSeeder::class,
             StoSeeder::class,
+            StatusPoSeeder::class,
+            StatusBastTelkomSeeder::class,
+            StatusRekonTelkomSeeder::class,
             StatusPekerjaanSeeder::class,
             StatusRekonMitraSeeder::class,
             StatusTagihanMitraSeeder::class,

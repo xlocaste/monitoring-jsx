@@ -6,6 +6,7 @@ use App\Http\Controllers\Data\MitraController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\StatusMitraController;
 use App\Http\Controllers\StatusTelkomController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -94,6 +95,17 @@ Route::prefix('/status-telkom')->name('status-telkom.')->group(function() {
         Route::get('/{statusTelkom}/edit', [StatusTelkomController::class, 'edit'])->name('edit');
     });
     Route::get('/', [StatusTelkomController::class, 'index'])->name('index');
+});
+
+Route::prefix('/laporan')->name('laporan.')->group(function() {
+    Route::group(['middleware' => ['auth']], function() {
+        Route::get('/create', [LaporanController::class, 'create'])->name('create');
+        Route::post('/', [LaporanController::class, 'store'])->name('store');
+        Route::put('/{laporan}', [LaporanController::class, 'update'])->name('update');
+        Route::delete('/{laporan}', [LaporanController::class, 'destroy'])->name('destroy');
+        Route::get('/{laporan}/edit', [LaporanController::class, 'edit'])->name('edit');
+    });
+    Route::get('/', [LaporanController::class, 'index'])->name('index');
 });
 
 require __DIR__.'/auth.php';

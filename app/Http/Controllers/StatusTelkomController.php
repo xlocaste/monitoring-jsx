@@ -82,6 +82,13 @@ class StatusTelkomController extends Controller
         return redirect()->route('status-telkom.index');
     }
 
+    public function destroy(StatusTelkom $statusTelkom)
+    {
+        $statusTelkom->delete();
+
+        return Redirect::route('status-telkom.index')->with('message', 'Data berhasil dihapus');
+    }
+
     public function edit(StatusTelkom $statusTelkom)
     {
         return Inertia::render('StatusTelkom/Update', [

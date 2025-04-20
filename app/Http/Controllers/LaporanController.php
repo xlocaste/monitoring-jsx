@@ -17,7 +17,13 @@ class LaporanController extends Controller
 {
     public function index()
     {
-        $daftarLaporan = Laporan::with('statusTelkom', 'statusMitra')->paginate(10);
+        $daftarLaporan = Laporan::with([
+            'statusTelkom.statusBastTelkom',
+            'statusTelkom.project.tematik',
+            'statusTelkom.statusRekonTelkom',
+            'statusMitra.statusTagihanMitra',
+            'statusMitra.project.tematik'
+        ])->paginate(10);
 
         return Inertia::render('Laporan/List', [
             'laporan' => $daftarLaporan,

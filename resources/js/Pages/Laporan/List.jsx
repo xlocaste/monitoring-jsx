@@ -7,6 +7,7 @@ import { FaTrash } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, laporan }) {
+    console.log("Data Laporan", laporan.data)
     const handlePageChange = (url) => {
         if (url) {
             router.visit(url);
@@ -59,8 +60,9 @@ export default function List({ auth, laporan }) {
                                         <td className="px-4 py-1 border-b text-center">{item.status_mitra?.no_sp_mitra || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_mitra?.no_po_mitra || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_telkom?.nilai_sp_telkom || '-'}</td>
-                                        <td className="px-4 py-1 border-b text-center">{item.status_telkom?.metarial_telkom || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.status_telkom?.material_telkom || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_telkom?.rekon_jasa_telkom || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.status_telkom?.status_rekon_telkom.status_rekon_telkom || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.keterangan}</td>
                                         <td className="px-4 py-1 border-b text-center">
                                             <div className="flex justify-center gap-2">
@@ -85,8 +87,8 @@ export default function List({ auth, laporan }) {
                                         </td>
                                     </tr>
                                 ))
-                            ) : (
-                                <tr>
+                                ) : (
+                                    <tr>
                                     <td colSpan="14" className="text-center text-gray-500 py-4">
                                         Tidak ada data laporan.
                                     </td>
@@ -100,7 +102,7 @@ export default function List({ auth, laporan }) {
                             onClick={() => handlePageChange(laporan.prev_page_url)}
                             disabled={!laporan.prev_page_url}
                             className="text-xs"
-                        >
+                            >
                             Previous
                         </SecondaryButton>
 

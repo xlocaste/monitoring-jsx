@@ -44,6 +44,26 @@ class LaporanController extends Controller
         return redirect()->route('laporan.index');
     }
 
+    public function update(UpdateRequest $request, Laporan $laporan)
+    {
+        $laporan->update([
+            'status_telkom_id'=>$request->status_telkom_id,
+            'status_mitra_id'=>$request->status_mitra_id,
+            'keterangan'=>$request->keterangan,
+        ]);
+
+        return redirect()->route('laporan.index');
+    }
+
+    public function edit(Laporan $laporan)
+    {
+        return Inertia::render('Laporan/Update', [
+            'laporan' => $laporan,
+            'StatusTelkom' => StatusTelkom::get(),
+            'StatusMitra' => StatusMitra::get(),
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Laporan/Add', [

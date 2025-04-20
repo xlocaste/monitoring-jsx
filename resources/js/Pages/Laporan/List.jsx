@@ -7,7 +7,6 @@ import { FaTrash } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, laporan }) {
-    console.log("Data Laporan", laporan.data)
     const handlePageChange = (url) => {
         if (url) {
             router.visit(url);

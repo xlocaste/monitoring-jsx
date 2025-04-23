@@ -30,7 +30,7 @@ export default function List({ auth, statusMitra }) {
                     <table className="min-w-full bg-white border border-gray-200 rounded text-sm">
                         <thead className="bg-gray-100">
                             <tr>
-                                <th className="px-4 py-2 border-b text-center font-semibold">ID SAP</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">ID Status Mitra</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Bulan Order</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">No SP Mitra</th>
@@ -55,7 +55,7 @@ export default function List({ auth, statusMitra }) {
                             {statusMitra.data.length > 0 ? (
                                 statusMitra.data.map((item) => (
                                     <tr key={item.id} className="hover:bg-gray-50">
-                                        <td className="px-4 py-1 border-b text-center">{item.project?.id_sap || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.project?.id_project || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.id_status_mitra}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.bulan_order}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.no_sp_mitra}</td>

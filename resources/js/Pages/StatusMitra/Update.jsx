@@ -17,6 +17,8 @@ export default function Update({ auth, statusMitra, Projects, StatusPekerjaan, S
         jasa_mitra: statusMitra.jasa_mitra || '',
         nilai_sp_mitra: statusMitra.nilai_sp_mitra || '',
         rekon_material_mitra: statusMitra.rekon_material_mitra || '',
+        rekon_jasa_mitra: statusMitra.rekon_jasa_mitra || '',
+        nilai_rekon_mitra: statusMitra.nilai_rekon_mitra || '',
         status_pekerjaan_id: statusMitra.status_pekerjaan_id || '',
         status_rekon_mitra_id: statusMitra.status_rekon_mitra_id || '',
         status_tagihan_mitra_id: statusMitra.status_tagihan_mitra_id || '',

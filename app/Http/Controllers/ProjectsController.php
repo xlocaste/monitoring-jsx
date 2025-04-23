@@ -33,6 +33,7 @@ class ProjectsController extends Controller
             'mitra_id' => $request -> mitra_id,
             'tematik_id' => $request -> tematik_id,
             'sto_id' => $request -> sto_id,
+            'id_project' => $request -> id_project,
             'id_sap' => $request -> id_sap,
             'tahun' => $request -> tahun,
             'bulan' => $request -> bulan,
@@ -51,6 +52,7 @@ class ProjectsController extends Controller
             'mitra_id' => $request -> mitra_id,
             'tematik_id' => $request -> tematik_id,
             'sto_id' => $request -> sto_id,
+            'id_project' => $request -> id_project,
             'id_sap' => $request -> id_sap,
             'tahun' => $request -> tahun,
             'bulan' => $request -> bulan,
@@ -75,7 +77,7 @@ class ProjectsController extends Controller
             'project' => $project,
             'Tematik' => Tematik::all(['id', 'tematik']),
             'Sto' => Sto::all(['id', 'sto']),
-            'Pic' => Pic::all(['id', 'pic_admin']),
+            'Pic' => Pic::all(),
             'Mitra' => Mitra::all(['id', 'nama_mitra']),
         ]);
     }
@@ -85,7 +87,7 @@ class ProjectsController extends Controller
         return Inertia::render('Projects/Add', [
         'Tematik' => Tematik::all(['id', 'tematik']),
         'Sto' => Sto::all(['id', 'sto']),
-        'Pic' => Pic::all(['id', 'pic_admin']),
+        'Pic' => Pic::all(),
         'Mitra' => Mitra::all(['id', 'nama_mitra']),
         ]);
     }

@@ -16,6 +16,7 @@ class Project extends Model
         'mitra_id',
         'tematik_id',
         'sto_id',
+        'id_project',
         'id_sap',
         'tahun',
         'bulan',

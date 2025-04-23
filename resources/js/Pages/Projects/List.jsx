@@ -30,8 +30,11 @@ export default function List({ auth, projects }) {
                     <table className="min-w-full bg-white border border-gray-200 rounded">
                         <thead className="bg-gray-100">
                             <tr>
+                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ID Project</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ID SAP</th>
-                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC</th>
+                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC Admin</th>
+                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC Project</th>
+                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Waspang TA</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Mitra</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Tematik</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">STO</th>
@@ -46,8 +49,11 @@ export default function List({ auth, projects }) {
                             {projects.data.length > 0 ? (
                                 projects.data.map((project) => (
                                     <tr key={project.id} className="hover:bg-gray-50">
+                                        <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.id_project}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.id_sap}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.pic_admin || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.pic_project || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.waspang_ta || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.mitra?.nama_mitra || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.tematik?.tematik || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.sto?.sto || '-'}</td>

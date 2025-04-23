@@ -26,6 +26,7 @@ class UpdateRequest extends FormRequest
             'mitra_id' => ['required'], 
             'tematik_id' => ['required'], 
             'sto_id' => ['required'], 
+            'id_project' => ['required'],
             'id_sap' => ['required'], 
             'tahun' => ['required'], 
             'bulan' => ['required'], 

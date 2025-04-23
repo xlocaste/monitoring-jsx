@@ -17,7 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('mitra_id');
             $table->unsignedBigInteger('tematik_id');
             $table->unsignedBigInteger('sto_id');
-            $table->integer('id_sap');
+            $table->string('id_project');
+            $table->string('id_sap');
             $table->year('tahun');
             $table->integer('bulan');
             $table->string('lokasi_wo_lop');

@@ -24,6 +24,8 @@ class StatusMitra extends Model
         'jasa_mitra',
         'nilai_sp_mitra',
         'rekon_material_mitra',
+        'rekon_jasa_mitra',
+        'nilai_rekon_mitra',
         'status_pekerjaan_id',
         'status_rekon_mitra_id',
         'status_tagihan_mitra_id',

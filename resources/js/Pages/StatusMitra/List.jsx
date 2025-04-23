@@ -30,14 +30,23 @@ export default function List({ auth, statusMitra }) {
                     <table className="min-w-full bg-white border border-gray-200 rounded text-sm">
                         <thead className="bg-gray-100">
                             <tr>
-                                <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
-                                <th className="px-4 py-2 border-b text-center font-semibold">TOC</th>
-                                <th className="px-4 py-2 border-b text-center font-semibold">Material</th>
-                                <th className="px-4 py-2 border-b text-center font-semibold">Jasa</th>
-                                <th className="px-4 py-2 border-b text-center font-semibold">Nilai SP</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">ID SAP</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">ID Status Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Bulan Order</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">No SP Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">No PO Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">ID PR</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">ID GR</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">TOC Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Material Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Jasa Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Nilai SP Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Rekon Material Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Rekon Jasa Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Nilai Rekon Mitra</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Status Pekerjaan</th>
-                                <th className="px-4 py-2 border-b text-center font-semibold">Rekon Mitra</th>
-                                <th className="px-4 py-2 border-b text-center font-semibold">Tagihan Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Status Rekon Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">Status Tagihan Mitra</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Keterangan</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                             </tr>
@@ -47,10 +56,19 @@ export default function List({ auth, statusMitra }) {
                                 statusMitra.data.map((item) => (
                                     <tr key={item.id} className="hover:bg-gray-50">
                                         <td className="px-4 py-1 border-b text-center">{item.project?.id_sap || '-'}</td>
-                                        <td className="px-4 py-1 border-b">{item.toc_mitra}</td>
-                                        <td className="px-4 py-1 border-b">{item.material_mitra}</td>
-                                        <td className="px-4 py-1 border-b">{item.jasa_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.id_status_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.bulan_order}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.no_sp_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.no_po_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.id_pr}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.id_gr}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.toc_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.material_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.jasa_mitra}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.nilai_sp_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.rekon_material_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.rekon_jasa_mitra}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.nilai_rekon_mitra}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_pekerjaan?.status_pekerjaan || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_rekon_mitra?.status_rekon_mitra || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_tagihan_mitra?.status_tagihan_mitra || '-'}</td>

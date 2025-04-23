@@ -24,6 +24,8 @@ export default function AddStatusMitra({
         jasa_mitra: '',
         nilai_sp_mitra: '',
         rekon_material_mitra: '',
+        rekon_jasa_mitra: '',
+        nilai_rekon_mitra: '',
         status_pekerjaan_id: '',
         status_rekon_mitra_id: '',
         status_tagihan_mitra_id: '',
@@ -75,6 +77,8 @@ export default function AddStatusMitra({
                         { id: 'jasa_mitra', label: 'Jasa Mitra' },
                         { id: 'nilai_sp_mitra', label: 'Nilai SP Mitra' },
                         { id: 'rekon_material_mitra', label: 'Rekon Material Mitra' },
+                        { id: 'rekon_jasa_mitra', label: 'Rekon Jasa Mitra' },
+                        { id: 'nilai_rekon_mitra', label: 'Nilai Rekon Mitra' },
                     ].map((field) => (
                         <div key={field.id}>
                             <label htmlFor={field.id} className="block text-sm font-medium text-gray-700 mb-1">

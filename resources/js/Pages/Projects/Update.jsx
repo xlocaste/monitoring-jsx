@@ -94,6 +94,7 @@ export default function Update({ auth, project, Tematik, Sto, Pic, Mitra }) {
                     </div>
 
                     {[
+                        { id: 'id_project', label: 'ID Project' },
                         { id: 'id_sap', label: 'ID SAP' },
                         { id: 'tahun', label: 'Tahun' },
                         { id: 'bulan', label: 'Bulan' },

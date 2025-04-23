@@ -9,6 +9,7 @@ export default function AddProject({ auth, Sto, Tematik, Pic, Mitra }) {
         mitra_id: '',
         tematik_id: '',
         sto_id: '',
+        id_project: '',
         id_sap: '',
         tahun: '',
         bulan: '',
@@ -43,7 +44,7 @@ export default function AddProject({ auth, Sto, Tematik, Pic, Mitra }) {
                         <option value="">Pilih PIC</option>
                         {Pic.map((pic) => (
                             <option key={pic.id} value={pic.id}>
-                                {pic.pic_admin}
+                                {pic.pic_admin} - {pic.pic_project} - {pic.waspang_ta}
                             </option>
                         ))}
                     </select>
@@ -69,6 +70,7 @@ export default function AddProject({ auth, Sto, Tematik, Pic, Mitra }) {
                     {errors.mitra_id && <div className="text-red-500 text-sm mt-1">{errors.mitra_id}</div>}
                 </div>
                 {[
+                    { id: 'id_project', label: 'ID Project' },
                     { id: 'id_sap', label: 'ID SAP' },
                     { id: 'tahun', label: 'Tahun' },
                     { id: 'bulan', label: 'Bulan' },

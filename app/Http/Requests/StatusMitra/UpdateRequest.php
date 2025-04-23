@@ -34,6 +34,8 @@ class UpdateRequest extends FormRequest
             'jasa_mitra' => ['required'],
             'nilai_sp_mitra' => ['required', 'numeric'],
             'rekon_material_mitra' => ['required'],
+            'rekon_jasa_mitra' => ['required'],
+            'nilai_rekon_mitra' => ['required'],
             'status_pekerjaan_id' => ['required'],
             'status_rekon_mitra_id' => ['required'],
             'status_tagihan_mitra_id' => ['required'],

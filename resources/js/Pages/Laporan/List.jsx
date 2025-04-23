@@ -36,7 +36,8 @@ export default function List({ auth, laporan }) {
                                 <th className="px-4 py-2 border-b text-center font-semibold">Tematik</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Status BAST Telkom</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Status Tagihan Mitra</th>
-                                <th className="px-4 py-2 border-b text-center font-semibold">No SP</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">No SP Mitra</th>
+                                <th className="px-4 py-2 border-b text-center font-semibold">No SP Telkom</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">No PO</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Nilai SP Telkom</th>
                                 <th className="px-4 py-2 border-b text-center font-semibold">Rekon Material</th>
@@ -57,6 +58,7 @@ export default function List({ auth, laporan }) {
                                         <td className="px-4 py-1 border-b text-center">{item.status_telkom?.status_bast_telkom?.status_bast_telkom || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_mitra?.status_tagihan_mitra?.status_tagihan_mitra || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_mitra?.no_sp_mitra || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-center">{item.status_telkom?.no_sp_telkom || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_mitra?.no_po_mitra || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_telkom?.nilai_sp_telkom || '-'}</td>
                                         <td className="px-4 py-1 border-b text-center">{item.status_telkom?.material_telkom || '-'}</td>

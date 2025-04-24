@@ -25,6 +25,18 @@ class PicController extends Controller
         ]);
     }
 
+    public function show($picId)
+    {
+        $pic = Pic::findOrFail($picId);
+        
+        return Inertia::render('Data/Pic/Detail', [
+            'Pic' => $pic,
+            'auth' => [
+                'user' => Auth::user(),
+            ],
+        ]);
+    }
+
     public function store(StoreRequest $request)
     {
         $pic = Pic::create([

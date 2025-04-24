@@ -51,7 +51,18 @@ export default function List({ auth, projects }) {
                                     <tr key={project.id} className="hover:bg-gray-50">
                                         <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.id_project}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.id_sap}</td>
-                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.pic_admin || '-'}</td>
+                                        <td className="px-4 py-1 border-b text-sm text-gray-700">
+                                            {project.pic ? (
+                                                <Link
+                                                    href={route('data.pic.show', project.pic.id)}
+                                                    className="text-blue-600 hover:underline"
+                                                >
+                                                    {project.pic.pic_admin}
+                                                </Link>
+                                            ) : (
+                                                '-'
+                                            )}
+                                        </td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.pic_project || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.waspang_ta || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.mitra?.nama_mitra || '-'}</td>

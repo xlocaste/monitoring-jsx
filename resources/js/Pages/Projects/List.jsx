@@ -33,8 +33,6 @@ export default function List({ auth, projects }) {
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ID Project</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ID SAP</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC Admin</th>
-                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC Project</th>
-                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Waspang TA</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Mitra</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Tematik</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">STO</th>
@@ -63,8 +61,6 @@ export default function List({ auth, projects }) {
                                                 '-'
                                             )}
                                         </td>
-                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.pic_project || '-'}</td>
-                                        <td className="px-4 py-1 border-b text-sm text-gray-700">{project.pic?.waspang_ta || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.mitra?.nama_mitra || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.tematik?.tematik || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.sto?.sto || '-'}</td>

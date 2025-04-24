@@ -7,7 +7,7 @@ import { Link, Head } from '@inertiajs/react';
 
 const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-    const [showData, setShowData] = useState(false);
+    const [showData, setShowData] = useState(true);
     
   return (
     <div className="flex min-h-screen">

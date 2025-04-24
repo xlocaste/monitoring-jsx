@@ -55,7 +55,11 @@ export default function List({ auth, statusMitra }) {
                                 {statusMitra.data.length > 0 ? (
                                     statusMitra.data.map((item) => (
                                         <tr key={item.id} className="hover:bg-gray-50">
-                                            <td className="px-4 py-1 border-b text-center">{item.project?.id_project || '-'}</td>
+                                            <td className="px-4 py-1 border-b text-center">
+                                            <Link href={route('project.show', item.project?.id)} className="text-blue-500 hover:underline">
+                                                {item.project?.id_project || '-'}
+                                            </Link>
+                                            </td>
                                             <td className="px-4 py-1 border-b text-center">{item.id_status_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.bulan_order}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.no_sp_mitra}</td>

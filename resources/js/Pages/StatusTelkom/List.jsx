@@ -54,7 +54,11 @@ export default function List({ auth, statusTelkom }) {
                                 {statusTelkom.data.length > 0 ? (
                                     statusTelkom.data.map((item) => (
                                         <tr key={item.id} className="hover:bg-gray-50">
-                                            <td className="px-4 py-1 border-b text-center">{item.project?.id_sap || '-'}</td>
+                                            <td className="px-4 py-1 border-b text-center">
+                                            <Link href={route('project.show', item.project?.id)} className="text-blue-500 hover:underline">
+                                                {item.project?.id_project || '-'}
+                                            </Link>
+                                            </td>
                                             <td className="px-4 py-1 border-b text-center">{item.bulan_order_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.target_bast}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.target_bulan_bast}</td>

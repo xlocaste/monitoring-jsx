@@ -26,6 +26,18 @@ class ProjectsController extends Controller
         ]);
     }
 
+    public function show($projectId)
+    {
+        $project = Project::with(['pic', 'mitra', 'tematik', 'sto'])->findOrFail($projectId);
+
+        return Inertia::render('Projects/Detail',[
+            'projects' => $project,
+            'auth' => [
+                'user' => Auth::user(),
+            ],
+        ]);
+    }
+
     public function store(StoreRequest $request)
     {
         $project = Project::create([

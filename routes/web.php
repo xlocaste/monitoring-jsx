@@ -72,6 +72,7 @@ Route::prefix('/project')->name('project.')->group(function() {
         Route::put('/{project}', [ProjectsController::class, 'update'])->name('update');
         Route::delete('/{project}', [ProjectsController::class, 'destroy'])->name('destroy');
         Route::get('/{project}/edit', [ProjectsController::class, 'edit'])->name('edit');
+        Route::get('/{projectId}/detail', [ProjectsController::class, 'show'])->name('show');
     });
     Route::get('/', [ProjectsController::class, 'index'])->name('index');
 });

@@ -49,7 +49,7 @@ export default function Detail({ auth, Pic }) {
                     </SecondaryButton>
 
                     <SecondaryButton>
-                        <Link href={route('data.pic.index')}>
+                        <Link href={route('project.index')}>
                             Kembali ke Daftar
                         </Link>
                     </SecondaryButton>

@@ -14,9 +14,12 @@ class StatusBastTelkomSeeder extends Seeder
     public function run(): void
     {
         DB::table('status_bast_telkom')->insert([
-            ['status_bast_telkom' => 'BAST Berhasil'],
-            ['status_bast_telkom' => 'BAST Gagal'],
-            ['status_bast_telkom' => 'BAST Menunggu'],
+            ['status_bast_telkom' => 'DROP'],
+            ['status_bast_telkom' => 'Instalasi'],
+            ['status_bast_telkom' => 'Verifikasi Data'],
+            ['status_bast_telkom' => 'REKON'],
+            ['status_bast_telkom' => 'Waiting PO'],
+            ['status_bast_telkom' => 'BAST'],
         ]);
     }
 }

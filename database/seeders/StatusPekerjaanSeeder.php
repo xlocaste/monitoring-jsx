@@ -10,10 +10,14 @@ class StatusPekerjaanSeeder extends Seeder
     public function run()
     {
         DB::table('status_pekerjaan')->insert([
-            ['status_pekerjaan' => 'Sedang Dikerjakan'],
-            ['status_pekerjaan' => 'Selesai'],
-            ['status_pekerjaan' => 'Tertunda'],
-            ['status_pekerjaan' => 'Dibatalkan'],
+            ['status_pekerjaan' => 'DROP'],
+            ['status_pekerjaan' => 'ATP'],
+            ['status_pekerjaan' => 'Uji Terima'],
+            ['status_pekerjaan' => 'REKON'],
+            ['status_pekerjaan' => 'BAST'],
+            ['status_pekerjaan' => 'Gelar Kabel'],
+            ['status_pekerjaan' => 'Pasang Terminal (FTB/ODC/ODP)'],
+            ['status_pekerjaan' => 'Terminasi/Penyambungan'],
         ]);
     }
 }

@@ -14,8 +14,8 @@ class StatusPoSeeder extends Seeder
     public function run(): void
     {
         DB::table('status_po')->insert([
+            ['status_po' => 'Not Yet PO'],
             ['status_po' => 'PO'],
-            ['status_po' => 'NON PO'],
         ]);
     }
 }

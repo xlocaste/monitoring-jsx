@@ -14,9 +14,10 @@ class StatusRekonTelkomSeeder extends Seeder
     public function run(): void
     {
         DB::table('status_rekon_telkom')->insert([
-            ['status_rekon_telkom' => 'Rekon Telkom Berhasil'],
-            ['status_rekon_telkom' => 'Rekon Telkom Gagal'],
-            ['status_rekon_telkom' => 'Rekon Telkom Menunggu'],
+            ['status_rekon_telkom' => 'DROP'],
+            ['status_rekon_telkom' => 'Instalasi'],
+            ['status_rekon_telkom' => 'Belum Rekon'],
+            ['status_rekon_telkom' => 'Done Rekon'],
         ]);
     }
 }

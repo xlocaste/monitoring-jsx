@@ -10,9 +10,11 @@ class StatusTagihanMitraSeeder extends Seeder
     public function run()
     {
         DB::table('status_tagihan_mitra')->insert([
-            ['status_tagihan_mitra' => 'Tagihan Dibayar'],
-            ['status_tagihan_mitra' => 'Tagihan Belum Dibayar'],
-            ['status_tagihan_mitra' => 'Tagihan Menunggu Verifikasi'],
+            ['status_tagihan_mitra' => 'Cancel'],
+            ['status_tagihan_mitra' => 'User'],
+            ['status_tagihan_mitra' => 'Mitra'],
+            ['status_tagihan_mitra' => 'HO'],
+            ['status_tagihan_mitra' => 'Finance'],
         ]);
     }
 }

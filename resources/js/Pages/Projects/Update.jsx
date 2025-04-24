@@ -4,11 +4,13 @@ import { Head, useForm } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 
 export default function Update({ auth, project, Tematik, Sto, Pic, Mitra }) {
+    console.log(project)
     const { data, setData, put, processing, errors } = useForm({
         pic_id: project.pic_id || '',
         mitra_id: project.mitra_id || '',
         tematik_id: project.tematik_id || '',
         sto_id: project.sto_id || '',
+        id_project: project.id_project || '',
         id_sap: project.id_sap || '',
         tahun: project.tahun || '',
         bulan: project.bulan || '',

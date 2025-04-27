@@ -87,7 +87,7 @@ class ProjectsController extends Controller
     {
         return Inertia::render('Projects/Update', [
             'project' => $project,
-            'Tematik' => Tematik::all(['id', 'tematik']),
+            'Tematik' => Tematik::all(),
             'Sto' => Sto::all(['id', 'sto']),
             'Pic' => Pic::all(),
             'Mitra' => Mitra::all(['id', 'nama_mitra']),
@@ -97,7 +97,7 @@ class ProjectsController extends Controller
     public function create()
     {
         return Inertia::render('Projects/Add', [
-        'Tematik' => Tematik::all(['id', 'tematik']),
+        'Tematik' => Tematik::all(),
         'Sto' => Sto::all(['id', 'sto']),
         'Pic' => Pic::all(),
         'Mitra' => Mitra::all(['id', 'nama_mitra']),

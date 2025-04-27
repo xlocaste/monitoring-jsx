@@ -4,7 +4,7 @@ import { Head, useForm } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 
 export default function Update({ auth, project, Tematik, Sto, Pic, Mitra }) {
-    console.log(project)
+    console.log(Tematik)
     const { data, setData, put, processing, errors } = useForm({
         pic_id: project.pic_id || '',
         mitra_id: project.mitra_id || '',
@@ -73,7 +73,7 @@ export default function Update({ auth, project, Tematik, Sto, Pic, Mitra }) {
                         >
                             <option value="">Pilih Tematik</option>
                             {Tematik.map((item) => (
-                                <option key={item.id} value={item.id}>{item.tematik}</option>
+                                <option key={item.id} value={item.id}>{item.tematik} - {item.witel}</option>
                             ))}
                         </select>
                         {errors.tematik_id && <div className="text-red-500 text-sm mt-1">{errors.tematik_id}</div>}

@@ -52,8 +52,8 @@ export default function List({ auth, laporan }) {
                                 {laporan.data.length > 0 ? (
                                     laporan.data.map((item) => (
                                         <tr key={item.id} className="hover:bg-gray-50">
-                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.id}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.id}</td>
+                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.id_status_telkom}</td>
+                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.id_status_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_mitra?.project?.tematik?.witel || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_mitra?.project?.tematik?.tematik || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.status_bast_telkom?.status_bast_telkom || '-'}</td>

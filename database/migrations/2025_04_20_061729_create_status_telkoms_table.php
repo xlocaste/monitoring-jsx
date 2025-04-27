@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('status_rekon_telkom_id');
             $table->unsignedBigInteger('status_rekon_mitra_id');
             $table->unsignedBigInteger('status_bast_telkom_id');
+            $table->string('id_status_telkom');
             $table->integer('bulan_order_telkom');
             $table->string('target_bast');
             $table->integer('target_bulan_bast');

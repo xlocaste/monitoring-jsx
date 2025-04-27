@@ -17,6 +17,7 @@ class StatusTelkom extends Model
         'status_rekon_telkom_id',
         'status_rekon_mitra_id',
         'status_bast_telkom_id',
+        'id_status_telkom',
         'bulan_order_telkom',
         'target_bast',
         'target_bulan_bast',

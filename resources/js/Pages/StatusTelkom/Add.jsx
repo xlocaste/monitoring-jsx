@@ -17,6 +17,7 @@ export default function AddStatusTelkom({
         status_rekon_telkom_id: '',
         status_rekon_mitra_id: '',
         status_bast_telkom_id: '',
+        id_status_telkom: '',
         bulan_order_telkom: '',
         target_bast: '',
         target_bulan_bast: '',
@@ -66,6 +67,7 @@ export default function AddStatusTelkom({
                     </div>
 
                     {[  
+                        { id: 'id_status_telkom', label: 'ID Status Telkom' },
                         { id: 'bulan_order_telkom', label: 'Bulan Order Telkom' },
                         { id: 'target_bast', label: 'Target BAST' },
                         { id: 'target_bulan_bast', label: 'Target Bulan BAST' },

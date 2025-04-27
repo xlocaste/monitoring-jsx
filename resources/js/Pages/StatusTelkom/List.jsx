@@ -31,6 +31,7 @@ export default function List({ auth, statusTelkom }) {
                             <thead className="bg-gray-100">
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
+                                    <th className="px-4 py-2 border-b text-center font-semibold">ID Status Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Bulan Order Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Target BAST</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Target Bulan BAST</th>
@@ -60,6 +61,7 @@ export default function List({ auth, statusTelkom }) {
                                             </Link>
                                             </td>
                                             <td className="px-4 py-1 border-b text-center">{item.bulan_order_telkom}</td>
+                                            <td className="px-4 py-1 border-b text-center">{item.id_status_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.target_bast}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.target_bulan_bast}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_po?.status_po || '-'}</td>

@@ -18,6 +18,7 @@ export default function Update({
         status_rekon_telkom_id: statusTelkom.status_rekon_telkom_id || '',
         status_rekon_mitra_id: statusTelkom.status_rekon_mitra_id || '',
         status_bast_telkom_id: statusTelkom.status_bast_telkom_id || '',
+        id_status_telkom: statusTelkom.id_status_telkom || '',
         bulan_order_telkom: statusTelkom.bulan_order_telkom || '',
         target_bast: statusTelkom.target_bast || '',
         target_bulan_bast: statusTelkom.target_bulan_bast || '',
@@ -141,6 +142,18 @@ export default function Update({
                             className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         />
                         {errors.bulan_order_telkom && <div className="text-red-500 text-sm mt-1">{errors.bulan_order_telkom}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="id_status_telkom" className="block text-sm font-medium text-gray-700 mb-1">ID Status Telkom</label>
+                        <input
+                            id="id_status_telkom"
+                            type="text"
+                            value={data.id_status_telkom}
+                            onChange={(e) => setData('id_status_telkom', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.id_status_telkom && <div className="text-red-500 text-sm mt-1">{errors.id_status_telkom}</div>}
                     </div>
 
                     <div>

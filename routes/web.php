@@ -41,28 +41,27 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('/data')->name('data.')->group(function() {
-    Route::prefix('/pic')->name('pic.')->group(function() {
-        Route::group(['middleware' => ['auth']], function() {
-            Route::get('/create', [PicController::class, 'create'])->name('create');
-            Route::post('/', [PicController::class, 'store'])->name('store');
-            Route::put('/{pic}', [PicController::class, 'update'])->name('update');
-            Route::delete('/{pic}', [PicController::class, 'destroy'])->name('destroy');
-            Route::get('/{pic}/edit', [PicController::class, 'edit'])->name('edit');
-            Route::get('/{picId}/detail', [PicController::class, 'show'])->name('show');
-        });
-        Route::get('/', [PicController::class, 'index'])->name('index');
+Route::prefix('/pic')->name('pic.')->group(function() {
+    Route::group(['middleware' => ['auth']], function() {
+        Route::get('/create', [PicController::class, 'create'])->name('create');
+        Route::post('/', [PicController::class, 'store'])->name('store');
+        Route::put('/{pic}', [PicController::class, 'update'])->name('update');
+        Route::delete('/{pic}', [PicController::class, 'destroy'])->name('destroy');
+        Route::get('/{pic}/edit', [PicController::class, 'edit'])->name('edit');
+        Route::get('/{picId}/detail', [PicController::class, 'show'])->name('show');
     });
-    Route::prefix('/mitra')->name('mitra.')->group(function() {
-        Route::group(['middleware' => ['auth']], function() {
-            Route::get('/create', [MitraController::class, 'create'])->name('create');
-            Route::post('/', [MitraController::class, 'store'])->name('store');
-            Route::put('/{mitra}', [MitraController::class, 'update'])->name('update');
-            Route::delete('/{mitra}', [MitraController::class, 'destroy'])->name('destroy');
-            Route::get('/{mitra}/edit', [MitraController::class, 'edit'])->name('edit');
-        });
-        Route::get('/', [MitraController::class, 'index'])->name('index');
+    Route::get('/', [PicController::class, 'index'])->name('index');
+});
+
+Route::prefix('/mitra')->name('mitra.')->group(function() {
+    Route::group(['middleware' => ['auth']], function() {
+        Route::get('/create', [MitraController::class, 'create'])->name('create');
+        Route::post('/', [MitraController::class, 'store'])->name('store');
+        Route::put('/{mitra}', [MitraController::class, 'update'])->name('update');
+        Route::delete('/{mitra}', [MitraController::class, 'destroy'])->name('destroy');
+        Route::get('/{mitra}/edit', [MitraController::class, 'edit'])->name('edit');
     });
+    Route::get('/', [MitraController::class, 'index'])->name('index');
 });
 
 Route::prefix('/project')->name('project.')->group(function() {

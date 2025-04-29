@@ -13,7 +13,7 @@ export default function Update({ auth, pic }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        put(route('data.pic.update', pic.id));
+        put(route('pic.update', pic.id));
     };
 
     return (

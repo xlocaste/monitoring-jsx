@@ -19,9 +19,6 @@ class MitraController extends Controller
 
         return Inertia::render('Data/Mitra/List', [
             'Mitra' => $daftarMitra,
-            'auth' => [
-                'user' => Auth::user(),
-            ],
         ]);
     }
 
@@ -33,7 +30,7 @@ class MitraController extends Controller
             'gl_account'=>$request->gl_account,
         ]);
 
-        return redirect()->route('data.mitra.index');
+        return redirect()->route('mitra.index');
     }
 
     public function update(UpdateRequest $request, Mitra $mitra)
@@ -44,14 +41,14 @@ class MitraController extends Controller
             'gl_account'=>$request->gl_account,
         ]);
 
-        return redirect()->route('data.mitra.index');
+        return redirect()->route('mitra.index');
     }
 
     public function destroy(Mitra $mitra)
     {
         $mitra->delete();
 
-        return Redirect::route('data.mitra.index')->with('message', 'Data berhasil dihapus');
+        return Redirect::route('mitra.index')->with('message', 'Data berhasil dihapus');
     }
 
     public function edit(Mitra $mitra)

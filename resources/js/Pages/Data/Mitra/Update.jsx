@@ -13,7 +13,7 @@ export default function Update({ auth, mitra }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        put(route('data.mitra.update', mitra.id));
+        put(route('mitra.update', mitra.id));
     };
 
     return (

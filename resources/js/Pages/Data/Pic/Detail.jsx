@@ -8,7 +8,7 @@ import { FaRegEdit, FaTrash } from 'react-icons/fa';
 export default function Detail({ auth, Pic }) {
     const handleDelete = () => {
         if (confirm('Yakin ingin menghapus data ini?')) {
-            router.delete(route('data.pic.destroy', Pic.id));
+            router.delete(route('pic.destroy', Pic.id));
         }
     };
 
@@ -39,7 +39,7 @@ export default function Detail({ auth, Pic }) {
 
                 <div className="flex gap-4 mt-6">
                     <PrimaryButton>
-                        <Link href={route('data.pic.edit', Pic.id)} className="flex items-center gap-1">
+                        <Link href={route('pic.edit', Pic.id)} className="flex items-center gap-1">
                             <FaRegEdit /> Edit
                         </Link>
                     </PrimaryButton>

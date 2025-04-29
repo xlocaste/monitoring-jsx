@@ -45,7 +45,7 @@ class PicController extends Controller
             'waspang_ta'=>$request->waspang_ta,
         ]);
 
-        return redirect()->route('data.pic.index');
+        return redirect()->route('pic.index');
     }
 
     public function update(UpdateRequest $request, Pic $pic)
@@ -56,14 +56,14 @@ class PicController extends Controller
             'waspang_ta'=>$request->waspang_ta,
         ]);
 
-        return redirect()->route('data.pic.index');
+        return redirect()->route('pic.index');
     }
 
     public function destroy(Pic $pic)
     {
         $pic->delete();
 
-        return Redirect::route('data.pic.index')->with('message', 'Data berhasil dihapus');
+        return Redirect::route('pic.index')->with('message', 'Data berhasil dihapus');
     }
 
     public function edit(Pic $pic)

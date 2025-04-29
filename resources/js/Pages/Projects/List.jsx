@@ -52,7 +52,7 @@ export default function List({ auth, projects }) {
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">
                                             {project.pic ? (
                                                 <Link
-                                                    href={route('data.pic.show', project.pic.id)}
+                                                    href={route('pic.show', project.pic.id)}
                                                     className="text-blue-600 hover:underline"
                                                 >
                                                     {project.pic.pic_admin}

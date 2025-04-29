@@ -15,7 +15,7 @@ export default function List({ auth, Mitra }) {
 
     const handleDelete = (id) => {
         if (confirm("Yakin ingin menghapus mitra ini?")) {
-            router.delete(route('data.mitra.destroy', id));
+            router.delete(route('mitra.destroy', id));
         }
     };
 
@@ -27,7 +27,7 @@ export default function List({ auth, Mitra }) {
                 <div className="overflow-x-auto">
                     <div className="flex justify-end items-center m-4">
                         <PrimaryButton>
-                            <Link href={route('data.mitra.create')}>
+                            <Link href={route('mitra.create')}>
                                 + Tambah Mitra
                             </Link>
                         </PrimaryButton>
@@ -51,7 +51,7 @@ export default function List({ auth, Mitra }) {
                                         <td className="px-4 py-1 border-b text-sm">{item.gl_account}</td>
                                         <td className="px-4 py-1 border-b text-center">
                                             <div className="flex gap-2 justify-center">
-                                                <Link href={route('data.mitra.edit', item.id)} className="text-yellow-500">
+                                                <Link href={route('mitra.edit', item.id)} className="text-yellow-500">
                                                     <FaRegEdit />
                                                 </Link>
                                                 <button onClick={() => handleDelete(item.id)} className="text-red-500">

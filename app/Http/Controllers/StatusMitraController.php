@@ -12,6 +12,7 @@ use App\Models\KetStatusTagihanMitra;
 use App\Http\Requests\StatusMitra\StoreRequest;
 use App\Http\Requests\StatusMitra\UpdateRequest;
 use Inertia\Inertia;
+use Redirect;
 
 class StatusMitraController extends Controller
 {

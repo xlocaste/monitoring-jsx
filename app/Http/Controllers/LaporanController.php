@@ -27,9 +27,6 @@ class LaporanController extends Controller
 
         return Inertia::render('Laporan/List', [
             'laporan' => $daftarLaporan,
-            'auth' => [
-                'user' => Auth::user(),
-            ],
         ]);
     }
 

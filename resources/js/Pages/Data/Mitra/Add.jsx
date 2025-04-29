@@ -12,7 +12,7 @@ export default function Add({ auth }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('data.mitra.store'), {
+        post(route('mitra.store'), {
             onSuccess: () => reset(),
         });
     };

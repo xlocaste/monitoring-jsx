@@ -12,7 +12,7 @@ export default function Add({ auth }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('data.pic.store'), {
+        post(route('pic.store'), {
             onSuccess: () => reset(),
         });
     };

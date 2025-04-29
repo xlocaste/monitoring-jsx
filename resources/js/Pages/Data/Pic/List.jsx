@@ -21,7 +21,7 @@ export default function List({ auth, Pic }) {
                 <div className="overflow-x-auto">
                     <div className='flex justify-end m-4'>
                         <PrimaryButton>
-                            <Link href={route('data.pic.create')}>
+                            <Link href={route('pic.create')}>
                                 + TAMBAH PIC
                             </Link>
                         </PrimaryButton>
@@ -49,7 +49,7 @@ export default function List({ auth, Pic }) {
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className='flex gap-2 justify-center'>
                                                     <Link
-                                                        href={route('data.pic.edit', item.id)}
+                                                        href={route('pic.edit', item.id)}
                                                         className='text-yellow-500'
                                                     >
                                                         <FaRegEdit />
@@ -59,7 +59,7 @@ export default function List({ auth, Pic }) {
                                                         className="text-red-400"
                                                         onClick={() => {
                                                             if (confirm('Yakin ingin menghapus data ini?')) {
-                                                                router.delete(route('data.pic.destroy', item.id));
+                                                                router.delete(route('pic.destroy', item.id));
                                                             }
                                                         }}
                                                     >

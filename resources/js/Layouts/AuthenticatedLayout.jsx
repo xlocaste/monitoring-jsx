@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import Dropdown from '@/Components/Dropdown';
-import NavLink from '@/Components/NavLink';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, Head } from '@inertiajs/react';
+import { IoMdHome } from "react-icons/io";
+import { RiDatabase2Fill } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
+import { BsFillClipboard2DataFill } from "react-icons/bs";
+import { FaProjectDiagram } from "react-icons/fa";
+import { AiFillDatabase } from "react-icons/ai";
+import { FaClipboardList } from "react-icons/fa6";
 
 const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -13,14 +17,14 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
     <div className="flex min-h-screen">
       <Head title={title} />
 
-      <aside className="w-64 bg-gray-800 text-white p-4">
+      <aside className="w-64 bg-gradient-to-b from-white via-white to-gray-400 text-black p-4">
         <div className='w-full flex items-center justify-center mb-14'>
             <ApplicationLogo className="flex w-9 h-auto text-gray-100 fill-current"/>
         </div>
-        <ul>
-          <li className="mb-4"><a href="#" className="hover:text-yellow-300">Home</a></li>
-          <button onClick={() => setShowData((prev) => !prev)} className="mb-4 flex w-full">
-            <a href="#" className="hover:text-yellow-300 flex items-center w-full justify-between">Data
+        <ul className='font-bold'>
+          <li className="mb-4 flex w-full items-center space-x-2"><IoMdHome /><a href="#" className="hover:text-red-800">Home</a></li>
+          <button onClick={() => setShowData((prev) => !prev)} className="mb-4 w-full flex items-center space-x-2"><RiDatabase2Fill />
+            <a href="#" className="hover:text-red-800 flex items-center w-full justify-between">Data
                 <svg
                     className="ms-2 -me-0.5 h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -37,23 +41,23 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
           </button>
           {showData && (
             <div className='flex flex-col'>
-                <Link href={route('data.pic.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data PIC</Link>
-                <Link href={route('data.mitra.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Mitra</Link>
-                <Link href={route('project.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Project</Link>
-                <Link href={route('status-mitra.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Mitra</Link>
-                <Link href={route('status-telkom.index')} className='mb-4 pl-4 hover:text-yellow-300'>Data Status Telkom</Link>
+                <Link href={route('pic.index')} className='mb-4 pl-6 hover:text-red-800 flex items-center space-x-2'><CgProfile /><p>Data PIC</p></Link>
+                <Link href={route('mitra.index')} className='mb-4 pl-6 hover:text-red-800 flex items-center space-x-2'><BsFillClipboard2DataFill /><p>Data Mitra</p></Link>
+                <Link href={route('project.index')} className='mb-4 pl-6 hover:text-red-800 flex items-center space-x-2'><FaProjectDiagram /><p>Data Project</p></Link>
+                <Link href={route('status-mitra.index')} className='mb-4 pl-6 hover:text-red-800 flex items-center space-x-2'><AiFillDatabase /><p>Data Status Mitra</p></Link>
+                <Link href={route('status-telkom.index')} className='mb-4 pl-6 hover:text-red-800 flex items-center space-x-2'><AiFillDatabase /><p>Data Status Telkom</p></Link>
             </div>
           )}
           <li className="mb-4">
-            <Link href={route('laporan.index')} className='mb-4 hover:text-yellow-300'>Laporan</Link>
+            <Link href={route('laporan.index')} className='mb-4 hover:text-red-800 flex items-center space-x-2'><FaClipboardList /><p>Laporan</p></Link>
           </li>
-          <li className="mb-4"><a href="#" className="hover:text-yellow-300">Data User/Hak Akses</a></li>
+          <li className="mb-4 "><a href="#" className="hover:text-red-800">Data User/Hak Akses</a></li>
         </ul>
       </aside>
 
         <div className='w-full bg-gray-100'>
             <div className='flex bg-white items-center h-14 justify-between w-full px-10'>
-            <p className='text-center w-full'>TELKOM AKSES</p>
+            <p className='text-center w-full font-bold'>MONITORING ALL BAST & TAGIHAN MITRA TELKOM AKSES</p>
                 <div className="hidden sm:flex sm:items-center sm:ms-6">
                     <div className="relative">
                         <button

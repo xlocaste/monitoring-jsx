@@ -17,12 +17,12 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
     <div className="flex min-h-screen">
       <Head title={title} />
 
-      <aside className="w-64 bg-gradient-to-b from-white via-white to-gray-400 text-black p-4">
+      <aside className="fixed w-64 h-screen bg-gradient-to-b from-white via-white to-gray-400 text-black p-4">
         <div className='w-full flex items-center justify-center mb-14'>
             <ApplicationLogo className="flex w-9 h-auto text-gray-100 fill-current"/>
         </div>
         <ul className='font-bold'>
-          <li className="mb-4 flex w-full items-center space-x-2"><IoMdHome /><a href="#" className="hover:text-red-800">Home</a></li>
+          <li className="mb-4 flex w-full items-center space-x-2"><IoMdHome /><a href={route('dashboard')} className="hover:text-red-800">Home</a></li>
           <button onClick={() => setShowData((prev) => !prev)} className="mb-4 w-full flex items-center space-x-2"><RiDatabase2Fill />
             <a href="#" className="hover:text-red-800 flex items-center w-full justify-between">Data
                 <svg
@@ -98,7 +98,7 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
                     </div>
                 </div>
             </div>
-            <main className="flex-1 p-6">
+            <main className="flex-1 p-6 ml-64">
                 {children}
             </main>
         </div>

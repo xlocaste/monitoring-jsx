@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, router } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -8,17 +8,6 @@ import { FaRegEdit, FaTrash } from 'react-icons/fa';
 export default function Detail({ auth, projects }) {
     console.log(projects)
     const [redirectUrl, setRedirectUrl] = useState('');
-
-    useEffect(() => {
-        const referrer = document.referrer; 
-        if (referrer.includes('status-mitra')) {
-            setRedirectUrl(route('status-mitra.index'));
-        } else if (referrer.includes('status-telkom')) {
-            setRedirectUrl(route('status-telkom.index'));
-        } else {
-            setRedirectUrl(route('project.index'));
-        }
-    }, []);
 
     const handleDelete = () => {
         if (confirm('Yakin ingin menghapus data ini?')) {
@@ -30,7 +19,7 @@ export default function Detail({ auth, projects }) {
         <AuthenticatedLayout user={auth.user}>
             <Head title={`Detail Project - ${projects.id_project}`} />
 
-            <div className="py-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl shadow">
+            <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
                 <div className="mb-6">
                     <h1 className="text-2xl font-bold text-gray-800 mb-2">Detail Project</h1>
                     <p className="text-gray-600">Informasi lengkap tentang project yang dipilih.</p>
@@ -92,12 +81,6 @@ export default function Detail({ auth, projects }) {
 
                     <SecondaryButton onClick={handleDelete} className="flex items-center gap-1 text-red-500 border-red-400 hover:bg-red-100">
                         <FaTrash /> Hapus
-                    </SecondaryButton>
-
-                    <SecondaryButton>
-                        <Link href={redirectUrl}>
-                            Kembali ke Daftar
-                        </Link>
                     </SecondaryButton>
                 </div>
             </div>

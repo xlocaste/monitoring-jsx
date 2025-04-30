@@ -4,7 +4,7 @@ import { Head, Link, router } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SecondaryButton from '@/Components/SecondaryButton';
 import { FaTrash } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa";
+import { FaEye, FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, projects }) {
     const handlePageChange = (url) => {
@@ -69,6 +69,12 @@ export default function List({ auth, projects }) {
                                         {auth.user && (
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className='flex gap-2 justify-center'>
+                                                    <Link
+                                                        href={route('project.show', project.id)}
+                                                        className='text-blue-400'
+                                                    >
+                                                        <FaEye />
+                                                    </Link>
                                                     <Link
                                                         href={route('project.edit', project.id)}
                                                         className='text-yellow-500'

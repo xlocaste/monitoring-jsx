@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, router } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -6,7 +6,16 @@ import SecondaryButton from '@/Components/SecondaryButton';
 import { FaTrash } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 
-export default function List({ auth, Pic }) {
+export default function List({ auth, Pic, filters }) {
+    const [keyword, setKeyword] = useState(filters?.keyword || '');
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        router.get(route('pic.search'), { keyword }, {
+            preserveState: true,
+            replace: true,
+        });
+    };
     const handlePageChange = (url) => {
         if (url) {
             router.visit(url);
@@ -19,7 +28,17 @@ export default function List({ auth, Pic }) {
 
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
                 <div className="overflow-x-auto">
-                    <div className='flex justify-end m-4'>
+                    <div className='flex justify-between m-4'>
+                        <form onSubmit={handleSearch} className="flex gap-2">
+                            <input
+                                type="text"
+                                value={keyword}
+                                onChange={(e) => setKeyword(e.target.value)}
+                                className="border-gray-300 rounded px-2 py-1 text-sm"
+                                placeholder="Cari PIC..."
+                            />
+                            <PrimaryButton type="submit" className="text-sm">Cari</PrimaryButton>
+                        </form>
                         <PrimaryButton>
                             <Link href={route('pic.create')}>
                                 + TAMBAH PIC

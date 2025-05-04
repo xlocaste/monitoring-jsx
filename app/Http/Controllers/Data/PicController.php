@@ -25,10 +25,36 @@ class PicController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $query = Pic::query();
+
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+            $query->where(function ($q) use ($keyword) {
+                $q->where('pic_admin', 'like', '%' . $keyword . '%')
+                ->orWhere('pic_project', 'like', '%' . $keyword . '%')
+                ->orWhere('waspang_ta', 'like', '%' . $keyword . '%');
+            });
+        }
+
+        $filteredPic = $query->paginate(10)->appends(['keyword' => $request->keyword]);
+
+        return Inertia::render('Data/Pic/List', [
+            'Pic' => $filteredPic,
+            'filters' => [
+                'keyword' => $request->keyword,
+            ],
+            'auth' => [
+                'user' => Auth::user(),
+            ],
+        ]);
+    }
+
     public function show($picId)
     {
         $pic = Pic::findOrFail($picId);
-        
+
         return Inertia::render('Data/Pic/Detail', [
             'Pic' => $pic,
             'auth' => [

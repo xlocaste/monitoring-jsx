@@ -49,6 +49,7 @@ Route::prefix('/pic')->name('pic.')->group(function() {
         Route::delete('/{pic}', [PicController::class, 'destroy'])->name('destroy');
         Route::get('/{pic}/edit', [PicController::class, 'edit'])->name('edit');
         Route::get('/{picId}/detail', [PicController::class, 'show'])->name('show');
+        Route::get('/search', [PicController::class, 'search'])->name('search');
     });
     Route::get('/', [PicController::class, 'index'])->name('index');
 });

@@ -28,14 +28,14 @@ export default function List({ auth, Pic, filters }) {
 
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
                 <div className="overflow-x-auto">
-                    <div className='flex justify-between m-4'>
-                        <form onSubmit={handleSearch} className="flex gap-2">
+                    <div className='flex justify-between my-4'>
+                        <form onSubmit={handleSearch} className="flex gap-2 ml-1">
                             <input
                                 type="text"
                                 value={keyword}
                                 onChange={(e) => setKeyword(e.target.value)}
-                                className="border-gray-300 rounded px-2 py-1 text-sm"
-                                placeholder="Cari PIC..."
+                                className="border-gray-300 rounded px-2 pr-60 py-1 text-sm"
+                                placeholder="Cari Data PIC..."
                             />
                             <PrimaryButton type="submit" className="text-sm">Cari</PrimaryButton>
                         </form>

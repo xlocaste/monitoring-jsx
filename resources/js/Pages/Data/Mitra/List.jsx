@@ -24,6 +24,7 @@ export default function List({ auth, Mitra }) {
             <Head title="Daftar Mitra" />
 
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
+                <p className='mb-4 font-bold'>Data Mitra</p>
                 <div className="overflow-x-auto">
                     <div className="flex justify-end items-center m-4">
                         <PrimaryButton>

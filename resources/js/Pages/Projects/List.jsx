@@ -18,6 +18,7 @@ export default function List({ auth, projects }) {
             <Head title="Daftar Project" />
 
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
+                <p className='mb-4 font-bold'>Data Project</p>
                 <div className="overflow-x-auto">
                     <div className='flex justify-end m-4'>
                         <PrimaryButton>

@@ -18,6 +18,7 @@ export default function List({ auth, statusTelkom }) {
             <Head title="Status Telkom" />
 
             <div className="py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
+                <p className='mb-4 font-bold'>Data Status Telkom</p>
                 <div className="">
                     <div className='flex justify-end m-4'>
                         <PrimaryButton>

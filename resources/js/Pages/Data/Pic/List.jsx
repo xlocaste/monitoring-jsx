@@ -27,6 +27,7 @@ export default function List({ auth, Pic, filters }) {
             <Head title="Daftar PIC" />
 
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
+                <p className='mb-4 font-bold'>Data PIC</p>
                 <div className="overflow-x-auto">
                     <div className='flex justify-between my-4'>
                         <form onSubmit={handleSearch} className="flex gap-2 ml-1">

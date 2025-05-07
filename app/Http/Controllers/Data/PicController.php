@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Data;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mitra;
+use App\Models\Project;
+use App\Models\StatusMitra;
+use App\Models\StatusTelkom;
 use Illuminate\Http\Request;
 use App\Models\Pic;
 use App\Http\Requests\Data\PIC\StoreRequest;
@@ -102,5 +106,19 @@ class PicController extends Controller
     public function create()
     {
         return Inertia::render('Data/Pic/Add');
+    }
+
+    public function dashboard()
+    {
+        return Inertia::render('Dashboard', [
+            'auth' => [
+                'user' => auth()->user()
+            ],
+            'totalPic' => Pic::count(),
+            'totalMitra' => Mitra::count(),
+            'totalProject' => Project::count(),
+            'totalStatusMitra' => StatusMitra::count(),
+            'totalStatusTelkom' => StatusTelkom::count(),
+        ]);
     }
 }

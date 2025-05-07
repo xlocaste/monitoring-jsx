@@ -12,12 +12,12 @@ import { FaClipboardList } from "react-icons/fa6";
 const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     const [showData, setShowData] = useState(true);
-    
+
   return (
     <div className="flex min-h-screen">
       <Head title={title} />
 
-      <aside className="fixed w-64 h-screen bg-gradient-to-b from-white via-white to-gray-400 text-black p-4">
+      <aside className="fixed w-64 h-screen bg-gradient-to-b from-white via-white to-red-800 text-black p-4">
         <div className='w-full flex items-center justify-center mb-14'>
             <ApplicationLogo className="flex w-9 h-auto text-gray-100 fill-current"/>
         </div>
@@ -57,7 +57,7 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
 
         <div className='w-full bg-gray-100'>
             <div className='flex bg-white items-center h-14 justify-between w-full px-10'>
-            <p className='text-center w-full font-bold'>MONITORING ALL BAST & TAGIHAN MITRA TELKOM AKSES</p>
+            <p className='text-end w-full pr-40 font-bold text-lg'>MONITORING ALL BAST & TAGIHAN MITRA TELKOM AKSES</p>
                 <div className="hidden sm:flex sm:items-center sm:ms-6">
                     <div className="relative">
                         <button

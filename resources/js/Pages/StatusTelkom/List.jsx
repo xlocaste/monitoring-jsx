@@ -4,7 +4,7 @@ import { Head, Link, router } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SecondaryButton from '@/Components/SecondaryButton';
 import { FaTrash } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa";
+import { FaEye, FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, statusTelkom }) {
     const handlePageChange = (url) => {
@@ -27,28 +27,15 @@ export default function List({ auth, statusTelkom }) {
                             </Link>
                         </PrimaryButton>
                     </div>
-                    <div className="w-full overflow-x-auto">
-                        <table className="min-w-max bg-white border border-gray-200 rounded text-sm">
+                    <div className="w-full">
+                        <table className="w-full bg-white border border-gray-200 rounded text-sm">
                             <thead className="bg-gray-100">
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Status Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Bulan Order Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Target BAST</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Target Bulan BAST</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Status PO</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">No SP Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">No PO Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Material Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Jasa Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Rekon Material Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Rekon Jasa Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Nilai Rekon Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Rekon Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">GAP Selisih</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">No BAST Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status BAST Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Bulan BAST Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                                 </tr>
                             </thead>
@@ -61,25 +48,18 @@ export default function List({ auth, statusTelkom }) {
                                                 {item.project?.id_project || '-'}
                                             </Link>
                                             </td>
-                                            <td className="px-4 py-1 border-b text-center">{item.bulan_order_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.id_status_telkom}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.target_bast}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.target_bulan_bast}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_po?.status_po || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.no_sp_telkom}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_po?.status_po}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.material_telkom}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.jasa_telkom}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.rekon_material_telkom}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.rekon_jasa_telkom}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.nilai_rekon_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_rekon_telkom?.status_rekon_telkom}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.gap_selisih}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.no_bast_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_bast_telkom?.status_bast_telkom}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.bulan_bast_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className="flex justify-center gap-2">
+                                                    <Link
+                                                        href={route('status-telkom.show', item.id)}
+                                                        className='text-blue-400'
+                                                    >
+                                                        <FaEye />
+                                                    </Link>
                                                     <Link
                                                         href={route('status-telkom.edit', item.id)}
                                                         className="text-yellow-500"

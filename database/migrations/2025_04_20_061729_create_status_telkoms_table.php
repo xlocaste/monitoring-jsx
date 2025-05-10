@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('status_rekon_telkom_id');
             $table->unsignedBigInteger('status_bast_telkom_id');
             $table->string('id_status_telkom');
-            $table->integer('bulan_order_telkom');
+            $table->string('bulan_order_telkom');
             $table->string('target_bast');
-            $table->integer('target_bulan_bast');
+            $table->string('target_bulan_bast');
             $table->integer('no_sp_telkom');
             $table->string('material_telkom');
             $table->string('jasa_telkom');
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->integer('nilai_rekon_telkom');
             $table->integer('gap_selisih');
             $table->integer('no_bast_telkom');
-            $table->integer('bulan_bast_telkom');
+            $table->string('bulan_bast_telkom');
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('project');

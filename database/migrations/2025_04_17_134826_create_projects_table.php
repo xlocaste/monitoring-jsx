@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('id_project');
             $table->string('id_sap');
             $table->year('tahun');
-            $table->integer('bulan');
+            $table->string('bulan');
             $table->string('lokasi_wo_lop');
             $table->string('no_kontrak');
             $table->string('uraian_pekerjaan');

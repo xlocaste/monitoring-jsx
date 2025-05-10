@@ -33,7 +33,7 @@ export default function List({ auth, projects }) {
                             <tr>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ID Project</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ID SAP</th>
-                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC Admin</th>
+                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Mitra</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Tematik</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">STO</th>

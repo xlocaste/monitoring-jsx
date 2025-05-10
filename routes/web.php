@@ -84,6 +84,7 @@ Route::prefix('/status-mitra')->name('status-mitra.')->group(function() {
         Route::put('/{statusMitra}', [StatusMitraController::class, 'update'])->name('update');
         Route::delete('/{statusMitra}', [StatusMitraController::class, 'destroy'])->name('destroy');
         Route::get('/{statusMitra}/edit', [StatusMitraController::class, 'edit'])->name('edit');
+        Route::get('/{statusMitra}/detail', [StatusMitraController::class, 'show'])->name('show');
     });
     Route::get('/', [StatusMitraController::class, 'index'])->name('index');
 });

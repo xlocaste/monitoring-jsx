@@ -25,7 +25,7 @@ class StatusMitraController extends Controller
             'statusTagihanMitra',
             'ketStatusTagihanMitra'
         ])->paginate(10);
-    
+
         return Inertia::render('StatusMitra/List', [
             'statusMitra' => $daftarStatusMitra
         ]);
@@ -88,6 +88,21 @@ class StatusMitraController extends Controller
         $statusMitra->delete();
 
         return Redirect::route('status-mitra.index')->with('message', 'Data berhasil dihapus');
+    }
+
+    public function show(StatusMitra $statusMitra)
+    {
+        $statusMitra->load([
+            'project',
+            'statusPekerjaan',
+            'statusRekonMitra',
+            'statusTagihanMitra',
+            'ketStatusTagihanMitra'
+        ]);
+
+        return Inertia::render('StatusMitra/Detail', [
+            'statusMitra' => $statusMitra
+        ]);
     }
 
     public function edit(StatusMitra $statusMitra)

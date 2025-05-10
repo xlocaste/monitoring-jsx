@@ -4,7 +4,7 @@ import { Head, Link, router } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SecondaryButton from '@/Components/SecondaryButton';
 import { FaTrash } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa";
+import { FaEye, FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, statusMitra }) {
     const handlePageChange = (url) => {
@@ -27,28 +27,16 @@ export default function List({ auth, statusMitra }) {
                             </Link>
                         </PrimaryButton>
                     </div>
-                    <div className="w-full overflow-x-auto">
-                        <table className="min-w-max bg-white border border-gray-200 rounded text-sm">
+                    <div className="w-full">
+                        <table className="w-full bg-white border border-gray-200 rounded text-sm">
                             <thead className="bg-gray-100">
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Status Mitra</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Bulan Order</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">No SP Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">No PO Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">ID PR</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">ID GR</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">TOC Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Material Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Jasa Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Nilai SP Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Rekon Material Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Rekon Jasa Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Nilai Rekon Mitra</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Pekerjaan</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Rekon Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Status Tagihan Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Keterangan</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                                 </tr>
                             </thead>
@@ -63,23 +51,17 @@ export default function List({ auth, statusMitra }) {
                                             </td>
                                             <td className="px-4 py-1 border-b text-center">{item.id_status_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.bulan_order}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.no_sp_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.no_po_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.id_pr}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.id_gr}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.toc_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.material_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.jasa_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.nilai_sp_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.rekon_material_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.rekon_jasa_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.nilai_rekon_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_pekerjaan?.status_pekerjaan || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_rekon_mitra?.status_rekon_mitra || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_tagihan_mitra?.status_tagihan_mitra || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.ket_status_tagihan_mitra?.ket_status_tagihan_mitra || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className="flex justify-center gap-2">
+                                                    <Link
+                                                        href={route('status-mitra.show', item.id)}
+                                                        className='text-blue-400'
+                                                    >
+                                                        <FaEye />
+                                                    </Link>
                                                     <Link
                                                         href={route('status-mitra.edit', item.id)}
                                                         className="text-yellow-500"

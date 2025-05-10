@@ -9,14 +9,12 @@ export default function Update({
     Projects,
     StatusPo,
     StatusRekonTelkom,
-    StatusRekonMitra,
     StatusBastTelkom,
 }) {
     const { data, setData, put, processing, errors } = useForm({
         project_id: statusTelkom.project_id || '',
         status_po_id: statusTelkom.status_po_id || '',
         status_rekon_telkom_id: statusTelkom.status_rekon_telkom_id || '',
-        status_rekon_mitra_id: statusTelkom.status_rekon_mitra_id || '',
         status_bast_telkom_id: statusTelkom.status_bast_telkom_id || '',
         id_status_telkom: statusTelkom.id_status_telkom || '',
         bulan_order_telkom: statusTelkom.bulan_order_telkom || '',
@@ -46,7 +44,6 @@ export default function Update({
             <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
                 <h2 className="text-xl font-bold mb-6">Edit Data Status Telkom</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* Project */}
                     <div>
                         <label htmlFor="project_id" className="block text-sm font-medium text-gray-700 mb-1">Project</label>
                         <select
@@ -63,7 +60,6 @@ export default function Update({
                         {errors.project_id && <div className="text-red-500 text-sm mt-1">{errors.project_id}</div>}
                     </div>
 
-                    {/* Status PO */}
                     <div>
                         <label htmlFor="status_po_id" className="block text-sm font-medium text-gray-700 mb-1">Status PO</label>
                         <select
@@ -80,7 +76,6 @@ export default function Update({
                         {errors.status_po_id && <div className="text-red-500 text-sm mt-1">{errors.status_po_id}</div>}
                     </div>
 
-                    {/* Status Rekon Telkom */}
                     <div>
                         <label htmlFor="status_rekon_telkom_id" className="block text-sm font-medium text-gray-700 mb-1">Status Rekon Telkom</label>
                         <select
@@ -97,24 +92,6 @@ export default function Update({
                         {errors.status_rekon_telkom_id && <div className="text-red-500 text-sm mt-1">{errors.status_rekon_telkom_id}</div>}
                     </div>
 
-                    {/* Status Rekon Mitra */}
-                    <div>
-                        <label htmlFor="status_rekon_mitra_id" className="block text-sm font-medium text-gray-700 mb-1">Status Rekon Mitra</label>
-                        <select
-                            id="status_rekon_mitra_id"
-                            value={data.status_rekon_mitra_id}
-                            onChange={(e) => setData('status_rekon_mitra_id', e.target.value)}
-                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                        >
-                            <option value="">Pilih Status Rekon Mitra</option>
-                            {StatusRekonMitra.map((status) => (
-                                <option key={status.id} value={status.id}>{status.status_rekon_mitra}</option>
-                            ))}
-                        </select>
-                        {errors.status_rekon_mitra_id && <div className="text-red-500 text-sm mt-1">{errors.status_rekon_mitra_id}</div>}
-                    </div>
-
-                    {/* Status BAST Telkom */}
                     <div>
                         <label htmlFor="status_bast_telkom_id" className="block text-sm font-medium text-gray-700 mb-1">Status BAST Telkom</label>
                         <select
@@ -131,7 +108,6 @@ export default function Update({
                         {errors.status_bast_telkom_id && <div className="text-red-500 text-sm mt-1">{errors.status_bast_telkom_id}</div>}
                     </div>
 
-                    {/* Other Fields */}
                     <div>
                         <label htmlFor="bulan_order_telkom" className="block text-sm font-medium text-gray-700 mb-1">Bulan Order Telkom</label>
                         <input

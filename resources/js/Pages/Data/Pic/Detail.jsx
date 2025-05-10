@@ -22,7 +22,7 @@ export default function Detail({ auth, Pic }) {
                     <p className="text-gray-600">Informasi lengkap tentang PIC yang dipilih.</p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                     <div>
                         <span className="font-semibold text-gray-700">PIC Admin:</span>
                         <p className="text-gray-900">{Pic.pic_admin}</p>

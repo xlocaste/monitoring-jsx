@@ -25,7 +25,7 @@ export default function Detail({ auth, projects }) {
                     <p className="text-gray-600">Informasi lengkap tentang project yang dipilih.</p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                     <div>
                         <span className="font-semibold text-gray-700">ID Project:</span>
                         <p className="text-gray-900">{projects.id_project}</p>

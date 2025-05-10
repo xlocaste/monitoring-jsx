@@ -48,7 +48,7 @@ export default function List({ auth, statusTelkom }) {
                                     <th className="px-4 py-2 border-b text-center font-semibold">GAP Selisih</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">No BAST Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status BAST Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Bulan BAST Telkom</th> 
+                                    <th className="px-4 py-2 border-b text-center font-semibold">Bulan BAST Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                                 </tr>
                             </thead>

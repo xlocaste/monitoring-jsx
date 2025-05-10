@@ -8,7 +8,6 @@ export default function AddStatusTelkom({
     Projects,
     StatusPo,
     StatusRekonTelkom,
-    StatusRekonMitra,
     StatusBastTelkom,
 }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -66,7 +65,7 @@ export default function AddStatusTelkom({
                         {errors.project_id && <div className="text-red-500 text-sm mt-1">{errors.project_id}</div>}
                     </div>
 
-                    {[  
+                    {[
                         { id: 'id_status_telkom', label: 'ID Status Telkom' },
                         { id: 'bulan_order_telkom', label: 'Bulan Order Telkom' },
                         { id: 'target_bast', label: 'Target BAST' },
@@ -135,26 +134,6 @@ export default function AddStatusTelkom({
                             ))}
                         </select>
                         {errors.status_rekon_telkom_id && <div className="text-red-500 text-sm mt-1">{errors.status_rekon_telkom_id}</div>}
-                    </div>
-
-                    <div>
-                        <label htmlFor="status_rekon_mitra_id" className="block text-sm font-medium text-gray-700 mb-1">
-                            Status Rekon Mitra
-                        </label>
-                        <select
-                            id="status_rekon_mitra_id"
-                            value={data.status_rekon_mitra_id}
-                            onChange={(e) => setData('status_rekon_mitra_id', e.target.value)}
-                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                        >
-                            <option value="">Pilih Status BAST</option>
-                            {StatusRekonMitra.map((item) => (
-                                <option key={item.id} value={item.id}>
-                                    {item.status_rekon_mitra}
-                                </option>
-                            ))}
-                        </select>
-                        {errors.status_rekon_mitra_id && <div className="text-red-500 text-sm mt-1">{errors.status_rekon_mitra_id}</div>}
                     </div>
 
                     <div>

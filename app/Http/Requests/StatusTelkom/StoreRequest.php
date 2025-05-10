@@ -25,7 +25,6 @@ class StoreRequest extends FormRequest
             'project_id' => ['required', 'exists:project,id'],
             'status_po_id' => ['required', 'exists:status_po,id'],
             'status_rekon_telkom_id' => ['required', 'exists:status_rekon_telkom,id'],
-            'status_rekon_mitra_id' => ['required', 'exists:status_rekon_mitra,id'],
             'status_bast_telkom_id' => ['required', 'exists:status_bast_telkom,id'],
             'id_status_telkom' => ['required', 'string', 'max:255'],
             'bulan_order_telkom' => ['required', 'integer', 'min:1', 'max:12'],

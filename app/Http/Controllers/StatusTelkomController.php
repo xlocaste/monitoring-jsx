@@ -22,7 +22,6 @@ class StatusTelkomController extends Controller
             'project',
             'statusPo',
             'statusRekonTelkom',
-            'statusRekonMitra',
             'statusBastTelkom'
         ])->paginate(10);
 
@@ -37,7 +36,6 @@ class StatusTelkomController extends Controller
             'project_id' => $request->project_id,
             'status_po_id' => $request->status_po_id,
             'status_rekon_telkom_id' => $request->status_rekon_telkom_id,
-            'status_rekon_mitra_id' => $request->status_rekon_mitra_id,
             'status_bast_telkom_id' => $request->status_bast_telkom_id,
             'id_status_telkom' => $request->id_status_telkom,
             'bulan_order_telkom' => $request->bulan_order_telkom,
@@ -64,7 +62,6 @@ class StatusTelkomController extends Controller
             'project_id' => $request->project_id,
             'status_po_id' => $request->status_po_id,
             'status_rekon_telkom_id' => $request->status_rekon_telkom_id,
-            'status_rekon_mitra_id' => $request->status_rekon_mitra_id,
             'status_bast_telkom_id' => $request->status_bast_telkom_id,
             'id_status_telkom' => $request->id_status_telkom,
             'bulan_order_telkom' => $request->bulan_order_telkom,
@@ -99,7 +96,6 @@ class StatusTelkomController extends Controller
             'Projects' => Project::all(['id', 'id_sap']),
             'StatusPo' => StatusPo::all(['id', 'status_po']),
             'StatusRekonTelkom' => StatusRekonTelkom::all(['id', 'status_rekon_telkom']),
-            'StatusRekonMitra' => StatusRekonMitra::all(['id', 'status_rekon_mitra']),
             'StatusBastTelkom' => StatusBastTelkom::all(['id', 'status_bast_telkom']),
         ]);
     }
@@ -110,7 +106,6 @@ class StatusTelkomController extends Controller
             'Projects' => Project::all(['id', 'id_sap']),
             'StatusPo' => StatusPo::all(['id', 'status_po']),
             'StatusRekonTelkom' => StatusRekonTelkom::all(['id', 'status_rekon_telkom']),
-            'StatusRekonMitra' => StatusRekonMitra::all(['id', 'status_rekon_mitra']),
             'StatusBastTelkom' => StatusBastTelkom::all(['id', 'status_bast_telkom']),
         ]);
     }

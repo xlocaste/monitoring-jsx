@@ -15,7 +15,6 @@ class StatusTelkom extends Model
         'project_id',
         'status_po_id',
         'status_rekon_telkom_id',
-        'status_rekon_mitra_id',
         'status_bast_telkom_id',
         'id_status_telkom',
         'bulan_order_telkom',
@@ -46,11 +45,6 @@ class StatusTelkom extends Model
     public function statusRekonTelkom()
     {
         return $this->belongsTo(StatusRekonTelkom::class, 'status_rekon_telkom_id');
-    }
-
-    public function statusRekonMitra()
-    {
-        return $this->belongsTo(StatusRekonMitra::class, 'status_rekon_mitra_id');
     }
 
     public function statusBastTelkom()

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('status_telkom_id');
             $table->unsignedBigInteger('status_mitra_id');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
 
             $table->foreign('status_mitra_id')->references('id')->on('status_mitra');

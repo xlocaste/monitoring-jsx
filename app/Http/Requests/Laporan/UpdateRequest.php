@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
         return [
             'status_telkom_id'=>['required'],
             'status_mitra_id'=>['required'],
-            'keterangan'=>['required'],
+            'keterangan'=>['nullable'],
         ];
     }
 }

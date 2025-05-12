@@ -23,6 +23,11 @@ class DatabaseSeeder extends Seeder
             StatusRekonMitraSeeder::class,
             StatusTagihanMitraSeeder::class,
             KetStatusTagihanMitraSeeder::class,
+            PicSeeder::class,
+            MitraSeeder::class,
+            ProjectSeeder::class,
+            StatusMitraSeeder::class,
+            StatusTelkomSeeder::class,
         ]);
     }
 }

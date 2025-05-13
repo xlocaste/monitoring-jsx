@@ -33,12 +33,12 @@ class StoreRequest extends FormRequest
             'no_sp_telkom' => ['required', 'integer'],
             'material_telkom' => ['required', 'string', 'max:255'],
             'jasa_telkom' => ['required', 'string', 'max:255'],
-            'nilai_sp_telkom' => ['required', 'integer'],
+            'nilai_sp_telkom' => ['required', 'string'],
             'rekon_material_telkom' => ['required', 'string', 'max:255'],
             'rekon_jasa_telkom' => ['required', 'string', 'max:255'],
-            'nilai_rekon_telkom' => ['required', 'integer'],
-            'gap_selisih' => ['required', 'integer'],
-            'no_bast_telkom' => ['required', 'integer'],
+            'nilai_rekon_telkom' => ['required', 'string'],
+            'gap_selisih' => ['required', 'string'],
+            'no_bast_telkom' => ['required', 'string'],
             'bulan_bast_telkom' => ['required', 'string'],
         ];
     }

@@ -24,12 +24,12 @@ return new class extends Migration
             $table->integer('no_sp_telkom');
             $table->string('material_telkom');
             $table->string('jasa_telkom');
-            $table->integer('nilai_sp_telkom');
+            $table->string('nilai_sp_telkom');
             $table->string('rekon_material_telkom');
             $table->string('rekon_jasa_telkom');
-            $table->integer('nilai_rekon_telkom');
-            $table->integer('gap_selisih');
-            $table->integer('no_bast_telkom');
+            $table->string('nilai_rekon_telkom');
+            $table->string('gap_selisih');
+            $table->string('no_bast_telkom');
             $table->string('bulan_bast_telkom');
             $table->timestamps();
 

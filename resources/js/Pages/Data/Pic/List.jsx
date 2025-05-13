@@ -7,6 +7,7 @@ import { FaTrash } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, Pic, filters }) {
+    console.log(auth)
     const [keyword, setKeyword] = useState(filters?.keyword || '');
 
     const handleSearch = (e) => {
@@ -40,11 +41,13 @@ export default function List({ auth, Pic, filters }) {
                             />
                             <PrimaryButton type="submit" className="text-sm">Cari</PrimaryButton>
                         </form>
-                        <PrimaryButton>
-                            <Link href={route('pic.create')}>
-                                + TAMBAH PIC
-                            </Link>
-                        </PrimaryButton>
+                        {auth?.roles?.name?.includes('admin') && (
+                            <PrimaryButton>
+                                <Link href={route('pic.create')}>
+                                    + TAMBAH PIC
+                                </Link>
+                            </PrimaryButton>
+                        )}
                     </div>
 
                     <table className="min-w-full bg-white border border-gray-200 rounded">
@@ -53,7 +56,7 @@ export default function List({ auth, Pic, filters }) {
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC ADMIN</th>
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC PROJECT</th>
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">WASPANG TA</th>
-                                {auth.user && (
+                                {auth?.roles?.name?.includes('admin') && (
                                     <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">ACTION</th>
                                 )}
                             </tr>
@@ -65,7 +68,7 @@ export default function List({ auth, Pic, filters }) {
                                         <td className="px-6 py-1 border-b text-sm text-gray-700">{item.pic_admin}</td>
                                         <td className="px-6 py-1 border-b text-sm text-gray-700">{item.pic_project}</td>
                                         <td className="px-6 py-1 border-b text-sm text-gray-700">{item.waspang_ta}</td>
-                                        {auth.user && (
+                                        {auth?.roles?.name?.includes('admin') && (
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className='flex gap-2 justify-center'>
                                                     <Link

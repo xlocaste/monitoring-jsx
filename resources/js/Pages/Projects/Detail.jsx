@@ -72,6 +72,7 @@ export default function Detail({ auth, projects }) {
                     </div>
                 </div>
 
+                {auth?.roles?.name?.includes('admin') && (
                 <div className="flex gap-4 mt-6">
                     <PrimaryButton>
                         <Link href={route('project.edit', projects.id_project)} className="flex items-center gap-1">
@@ -83,6 +84,7 @@ export default function Detail({ auth, projects }) {
                         <FaTrash /> Hapus
                     </SecondaryButton>
                 </div>
+                )}
             </div>
         </AuthenticatedLayout>
     );

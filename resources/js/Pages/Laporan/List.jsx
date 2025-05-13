@@ -21,11 +21,13 @@ export default function List({ auth, laporan }) {
             <div className="py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
                 <div className="">
                     <div className='flex justify-end m-4'>
-                        <PrimaryButton>
-                            <Link href={route('laporan.create')}>
-                                + TAMBAH LAPORAN
-                            </Link>
-                        </PrimaryButton>
+                        {auth?.roles?.name?.includes('admin') && (
+                            <PrimaryButton>
+                                <Link href={route('laporan.create')}>
+                                    + TAMBAH LAPORAN
+                                </Link>
+                            </PrimaryButton>
+                        )}
                     </div>
                     <div className="w-full overflow-x-auto">
                         <table className="min-w-max bg-white border border-gray-200 rounded text-sm">
@@ -45,7 +47,9 @@ export default function List({ auth, laporan }) {
                                     <th className="px-4 py-2 border-b text-center font-semibold">Rekon Jasa</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Rekon Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Keterangan</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
+                                    {auth?.roles?.name?.includes('admin') && (
+                                        <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
+                                    )}
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,27 +70,29 @@ export default function List({ auth, laporan }) {
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.rekon_jasa_telkom || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.status_rekon_telkom.status_rekon_telkom || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.keterangan}</td>
-                                            <td className="px-4 py-1 border-b text-center">
-                                                <div className="flex justify-center gap-2">
-                                                    <Link
-                                                        href={route('laporan.edit', item.id)}
-                                                        className="text-yellow-500"
-                                                    >
-                                                        <FaRegEdit />
-                                                    </Link>
-                                                    <Link
-                                                        as="button"
-                                                        className="text-red-400"
-                                                        onClick={() => {
-                                                            if (confirm('Yakin ingin menghapus data ini?')) {
-                                                                router.delete(route('laporan.destroy', item.id));
-                                                            }
-                                                        }}
-                                                    >
-                                                        <FaTrash />
-                                                    </Link>
-                                                </div>
-                                            </td>
+                                            {auth?.roles?.name?.includes('admin') && (
+                                                <td className="px-4 py-1 border-b text-center">
+                                                    <div className="flex justify-center gap-2">
+                                                        <Link
+                                                            href={route('laporan.edit', item.id)}
+                                                            className="text-yellow-500"
+                                                        >
+                                                            <FaRegEdit />
+                                                        </Link>
+                                                        <Link
+                                                            as="button"
+                                                            className="text-red-400"
+                                                            onClick={() => {
+                                                                if (confirm('Yakin ingin menghapus data ini?')) {
+                                                                    router.delete(route('laporan.destroy', item.id));
+                                                                }
+                                                            }}
+                                                        >
+                                                            <FaTrash />
+                                                        </Link>
+                                                    </div>
+                                                </td>
+                                            )}
                                         </tr>
                                     ))
                                     ) : (

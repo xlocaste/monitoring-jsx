@@ -21,11 +21,13 @@ export default function List({ auth, statusTelkom }) {
                 <p className='mb-4 font-bold'>Data Status Telkom</p>
                 <div className="">
                     <div className='flex justify-end m-4'>
-                        <PrimaryButton>
-                            <Link href={route('status-telkom.create')}>
-                                + TAMBAH STATUS TELKOM
-                            </Link>
-                        </PrimaryButton>
+                        {auth?.roles?.name?.includes('admin') && (
+                            <PrimaryButton>
+                                <Link href={route('status-telkom.create')}>
+                                    + TAMBAH STATUS TELKOM
+                                </Link>
+                            </PrimaryButton>
+                        )}
                     </div>
                     <div className="w-full">
                         <table className="w-full bg-white border border-gray-200 rounded text-sm">
@@ -60,12 +62,16 @@ export default function List({ auth, statusTelkom }) {
                                                     >
                                                         <FaEye />
                                                     </Link>
+                                                    {auth?.roles?.name?.includes('admin') && (
                                                     <Link
                                                         href={route('status-telkom.edit', item.id)}
                                                         className="text-yellow-500"
                                                     >
                                                         <FaRegEdit />
                                                     </Link>
+                                                    )}
+                                                    {auth?.roles?.name?.includes('admin') && (
+
                                                     <Link
                                                         as="button"
                                                         className="text-red-400"
@@ -77,8 +83,9 @@ export default function List({ auth, statusTelkom }) {
                                                     >
                                                         <FaTrash />
                                                     </Link>
+                                                    )}
                                                 </div>
-                                            </td>
+                                                </td>
                                         </tr>
                                     ))
                                 ) : (

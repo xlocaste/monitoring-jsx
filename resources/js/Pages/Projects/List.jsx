@@ -21,11 +21,13 @@ export default function List({ auth, projects }) {
                 <p className='mb-4 font-bold'>Data Project</p>
                 <div className="overflow-x-auto">
                     <div className='flex justify-end m-4'>
-                        <PrimaryButton>
-                            <Link href={route('project.create')}>
-                                + TAMBAH PROJECT
-                            </Link>
-                        </PrimaryButton>
+                        {auth?.roles?.name?.includes('admin') && (
+                            <PrimaryButton>
+                                <Link href={route('project.create')}>
+                                    + TAMBAH PROJECT
+                                </Link>
+                            </PrimaryButton>
+                        )}
                     </div>
 
                     <table className="min-w-full bg-white border border-gray-200 rounded">
@@ -39,9 +41,7 @@ export default function List({ auth, projects }) {
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">STO</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Tahun</th>
                                 <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">Bulan</th>
-                                {auth.user && (
-                                    <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ACTION</th>
-                                )}
+                                <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,7 +67,6 @@ export default function List({ auth, projects }) {
                                         <td className="px-4 py-1 border-b text-sm text-gray-700">{project.sto?.sto || '-'}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.tahun}</td>
                                         <td className="px-4 py-1 border-b text-sm text-gray-700 text-center">{project.bulan}</td>
-                                        {auth.user && (
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className='flex gap-2 justify-center'>
                                                     <Link
@@ -76,12 +75,15 @@ export default function List({ auth, projects }) {
                                                     >
                                                         <FaEye />
                                                     </Link>
+                                                    {auth?.roles?.name?.includes('admin') && (
                                                     <Link
                                                         href={route('project.edit', project.id)}
                                                         className='text-yellow-500'
                                                     >
                                                         <FaRegEdit />
                                                     </Link>
+                                                    )}
+                                                    {auth?.roles?.name?.includes('admin') && (
                                                     <Link
                                                         as="button"
                                                         className="text-red-400"
@@ -93,9 +95,9 @@ export default function List({ auth, projects }) {
                                                     >
                                                         <FaTrash />
                                                     </Link>
+                                                    )}
                                                 </div>
                                             </td>
-                                        )}
                                     </tr>
                                 ))
                             ) : (

@@ -21,11 +21,13 @@ export default function List({ auth, statusMitra }) {
                 <p className='mb-4 font-bold'>Data Status Mitra</p>
                 <div className="">
                     <div className='flex justify-end m-4'>
-                        <PrimaryButton>
-                            <Link href={route('status-mitra.create')}>
-                                + TAMBAH STATUS MITRA
-                            </Link>
-                        </PrimaryButton>
+                        {auth?.roles?.name?.includes('admin') && (
+                            <PrimaryButton>
+                                <Link href={route('status-mitra.create')}>
+                                    + TAMBAH STATUS MITRA
+                                </Link>
+                            </PrimaryButton>
+                        )}
                     </div>
                     <div className="w-full">
                         <table className="w-full bg-white border border-gray-200 rounded text-sm">
@@ -54,33 +56,37 @@ export default function List({ auth, statusMitra }) {
                                             <td className="px-4 py-1 border-b text-center">{item.toc_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_pekerjaan?.status_pekerjaan || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_rekon_mitra?.status_rekon_mitra || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">
-                                                <div className="flex justify-center gap-2">
-                                                    <Link
-                                                        href={route('status-mitra.show', item.id)}
-                                                        className='text-blue-400'
-                                                    >
-                                                        <FaEye />
-                                                    </Link>
-                                                    <Link
-                                                        href={route('status-mitra.edit', item.id)}
-                                                        className="text-yellow-500"
-                                                    >
-                                                        <FaRegEdit />
-                                                    </Link>
-                                                    <Link
-                                                        as="button"
-                                                        className="text-red-400"
-                                                        onClick={() => {
-                                                            if (confirm('Yakin ingin menghapus data ini?')) {
-                                                                router.delete(route('status-mitra.destroy', item.id));
-                                                            }
-                                                        }}
-                                                    >
-                                                        <FaTrash />
-                                                    </Link>
-                                                </div>
-                                            </td>
+                                                <td className="px-4 py-1 border-b text-center">
+                                                    <div className="flex justify-center gap-2">
+                                                        <Link
+                                                            href={route('status-mitra.show', item.id)}
+                                                            className='text-blue-400'
+                                                            >
+                                                            <FaEye />
+                                                        </Link>
+                                                        {auth?.roles?.name?.includes('admin') && (
+                                                        <Link
+                                                            href={route('status-mitra.edit', item.id)}
+                                                            className="text-yellow-500"
+                                                        >
+                                                            <FaRegEdit />
+                                                        </Link>
+                                                        )}
+                                                        {auth?.roles?.name?.includes('admin') && (
+                                                        <Link
+                                                            as="button"
+                                                            className="text-red-400"
+                                                            onClick={() => {
+                                                                if (confirm('Yakin ingin menghapus data ini?')) {
+                                                                    router.delete(route('status-mitra.destroy', item.id));
+                                                                }
+                                                            }}
+                                                        >
+                                                            <FaTrash />
+                                                        </Link>
+                                                        )}
+                                                    </div>
+                                                </td>
                                         </tr>
                                     ))
                                 ) : (

@@ -44,15 +44,19 @@ export default function Show({ auth, statusTelkom }) {
                 </div>
 
                 <div className="flex gap-4 mt-6">
-                    <PrimaryButton>
-                        <Link href={route('status-telkom.edit', statusTelkom.id)} className="flex items-center gap-1">
-                            <FaRegEdit /> Edit
-                        </Link>
-                    </PrimaryButton>
+                    {auth?.roles?.name?.includes('admin') && (
+                        <PrimaryButton>
+                            <Link href={route('status-telkom.edit', statusTelkom.id)} className="flex items-center gap-1">
+                                <FaRegEdit /> Edit
+                            </Link>
+                        </PrimaryButton>
+                    )}
 
+                    {auth?.roles?.name?.includes('admin') && (
                     <SecondaryButton onClick={handleDelete} className="flex items-center gap-1 text-red-500 border-red-400 hover:bg-red-100">
                         <FaTrash /> Hapus
                     </SecondaryButton>
+                    )}
 
                     <SecondaryButton>
                         <Link href={route('status-telkom.index')}>

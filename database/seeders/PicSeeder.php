@@ -20,7 +20,7 @@ class PicSeeder extends Seeder
                 'waspang_ta' => 'ISKANDAR',
             ],
             [
-                'pic_admin' => 'JENNY SILFI PRATAMIt',
+                'pic_admin' => 'JENNY SILFI PRATAMI',
                 'pic_project' => 'AGIE HENDRI AFRIZAL',
                 'waspang_ta' => 'ROBI SUGIANTO',
             ],

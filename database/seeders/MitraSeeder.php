@@ -15,19 +15,19 @@ class MitraSeeder extends Seeder
     {
         DB::table('mitra')->insert([
             [
-                'nama_mitra' => 'PT. Sumber Karya',
-                'tipe_kemitraan' => 'Vendor',
-                'gl_account' => 'Andi Setiawan'
+                'nama_mitra' => 'PT. UPAYA TEHNIK',
+                'tipe_kemitraan' => 'MATERIAL SELECTED, JASA ONLY',
+                'gl_account' => '51367035/51367038'
             ],
             [
-                'nama_mitra' => 'CV. Maju Terus',
-                'tipe_kemitraan' => 'Subkon',
-                'gl_account' => 'Dewi Lestari'
+                'nama_mitra' => 'PT. RAIH BINTANG',
+                'tipe_kemitraan' => 'MATERIAL SELECTED, JASA ONLY',
+                'gl_account' => '51367035/51367036'
             ],
             [
-                'nama_mitra' => 'PT. Teknologi Cerdas',
-                'tipe_kemitraan' => 'Konsultan',
-                'gl_account' => 'Budi Santoso'
+                'nama_mitra' => 'PT. AIRMAS TANJUNG',
+                'tipe_kemitraan' => 'JASA ONLY',
+                'gl_account' => '51367036'
             ],
         ]);
     }

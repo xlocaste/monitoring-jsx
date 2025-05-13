@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('bulan_order_telkom');
             $table->string('target_bast');
             $table->string('target_bulan_bast');
-            $table->integer('no_sp_telkom');
+            $table->string('no_sp_telkom');
             $table->string('material_telkom');
             $table->string('jasa_telkom');
             $table->string('nilai_sp_telkom');

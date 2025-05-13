@@ -15,19 +15,24 @@ class PicSeeder extends Seeder
     {
         DB::table('pic')->insert([
             [
-                'pic_admin' => 'Andika Pratama',
-                'pic_project' => 'Dewi Lestari',
-                'waspang_ta' => 'Rizky Maulana',
+                'pic_admin' => 'NURUL HADI',
+                'pic_project' => 'MUHAMMAD IRVAN',
+                'waspang_ta' => 'ISKANDAR',
             ],
             [
-                'pic_admin' => 'Rahmat Hidayat',
-                'pic_project' => 'Nadya Aprilia',
-                'waspang_ta' => 'Yusuf Pratama',
+                'pic_admin' => 'JENNY SILFI PRATAMIt',
+                'pic_project' => 'AGIE HENDRI AFRIZAL',
+                'waspang_ta' => 'ROBI SUGIANTO',
             ],
             [
-                'pic_admin' => 'Dina Oktaviani',
-                'pic_project' => 'Fauzan Malik',
-                'waspang_ta' => 'Lutfi Ramadhan',
+                'pic_admin' => 'JENNY SILFI PRATAMI',
+                'pic_project' => 'AGIE HENDRI AFRIZAL',
+                'waspang_ta' => 'RAHMAD MAULANA',
+            ],
+            [
+                'pic_admin' => 'JENNY SILFI PRATAMI',
+                'pic_project' => 'AGIE HENDRI AFRIZAL',
+                'waspang_ta' => 'SYARIF RIFKI FAHROZI',
             ],
         ]);
     }

@@ -21,7 +21,7 @@ export default function List({ auth, laporan }) {
             <div className="py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
                 <div className="">
                     <div className='flex justify-end m-4'>
-                        {auth?.roles?.name?.includes('admin') && (
+                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                             <PrimaryButton>
                                 <Link href={route('laporan.create')}>
                                     + TAMBAH LAPORAN
@@ -47,7 +47,7 @@ export default function List({ auth, laporan }) {
                                     <th className="px-4 py-2 border-b text-center font-semibold">Rekon Jasa</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Rekon Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Keterangan</th>
-                                    {auth?.roles?.name?.includes('admin') && (
+                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                         <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                                     )}
                                 </tr>
@@ -70,7 +70,7 @@ export default function List({ auth, laporan }) {
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.rekon_jasa_telkom || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.status_rekon_telkom.status_rekon_telkom || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.keterangan}</td>
-                                            {auth?.roles?.name?.includes('admin') && (
+                                            {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                 <td className="px-4 py-1 border-b text-center">
                                                     <div className="flex justify-center gap-2">
                                                         <Link

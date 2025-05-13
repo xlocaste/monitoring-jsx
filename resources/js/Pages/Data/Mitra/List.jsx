@@ -27,7 +27,7 @@ export default function List({ auth, Mitra }) {
                 <p className='mb-4 font-bold'>Data Mitra</p>
                 <div className="overflow-x-auto">
                     <div className="flex justify-end items-center m-4">
-                        {auth?.roles?.name?.includes('admin') && (
+                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                             <PrimaryButton>
                                 <Link href={route('mitra.create')}>
                                     + Tambah Mitra
@@ -42,7 +42,7 @@ export default function List({ auth, Mitra }) {
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">NAMA MITRA</th>
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">TIPE KEMITRAAN</th>
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">GL ACCOUNT</th>
-                                {auth?.roles?.name?.includes('admin') && (
+                                {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                     <th className="px-4 py-2 border-b text-sm font-semibold text-center text-gray-700">ACTION</th>
                                 )}
                             </tr>
@@ -54,7 +54,7 @@ export default function List({ auth, Mitra }) {
                                         <td className="px-4 py-1 border-b text-sm">{item.nama_mitra}</td>
                                         <td className="px-4 py-1 border-b text-sm">{item.tipe_kemitraan}</td>
                                         <td className="px-4 py-1 border-b text-sm">{item.gl_account}</td>
-                                        {auth?.roles?.name?.includes('admin') && (
+                                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className="flex gap-2 justify-center">
                                                     <Link href={route('mitra.edit', item.id)} className="text-yellow-500">

@@ -38,15 +38,18 @@ export default function Detail({ auth, Pic }) {
                 </div>
 
                 <div className="flex gap-4 mt-6">
+                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                     <PrimaryButton>
                         <Link href={route('pic.edit', Pic.id)} className="flex items-center gap-1">
                             <FaRegEdit /> Edit
                         </Link>
                     </PrimaryButton>
-
+                    )}
+                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                     <SecondaryButton onClick={handleDelete} className="flex items-center gap-1 text-red-500 border-red-400 hover:bg-red-100">
                         <FaTrash /> Hapus
                     </SecondaryButton>
+                    )}
 
                     <SecondaryButton>
                         <Link href={route('project.index')}>

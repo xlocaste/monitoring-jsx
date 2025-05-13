@@ -41,7 +41,7 @@ export default function List({ auth, Pic, filters }) {
                             />
                             <PrimaryButton type="submit" className="text-sm">Cari</PrimaryButton>
                         </form>
-                        {auth?.roles?.name?.includes('admin') && (
+                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                             <PrimaryButton>
                                 <Link href={route('pic.create')}>
                                     + TAMBAH PIC
@@ -56,7 +56,7 @@ export default function List({ auth, Pic, filters }) {
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC ADMIN</th>
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">PIC PROJECT</th>
                                 <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">WASPANG TA</th>
-                                {auth?.roles?.name?.includes('admin') && (
+                                {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                     <th className="px-6 py-2 border-b text-sm font-semibold text-center text-gray-700">ACTION</th>
                                 )}
                             </tr>
@@ -68,7 +68,7 @@ export default function List({ auth, Pic, filters }) {
                                         <td className="px-6 py-1 border-b text-sm text-gray-700">{item.pic_admin}</td>
                                         <td className="px-6 py-1 border-b text-sm text-gray-700">{item.pic_project}</td>
                                         <td className="px-6 py-1 border-b text-sm text-gray-700">{item.waspang_ta}</td>
-                                        {auth?.roles?.name?.includes('admin') && (
+                                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className='flex gap-2 justify-center'>
                                                     <Link

@@ -44,7 +44,7 @@ export default function Show({ auth, statusMitra }) {
                 </div>
 
                 <div className="flex gap-4 mt-6">
-                    {auth?.roles?.name?.includes('admin') && (
+                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                         <PrimaryButton>
                             <Link href={route('status-mitra.edit', statusMitra.id)} className="flex items-center gap-1">
                                 <FaRegEdit /> Edit
@@ -52,7 +52,7 @@ export default function Show({ auth, statusMitra }) {
                         </PrimaryButton>
                     )}
 
-                    {auth?.roles?.name?.includes('admin') && (
+                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                         <SecondaryButton onClick={handleDelete} className="flex items-center gap-1 text-red-500 border-red-400 hover:bg-red-100">
                             <FaTrash /> Hapus
                         </SecondaryButton>

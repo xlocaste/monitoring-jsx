@@ -21,7 +21,7 @@ export default function List({ auth, projects }) {
                 <p className='mb-4 font-bold'>Data Project</p>
                 <div className="overflow-x-auto">
                     <div className='flex justify-end m-4'>
-                        {auth?.roles?.name?.includes('admin') && (
+                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                             <PrimaryButton>
                                 <Link href={route('project.create')}>
                                     + TAMBAH PROJECT
@@ -75,7 +75,7 @@ export default function List({ auth, projects }) {
                                                     >
                                                         <FaEye />
                                                     </Link>
-                                                    {auth?.roles?.name?.includes('admin') && (
+                                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                     <Link
                                                         href={route('project.edit', project.id)}
                                                         className='text-yellow-500'
@@ -83,7 +83,7 @@ export default function List({ auth, projects }) {
                                                         <FaRegEdit />
                                                     </Link>
                                                     )}
-                                                    {auth?.roles?.name?.includes('admin') && (
+                                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                     <Link
                                                         as="button"
                                                         className="text-red-400"

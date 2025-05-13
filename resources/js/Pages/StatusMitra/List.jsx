@@ -21,7 +21,7 @@ export default function List({ auth, statusMitra }) {
                 <p className='mb-4 font-bold'>Data Status Mitra</p>
                 <div className="">
                     <div className='flex justify-end m-4'>
-                        {auth?.roles?.name?.includes('admin') && (
+                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                             <PrimaryButton>
                                 <Link href={route('status-mitra.create')}>
                                     + TAMBAH STATUS MITRA
@@ -64,7 +64,7 @@ export default function List({ auth, statusMitra }) {
                                                             >
                                                             <FaEye />
                                                         </Link>
-                                                        {auth?.roles?.name?.includes('admin') && (
+                                                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                         <Link
                                                             href={route('status-mitra.edit', item.id)}
                                                             className="text-yellow-500"
@@ -72,7 +72,7 @@ export default function List({ auth, statusMitra }) {
                                                             <FaRegEdit />
                                                         </Link>
                                                         )}
-                                                        {auth?.roles?.name?.includes('admin') && (
+                                                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                         <Link
                                                             as="button"
                                                             className="text-red-400"

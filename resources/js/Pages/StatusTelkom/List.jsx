@@ -21,7 +21,7 @@ export default function List({ auth, statusTelkom }) {
                 <p className='mb-4 font-bold'>Data Status Telkom</p>
                 <div className="">
                     <div className='flex justify-end m-4'>
-                        {auth?.roles?.name?.includes('admin') && (
+                        {auth?.user?.roles?.some(role => role.name === 'admin') && (
                             <PrimaryButton>
                                 <Link href={route('status-telkom.create')}>
                                     + TAMBAH STATUS TELKOM
@@ -62,7 +62,7 @@ export default function List({ auth, statusTelkom }) {
                                                     >
                                                         <FaEye />
                                                     </Link>
-                                                    {auth?.roles?.name?.includes('admin') && (
+                                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                     <Link
                                                         href={route('status-telkom.edit', item.id)}
                                                         className="text-yellow-500"
@@ -70,7 +70,7 @@ export default function List({ auth, statusTelkom }) {
                                                         <FaRegEdit />
                                                     </Link>
                                                     )}
-                                                    {auth?.roles?.name?.includes('admin') && (
+                                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
 
                                                     <Link
                                                         as="button"

@@ -51,7 +51,9 @@ const AuthenticatedLayout = ({ children, user, title = 'Dashboard' }) => {
           <li className="mb-4">
             <Link href={route('laporan.index')} className='mb-4 hover:text-red-800 flex items-center space-x-2'><FaClipboardList /><p>Laporan</p></Link>
           </li>
+          {user?.roles?.some(role => role.name === 'admin') && (
           <li className="mb-4 "><a href="#" className="hover:text-red-800">Data User/Hak Akses</a></li>
+          )}
         </ul>
       </aside>
 

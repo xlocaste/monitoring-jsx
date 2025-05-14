@@ -108,6 +108,7 @@ Route::prefix('/laporan')->name('laporan.')->group(function() {
         Route::put('/{laporan}', [LaporanController::class, 'update'])->name('update');
         Route::delete('/{laporan}', [LaporanController::class, 'destroy'])->name('destroy');
         Route::get('/{laporan}/edit', [LaporanController::class, 'edit'])->name('edit');
+        Route::get('/{laporan}/show', [LaporanController::class, 'show'])->name('show');
     });
     Route::get('/', [LaporanController::class, 'index'])->name('index');
 });

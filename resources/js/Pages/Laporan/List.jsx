@@ -4,7 +4,7 @@ import { Head, Link, router } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SecondaryButton from '@/Components/SecondaryButton';
 import { FaTrash } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa";
+import { FaEye, FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, laporan }) {
     console.log(laporan)
@@ -30,22 +30,11 @@ export default function List({ auth, laporan }) {
                         )}
                     </div>
                     <div className="w-full overflow-x-auto">
-                        <table className="min-w-max bg-white border border-gray-200 rounded text-sm">
+                        <table className="w-full bg-white border border-gray-200 rounded text-sm">
                             <thead className="bg-gray-100">
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Status Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Status Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Witel</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Tematik</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Status BAST Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Status Tagihan Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">No SP Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">No SP Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">No PO</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Nilai SP Telkom</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Rekon Material</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Rekon Jasa</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Status Rekon Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Keterangan</th>
                                     {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                         <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
@@ -58,21 +47,16 @@ export default function List({ auth, laporan }) {
                                         <tr key={item.id} className="hover:bg-gray-50">
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.id_status_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_mitra?.id_status_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.project?.tematik?.witel || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.project?.tematik?.tematik || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.status_bast_telkom?.status_bast_telkom || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.status_tagihan_mitra?.status_tagihan_mitra || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.no_sp_mitra || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.no_sp_telkom || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.no_po_mitra || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.nilai_sp_telkom || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.material_telkom || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.rekon_jasa_telkom || '-'}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.status_rekon_telkom.status_rekon_telkom || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.keterangan}</td>
                                             {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                 <td className="px-4 py-1 border-b text-center">
                                                     <div className="flex justify-center gap-2">
+                                                        <Link
+                                                            href={route('laporan.show', item.id)}
+                                                            className="text-blue-500"
+                                                        >
+                                                            <FaEye />
+                                                        </Link>
                                                         <Link
                                                             href={route('laporan.edit', item.id)}
                                                             className="text-yellow-500"

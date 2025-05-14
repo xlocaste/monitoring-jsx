@@ -58,7 +58,7 @@ export default function Add({ auth, StatusTelkom, StatusMitra }) {
                             <option value="">Pilih Status Mitra</option>
                             {StatusMitra.map((status) => (
                                 <option key={status.id} value={status.id}>
-                                    {status.id_status_telkom}
+                                    {status.id_status_mitra}
                                 </option>
                             ))}
                         </select>

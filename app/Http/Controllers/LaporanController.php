@@ -59,6 +59,25 @@ class LaporanController extends Controller
         return Redirect::route('laporan.index')->with('message', 'Data berhasil dihapus');
     }
 
+    public function show(Laporan $laporan)
+    {
+        $laporan->load([
+            'statusMitra.project',
+            'statusMitra.statusPekerjaan',
+            'statusMitra.statusRekonMitra',
+            'statusMitra.statusTagihanMitra',
+            'statusMitra.ketStatusTagihanMitra',
+            'statusTelkom.project',
+            'statusTelkom.statusPo',
+            'statusTelkom.statusRekonTelkom',
+            'statusTelkom.statusBastTelkom',
+        ]);
+
+        return Inertia::render('Laporan/Detail', [
+            'Laporan' => $laporan
+        ]);
+    }
+
     public function edit(Laporan $laporan)
     {
         return Inertia::render('Laporan/Update', [

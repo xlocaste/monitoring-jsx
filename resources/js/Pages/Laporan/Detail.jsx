@@ -27,6 +27,21 @@ export default function Show({ auth, Laporan }) {
                     <DetailField label="ID Laporan" value={Laporan.id} />
                     <DetailField label="Keterangan Laporan" value={Laporan.keterangan} />
                     <DetailField label="ID Status Mitra" value={Laporan.status_mitra?.id_status_mitra} />
+                    <DetailField label="PIC Admin" value={Laporan.status_telkom?.project?.pic?.pic_admin} />
+                    <DetailField label="PIC Project" value={Laporan.status_telkom?.project?.pic?.pic_project} />
+                    <DetailField label="Waspang TA" value={Laporan.status_telkom?.project?.pic?.waspang_ta} />
+                    <DetailField label="Nama Mitra" value={Laporan.status_telkom?.project?.mitra?.nama_mitra} />
+                    <DetailField label="Tipe Kemitraan" value={Laporan.status_telkom?.project?.mitra?.tipe_kemitraan} />
+                    <DetailField label="GL Account" value={Laporan.status_telkom?.project?.mitra?.gl_account} />
+                    <DetailField label="Tematik" value={Laporan.status_telkom?.project?.tematik?.tematik} />
+                    <DetailField label="STO" value={Laporan.status_telkom?.project?.sto?.sto} />
+                    <DetailField label="ID Project" value={Laporan.status_telkom?.project?.id_project} />
+                    <DetailField label="ID SAP" value={Laporan.status_telkom?.project?.id_sap} />
+                    <DetailField label="Tahun" value={Laporan.status_telkom?.project?.tahun} />
+                    <DetailField label="Bulan" value={Laporan.status_telkom?.project?.bulan} />
+                    <DetailField label="Lokasi WO LOP" value={Laporan.status_telkom?.project?.lokasi_wo_lop} />
+                    <DetailField label="No Kontrak" value={Laporan.status_telkom?.project?.no_kontrak} />
+                    <DetailField label="Uraian Pekerjaan" value={Laporan.status_telkom?.project?.uraian_pekerjaan} />
                     <DetailField label="ID Status Telkom" value={Laporan.status_telkom?.id_status_telkom} />
                     <DetailField label="Project" value={Laporan.status_mitra?.project?.id_project} />
                     <DetailField label="Bulan Order" value={Laporan.status_mitra?.bulan_order} />

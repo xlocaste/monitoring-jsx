@@ -71,6 +71,10 @@ class LaporanController extends Controller
             'statusTelkom.statusPo',
             'statusTelkom.statusRekonTelkom',
             'statusTelkom.statusBastTelkom',
+            'statusTelkom.project.pic',
+            'statusTelkom.project.mitra',
+            'statusTelkom.project.sto',
+            'statusTelkom.project.tematik',
         ]);
 
         return Inertia::render('Laporan/Detail', [

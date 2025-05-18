@@ -1,44 +1,49 @@
 import { Link, Head } from '@inertiajs/react';
-import PrimaryButton from '@/Components/PrimaryButton';
 import ApplicationLogo from '@/Components/ApplicationLogo';
+import PrimaryButton from '@/Components/PrimaryButton';
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
+
+            <nav className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-4 bg-transparent">
+                <div className="flex items-center">
+                    <ApplicationLogo className="h-10 w-auto" />
+                </div>
+                <div>
+                    {auth.user ? (
+                        <Link href={route('dashboard')}>
+                            <PrimaryButton>
+                                Dashboard
+                            </PrimaryButton>
+                        </Link>
+                    ) : (
+                        <Link href={route('login')}>
+                            <PrimaryButton>
+                                Log in
+                            </PrimaryButton>
+                        </Link>
+                    )}
+                </div>
+            </nav>
+
             <div className="relative min-h-screen">
                 <img
                     src="/images/background dashboard.jpg"
                     alt="Background"
-                    className="absolute inset-0 w-full h-full object-cover brightness-50"
-                    style={{ objectPosition: '5% 100%' }}
+                    className="w-full h-screen object-cover object-center"
                 />
-                <div className="fixed inset-0 flex items-center justify-center text-center">
-                    <div className='bg-white/30 px-14 py-4 rounded-lg border w-96'>
-                        <div className='flex flex-col space-y-4'>
-                            <div className=''>
-                                <p className='text-white text-xl font-bold'>Selamat Datang di Website</p>
-                                <p className='text-white text-sm'>
-                                    Aplikasi Monitoring Telkom Akses ini dirancang untuk memudahkan pemantauan dan pengelolaan jaringan serta layanan Telkom secara real-time. Dengan fitur lengkap dan antarmuka yang user-friendly, Anda dapat memantau performa jaringan, status perangkat, serta laporan gangguan dengan cepat dan akurat.
+                <div className="fixed inset-0 flex items-center justify-center">
+                    <div className="bg-gradient-to-r from-black to-transparent px-8 py-6 w-full h-full">
+                        <div className="flex items-center justify-center h-full w-1/2">
+                            <div className='space-y-4'>
+                                <p className="text-white text-4xl font-bold w-full">Selamat Datang di Aplikasi Monitoring ALL BAST & Tagihan Mitra Telkom Akses</p>
+                                <p className="text-white text-sm">
+                                    Sistem terintegrasi untuk memantau dan mengelola data BAST serta tagihan mitra secara efisien, real-time, dan terstruktur.
+                                    Tingkatkan efektivitas kerja dan transparansi proyek konstruksi bersama solusi digital kami.
                                 </p>
                             </div>
-                            {auth.user ? (
-                                <Link
-                                    href={route('dashboard')}
-                                >
-                                    <PrimaryButton>
-                                        Dashboard
-                                    </PrimaryButton>
-                                </Link>
-                            ) : (
-                                    <Link
-                                        href={route('login')}
-                                    >
-                                        <PrimaryButton>
-                                            Log in
-                                        </PrimaryButton>
-                                    </Link>
-                            )}
                         </div>
                     </div>
                 </div>

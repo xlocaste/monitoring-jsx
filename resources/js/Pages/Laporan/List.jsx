@@ -36,9 +36,7 @@ export default function List({ auth, laporan }) {
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Status Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Status Mitra</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Keterangan</th>
-                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
-                                        <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
-                                    )}
+                                    <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,35 +46,38 @@ export default function List({ auth, laporan }) {
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.id_status_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_mitra?.id_status_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.keterangan}</td>
-                                            {auth?.user?.roles?.some(role => role.name === 'admin') && (
-                                                <td className="px-4 py-1 border-b text-center">
-                                                    <div className="flex justify-center gap-2">
-                                                        <Link
-                                                            href={route('laporan.show', item.id)}
-                                                            className="text-blue-500"
-                                                        >
-                                                            <FaEye />
-                                                        </Link>
-                                                        <Link
-                                                            href={route('laporan.edit', item.id)}
-                                                            className="text-yellow-500"
-                                                        >
-                                                            <FaRegEdit />
-                                                        </Link>
-                                                        <Link
-                                                            as="button"
-                                                            className="text-red-400"
-                                                            onClick={() => {
-                                                                if (confirm('Yakin ingin menghapus data ini?')) {
-                                                                    router.delete(route('laporan.destroy', item.id));
-                                                                }
-                                                            }}
-                                                        >
-                                                            <FaTrash />
-                                                        </Link>
-                                                    </div>
-                                                </td>
-                                            )}
+                                            <td className="px-4 py-1 border-b text-center">
+                                                <div className="flex justify-center gap-2">
+                                                    <Link
+                                                        href={route('laporan.show', item.id)}
+                                                        className="text-blue-500"
+                                                    >
+                                                        <FaEye />
+                                                    </Link>
+
+                                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
+                                                    <Link
+                                                        href={route('laporan.edit', item.id)}
+                                                        className="text-yellow-500"
+                                                    >
+                                                        <FaRegEdit />
+                                                    </Link>
+                                                    )}
+                                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
+                                                    <Link
+                                                        as="button"
+                                                        className="text-red-400"
+                                                        onClick={() => {
+                                                            if (confirm('Yakin ingin menghapus data ini?')) {
+                                                                router.delete(route('laporan.destroy', item.id));
+                                                            }
+                                                        }}
+                                                    >
+                                                        <FaTrash />
+                                                    </Link>
+                                                    )}
+                                                </div>
+                                            </td>
                                         </tr>
                                     ))
                                     ) : (

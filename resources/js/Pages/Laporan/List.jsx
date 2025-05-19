@@ -35,7 +35,6 @@ export default function List({ auth, laporan }) {
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Status Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Status Mitra</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">Keterangan</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                                 </tr>
                             </thead>
@@ -45,7 +44,6 @@ export default function List({ auth, laporan }) {
                                         <tr key={item.id} className="hover:bg-gray-50">
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.id_status_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_mitra?.id_status_mitra}</td>
-                                            <td className="px-4 py-1 border-b text-center">{item.keterangan}</td>
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className="flex justify-center gap-2">
                                                     <Link

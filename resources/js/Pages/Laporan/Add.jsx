@@ -67,22 +67,6 @@ export default function Add({ auth, StatusTelkom, StatusMitra }) {
                         )}
                     </div>
 
-                    <div>
-                        <label htmlFor="keterangan" className="block text-sm font-medium text-gray-700 mb-1">
-                            Keterangan
-                        </label>
-                        <textarea
-                            id="keterangan"
-                            value={data.keterangan}
-                            onChange={(e) => setData('keterangan', e.target.value)}
-                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                            rows={4}
-                        />
-                        {errors.keterangan && (
-                            <div className="text-red-500 text-sm mt-1">{errors.keterangan}</div>
-                        )}
-                    </div>
-
                     <div className="flex justify-end mt-4">
                         <PrimaryButton type="submit" disabled={processing}>
                             Simpan

@@ -25,7 +25,6 @@ export default function Show({ auth, Laporan }) {
 
                <div className="grid grid-cols-2 gap-4">
                     <DetailField label="ID Laporan" value={Laporan.id} />
-                    <DetailField label="Keterangan Laporan" value={Laporan.keterangan} />
                     <DetailField label="ID Status Mitra" value={Laporan.status_mitra?.id_status_mitra} />
                     <DetailField label="PIC Admin" value={Laporan.status_telkom?.project?.pic?.pic_admin} />
                     <DetailField label="PIC Project" value={Laporan.status_telkom?.project?.pic?.pic_project} />

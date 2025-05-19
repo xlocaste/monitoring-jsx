@@ -57,17 +57,6 @@ export default function Update({ auth, laporan, StatusTelkom, StatusMitra }) {
                         {errors.status_mitra_id && <div className="text-red-500 text-sm">{errors.status_mitra_id}</div>}
                     </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Keterangan</label>
-                        <input
-                            type="text"
-                            value={data.keterangan}
-                            onChange={(e) => setData('keterangan', e.target.value)}
-                            className="w-full mt-1 p-2 border border-gray-300 rounded-md"
-                        />
-                        {errors.keterangan && <div className="text-red-500 text-sm">{errors.keterangan}</div>}
-                    </div>
-
                     <div className="flex justify-end mt-4">
                         <PrimaryButton type="submit" disabled={processing}>
                             Simpan Perubahan

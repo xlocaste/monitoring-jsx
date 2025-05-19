@@ -11,6 +11,7 @@ use App\Models\StatusRekonMitra;
 use App\Models\StatusBastTelkom;
 use App\Http\Requests\StatusTelkom\StoreRequest;
 use App\Http\Requests\StatusTelkom\UpdateRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -100,6 +101,47 @@ class StatusTelkomController extends Controller
 
         return Inertia::render('StatusTelkom/Detail', [
             'statusTelkom' => $statusTelkom
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = StatusTelkom::with(['project', 'statusPo', 'statusRekonTelkom', 'statusBastTelkom']);
+
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+
+            $query->where(function ($q) use ($keyword) {
+                $q->where('id_status_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('bulan_order_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('target_bast', 'like', '%' . $keyword . '%')
+                ->orWhere('target_bulan_bast', 'like', '%' . $keyword . '%')
+                ->orWhere('no_sp_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('material_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('jasa_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('nilai_sp_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('rekon_material_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('rekon_jasa_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('nilai_rekon_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('gap_selisih', 'like', '%' . $keyword . '%')
+                ->orWhere('no_bast_telkom', 'like', '%' . $keyword . '%')
+                ->orWhere('bulan_bast_telkom', 'like', '%' . $keyword . '%')
+                ->orWhereHas('project', function ($q2) use ($keyword) {
+                    $q2->where('id_project', 'like', '%' . $keyword . '%');
+                });
+            });
+        }
+
+        $filtered = $query->paginate(10)->appends(['keyword' => $request->keyword]);
+
+        return Inertia::render('StatusTelkom/List', [
+            'statusTelkom' => $filtered,
+            'filters' => [
+                'keyword' => $request->keyword,
+            ],
+            'auth' => [
+                'user' => Auth::user(),
+            ],
         ]);
     }
 

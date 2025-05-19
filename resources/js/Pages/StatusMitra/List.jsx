@@ -16,6 +16,7 @@ export default function List({ auth, statusMitra, filters }) {
             replace: true,
         });
     };
+
     const handlePageChange = (url) => {
         if (url) {
             router.visit(url);

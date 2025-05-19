@@ -100,6 +100,7 @@ Route::prefix('/status-telkom')->name('status-telkom.')->group(function() {
         Route::delete('/{statusTelkom}', [StatusTelkomController::class, 'destroy'])->name('destroy');
         Route::get('/{statusTelkom}/edit', [StatusTelkomController::class, 'edit'])->name('edit');
         Route::get('/{statusTelkom}/detail', [StatusTelkomController::class, 'show'])->name('show');
+        Route::get('/search', [StatusTelkomController::class, 'search'])->name('search');
     });
     Route::get('/', [StatusTelkomController::class, 'index'])->name('index');
 });

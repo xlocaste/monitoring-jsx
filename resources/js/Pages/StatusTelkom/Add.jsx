@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -39,6 +39,12 @@ export default function AddStatusTelkom({
         });
     };
 
+    useEffect(() => {
+        const sp = parseFloat(data.nilai_sp_telkom) || 0;
+        const rekon = parseFloat(data.nilai_rekon_telkom) || 0;
+        setData('gap_selisih', String(sp - rekon));
+    }, [data.nilai_sp_telkom, data.nilai_rekon_telkom]);
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Tambah Status Telkom" />
@@ -77,7 +83,6 @@ export default function AddStatusTelkom({
                         { id: 'rekon_material_telkom', label: 'Rekon Material Telkom' },
                         { id: 'rekon_jasa_telkom', label: 'Rekon Jasa Telkom' },
                         { id: 'nilai_rekon_telkom', label: 'Nilai Rekon Telkom' },
-                        { id: 'gap_selisih', label: 'Gap Selisih' },
                         { id: 'no_bast_telkom', label: 'No BAST Telkom' },
                         { id: 'bulan_bast_telkom', label: 'Bulan BAST Telkom' },
                     ].map((field) => (
@@ -95,6 +100,21 @@ export default function AddStatusTelkom({
                             {errors[field.id] && <div className="text-red-500 text-sm mt-1">{errors[field.id]}</div>}
                         </div>
                     ))}
+
+                    <div>
+                        <label htmlFor="gap_selisih" className="block text-sm font-medium text-gray-700 mb-1">
+                            Gap Selisih
+                        </label>
+                        <input
+                            id="gap_selisih"
+                            type="text"
+                            value={data.gap_selisih}
+                            readOnly
+                            onChange={(e) => setData('gap_selisih', e.target.value)}
+                            className="w-full border-gray-300 bg-gray-100 text-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.gap_selisih && <div className="text-red-500 text-sm mt-1">{errors.gap_selisih}</div>}
+                    </div>
 
                     <div>
                         <label htmlFor="status_po_id" className="block text-sm font-medium text-gray-700 mb-1">

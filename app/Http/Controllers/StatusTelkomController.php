@@ -32,7 +32,7 @@ class StatusTelkomController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $statusTelkom = StatusTelkom::create([
+        StatusTelkom::create([
             'project_id' => $request->project_id,
             'status_po_id' => $request->status_po_id,
             'status_rekon_telkom_id' => $request->status_rekon_telkom_id,

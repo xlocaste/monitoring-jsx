@@ -17,6 +17,7 @@ export default function List({ auth, Pic, filters }) {
             replace: true,
         });
     };
+
     const handlePageChange = (url) => {
         if (url) {
             router.visit(url);

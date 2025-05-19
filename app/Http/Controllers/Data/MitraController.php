@@ -51,6 +51,32 @@ class MitraController extends Controller
         return Redirect::route('mitra.index')->with('message', 'Data berhasil dihapus');
     }
 
+    public function search(Request $request)
+    {
+        $query = Mitra::query();
+
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+            $query->where(function ($q) use ($keyword) {
+                $q->where('nama_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('tipe_kemitraan', 'like', '%' . $keyword . '%')
+                ->orWhere('gl_account', 'like', '%' . $keyword . '%');
+            });
+        }
+
+        $filteredMitra = $query->paginate(10)->appends(['keyword' => $request->keyword]);
+
+        return Inertia::render('Data/Mitra/List', [
+            'Mitra' => $filteredMitra,
+            'filters' => [
+                'keyword' => $request->keyword,
+            ],
+            'auth' => [
+                'user' => Auth::user(),
+            ],
+        ]);
+    }
+
     public function edit(Mitra $mitra)
     {
         return Inertia::render('Data/Mitra/Update', [

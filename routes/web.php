@@ -61,6 +61,7 @@ Route::prefix('/mitra')->name('mitra.')->group(function() {
         Route::put('/{mitra}', [MitraController::class, 'update'])->name('update');
         Route::delete('/{mitra}', [MitraController::class, 'destroy'])->name('destroy');
         Route::get('/{mitra}/edit', [MitraController::class, 'edit'])->name('edit');
+        Route::get('/search', [MitraController::class, 'search'])->name('search');
     });
     Route::get('/', [MitraController::class, 'index'])->name('index');
 });

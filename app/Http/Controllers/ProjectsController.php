@@ -56,7 +56,7 @@ class ProjectsController extends Controller
 
         return redirect()->route('project.index');
     }
-    
+
     public function update(UpdateRequest $request, Project $project)
     {
         $project->update([
@@ -83,6 +83,37 @@ class ProjectsController extends Controller
         return Redirect::route('project.index')->with('message', 'Data berhasil dihapus');
     }
 
+    public function search(Request $request)
+    {
+        $query = Project::with(['pic', 'mitra', 'tematik', 'sto']);
+
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+
+            $query->where(function ($q) use ($keyword) {
+                $q->where('id_project', 'like', '%' . $keyword . '%')
+                ->orWhere('id_sap', 'like', '%' . $keyword . '%')
+                ->orWhere('tahun', 'like', '%' . $keyword . '%')
+                ->orWhere('bulan', 'like', '%' . $keyword . '%')
+                ->orWhere('lokasi_wo_lop', 'like', '%' . $keyword . '%')
+                ->orWhere('no_kontrak', 'like', '%' . $keyword . '%')
+                ->orWhere('uraian_pekerjaan', 'like', '%' . $keyword . '%');
+            });
+        }
+
+        $filteredProjects = $query->paginate(10)->appends(['keyword' => $request->keyword]);
+
+        return Inertia::render('Projects/List', [
+            'projects' => $filteredProjects,
+            'filters' => [
+                'keyword' => $request->keyword,
+            ],
+            'auth' => [
+                'user' => Auth::user(),
+            ],
+        ]);
+    }
+
     public function edit(Project $project)
     {
         return Inertia::render('Projects/Update', [
@@ -93,7 +124,7 @@ class ProjectsController extends Controller
             'Mitra' => Mitra::all(['id', 'nama_mitra']),
         ]);
     }
-    
+
     public function create()
     {
         return Inertia::render('Projects/Add', [

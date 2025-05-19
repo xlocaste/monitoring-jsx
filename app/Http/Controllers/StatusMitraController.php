@@ -11,6 +11,7 @@ use App\Models\StatusTagihanMitra;
 use App\Models\KetStatusTagihanMitra;
 use App\Http\Requests\StatusMitra\StoreRequest;
 use App\Http\Requests\StatusMitra\UpdateRequest;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Redirect;
 
@@ -102,6 +103,46 @@ class StatusMitraController extends Controller
 
         return Inertia::render('StatusMitra/Detail', [
             'statusMitra' => $statusMitra
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = StatusMitra::with(['project', 'statusPekerjaan', 'statusRekonMitra', 'statusTagihanMitra', 'ketStatusTagihanMitra']);
+
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+
+            $query->where(function ($q) use ($keyword) {
+                $q->where('id_status_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('bulan_order', 'like', '%' . $keyword . '%')
+                ->orWhere('no_sp_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('no_po_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('id_pr', 'like', '%' . $keyword . '%')
+                ->orWhere('id_gr', 'like', '%' . $keyword . '%')
+                ->orWhere('toc_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('material_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('jasa_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('nilai_sp_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('rekon_material_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('rekon_jasa_mitra', 'like', '%' . $keyword . '%')
+                ->orWhere('nilai_rekon_mitra', 'like', '%' . $keyword . '%')
+                ->orWhereHas('project', function ($sub) use ($keyword) {
+                    $sub->where('id_project', 'like', '%' . $keyword . '%');
+                });
+            });
+        }
+
+        $filtered = $query->paginate(10)->appends(['keyword' => $request->keyword]);
+
+        return Inertia::render('StatusMitra/List', [
+            'statusMitra' => $filtered,
+            'filters' => [
+                'keyword' => $request->keyword,
+            ],
+            'auth' => [
+                'user' => Auth::user(),
+            ],
         ]);
     }
 

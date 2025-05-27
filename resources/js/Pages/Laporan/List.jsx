@@ -55,14 +55,6 @@ export default function List({ auth, laporan }) {
 
                                                     {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                     <Link
-                                                        href={route('laporan.edit', item.id)}
-                                                        className="text-yellow-500"
-                                                    >
-                                                        <FaRegEdit />
-                                                    </Link>
-                                                    )}
-                                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
-                                                    <Link
                                                         as="button"
                                                         className="text-red-400"
                                                         onClick={() => {

@@ -150,7 +150,7 @@ class StatusMitraController extends Controller
     {
         return Inertia::render('StatusMitra/Update', [
             'statusMitra' => $statusMitra,
-            'Projects' => Project::all(['id', 'id_sap']),
+            'Projects' => Project::all(['id', 'id_project']),
             'StatusPekerjaan' => StatusPekerjaan::all(['id', 'status_pekerjaan']),
             'StatusRekonMitra' => StatusRekonMitra::all(['id', 'status_rekon_mitra']),
             'StatusTagihanMitra' => StatusTagihanMitra::all(['id', 'status_tagihan_mitra']),
@@ -161,7 +161,7 @@ class StatusMitraController extends Controller
     public function create()
     {
         return Inertia::render('StatusMitra/Add', [
-            'Projects' => Project::all(['id', 'id_sap']),
+            'Projects' => Project::all(['id', 'id_project']),
             'StatusPekerjaan' => StatusPekerjaan::all(['id', 'status_pekerjaan']),
             'StatusRekonMitra' => StatusRekonMitra::all(['id', 'status_rekon_mitra']),
             'StatusTagihanMitra' => StatusTagihanMitra::all(['id', 'status_tagihan_mitra']),

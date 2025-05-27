@@ -47,7 +47,7 @@ export default function AddStatusMitra({
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label htmlFor="project_id" className="block text-sm font-medium text-gray-700 mb-1">
-                            ID SAP (Project)
+                            ID Project
                         </label>
                         <select
                             id="project_id"
@@ -58,7 +58,7 @@ export default function AddStatusMitra({
                             <option value="">Pilih Project</option>
                             {Projects.map((project) => (
                                 <option key={project.id} value={project.id}>
-                                    {project.id_sap}
+                                    {project.id_project}
                                 </option>
                             ))}
                         </select>

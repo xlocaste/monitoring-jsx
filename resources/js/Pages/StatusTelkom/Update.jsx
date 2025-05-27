@@ -51,7 +51,7 @@ export default function Update({
                 <h2 className="text-xl font-bold mb-6">Edit Data Status Telkom</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label htmlFor="project_id" className="block text-sm font-medium text-gray-700 mb-1">Project</label>
+                        <label htmlFor="project_id" className="block text-sm font-medium text-gray-700 mb-1">ID Project</label>
                         <select
                             id="project_id"
                             value={data.project_id}
@@ -60,7 +60,7 @@ export default function Update({
                         >
                             <option value="">Pilih Project</option>
                             {Projects.map((project) => (
-                                <option key={project.id} value={project.id}>{project.id_sap}</option>
+                                <option key={project.id} value={project.id}>{project.id_project}</option>
                             ))}
                         </select>
                         {errors.project_id && <div className="text-red-500 text-sm mt-1">{errors.project_id}</div>}

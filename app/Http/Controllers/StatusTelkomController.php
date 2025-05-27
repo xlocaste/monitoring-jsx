@@ -149,7 +149,7 @@ class StatusTelkomController extends Controller
     {
         return Inertia::render('StatusTelkom/Update', [
             'statusTelkom' => $statusTelkom,
-            'Projects' => Project::all(['id', 'id_sap']),
+            'Projects' => Project::all(['id', 'id_project']),
             'StatusPo' => StatusPo::all(['id', 'status_po']),
             'StatusRekonTelkom' => StatusRekonTelkom::all(['id', 'status_rekon_telkom']),
             'StatusBastTelkom' => StatusBastTelkom::all(['id', 'status_bast_telkom']),
@@ -159,7 +159,7 @@ class StatusTelkomController extends Controller
     public function create()
     {
         return Inertia::render('StatusTelkom/Add', [
-            'Projects' => Project::all(['id', 'id_sap']),
+            'Projects' => Project::all(['id', 'id_project']),
             'StatusPo' => StatusPo::all(['id', 'status_po']),
             'StatusRekonTelkom' => StatusRekonTelkom::all(['id', 'status_rekon_telkom']),
             'StatusBastTelkom' => StatusBastTelkom::all(['id', 'status_bast_telkom']),

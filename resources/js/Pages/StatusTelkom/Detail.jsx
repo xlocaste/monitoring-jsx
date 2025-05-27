@@ -42,28 +42,6 @@ export default function Show({ auth, statusTelkom }) {
                     <DetailField label="Status Rekon Telkom" value={statusTelkom.status_rekon_telkom?.status_rekon_telkom} />
                     <DetailField label="Status BAST Telkom" value={statusTelkom.status_bast_telkom?.status_bast_telkom} />
                 </div>
-
-                <div className="flex gap-4 mt-6">
-                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
-                        <PrimaryButton>
-                            <Link href={route('status-telkom.edit', statusTelkom.id)} className="flex items-center gap-1">
-                                <FaRegEdit /> Edit
-                            </Link>
-                        </PrimaryButton>
-                    )}
-
-                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
-                    <SecondaryButton onClick={handleDelete} className="flex items-center gap-1 text-red-500 border-red-400 hover:bg-red-100">
-                        <FaTrash /> Hapus
-                    </SecondaryButton>
-                    )}
-
-                    <SecondaryButton>
-                        <Link href={route('status-telkom.index')}>
-                            Kembali ke Daftar
-                        </Link>
-                    </SecondaryButton>
-                </div>
             </div>
         </AuthenticatedLayout>
     );

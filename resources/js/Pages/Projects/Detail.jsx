@@ -71,20 +71,6 @@ export default function Detail({ auth, projects }) {
                         <p className="text-gray-900">{projects.uraian_pekerjaan}</p>
                     </div>
                 </div>
-
-                {auth?.user?.roles?.some(role => role.name === 'admin') && (
-                <div className="flex gap-4 mt-6">
-                    <PrimaryButton>
-                        <Link href={route('project.edit', projects.id_project)} className="flex items-center gap-1">
-                            <FaRegEdit /> Edit
-                        </Link>
-                    </PrimaryButton>
-
-                    <SecondaryButton onClick={handleDelete} className="flex items-center gap-1 text-red-500 border-red-400 hover:bg-red-100">
-                        <FaTrash /> Hapus
-                    </SecondaryButton>
-                </div>
-                )}
             </div>
         </AuthenticatedLayout>
     );

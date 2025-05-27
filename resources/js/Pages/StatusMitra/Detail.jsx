@@ -42,28 +42,6 @@ export default function Show({ auth, statusMitra }) {
                     <DetailField label="Status Tagihan Mitra" value={statusMitra.status_tagihan_mitra?.status_tagihan_mitra} />
                     <DetailField label="Keterangan Status Tagihan Mitra" value={statusMitra.ket_status_tagihan_mitra?.ket_status_tagihan_mitra} />
                 </div>
-
-                <div className="flex gap-4 mt-6">
-                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
-                        <PrimaryButton>
-                            <Link href={route('status-mitra.edit', statusMitra.id)} className="flex items-center gap-1">
-                                <FaRegEdit /> Edit
-                            </Link>
-                        </PrimaryButton>
-                    )}
-
-                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
-                        <SecondaryButton onClick={handleDelete} className="flex items-center gap-1 text-red-500 border-red-400 hover:bg-red-100">
-                            <FaTrash /> Hapus
-                        </SecondaryButton>
-                    )}
-
-                    <SecondaryButton>
-                        <Link href={route('status-mitra.index')}>
-                            Kembali ke Daftar
-                        </Link>
-                    </SecondaryButton>
-                </div>
             </div>
         </AuthenticatedLayout>
     );

@@ -15,13 +15,13 @@ export default function List({ auth, Mitra, filters }) {
     };
 
 
-        const handleSearch = (e) => {
-            e.preventDefault();
-            router.get(route('mitra.search'), { keyword }, {
-                preserveState: true,
-                replace: true,
-            });
-        };
+    const handleSearch = (e) => {
+        e.preventDefault();
+        router.get(route('mitra.search'), { keyword }, {
+            preserveState: true,
+            replace: true,
+        });
+    };
 
     const handleDelete = (id) => {
         if (confirm("Yakin ingin menghapus mitra ini?")) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, router } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -6,21 +6,42 @@ import SecondaryButton from '@/Components/SecondaryButton';
 import { FaTrash } from "react-icons/fa6";
 import { FaEye, FaRegEdit } from "react-icons/fa";
 
-export default function List({ auth, laporan }) {
+export default function List({ auth, laporan, filters }) {
     console.log(laporan)
+    const [keyword, setKeyword] = useState(filters?.keyword || '');
     const handlePageChange = (url) => {
         if (url) {
             router.visit(url);
         }
     };
 
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        router.get(route('laporan.search'), { keyword }, {
+            preserveState: true,
+            replace: true,
+        });
+    };
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Laporan" />
 
-            <div className="py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
-                <div className="">
-                    <div className='flex justify-end m-4'>
+            <div className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl">
+                <p className='mb-4 font-bold'>Laporan</p>
+                <div className="overflow-x-auto">
+                    <div className="flex justify-between my-4">
+                        <form onSubmit={handleSearch} className="flex gap-2 ml-1">
+                            <input
+                                type="text"
+                                value={keyword}
+                                onChange={(e) => setKeyword(e.target.value)}
+                                className="border-gray-300 rounded px-2 pr-60 py-1 text-sm"
+                                placeholder="Cari Data Mitra..."
+                            />
+                            <PrimaryButton type="submit" className="text-sm">Cari</PrimaryButton>
+                        </form>
                         {auth?.user?.roles?.some(role => role.name === 'admin') && (
                             <PrimaryButton>
                                 <Link href={route('laporan.create')}>

@@ -113,6 +113,7 @@ Route::prefix('/laporan')->name('laporan.')->group(function() {
         Route::delete('/{laporan}', [LaporanController::class, 'destroy'])->name('destroy');
         Route::get('/{laporan}/edit', [LaporanController::class, 'edit'])->name('edit');
         Route::get('/{laporan}/show', [LaporanController::class, 'show'])->name('show');
+        Route::get('/search', [LaporanController::class, 'search'])->name('search');
     });
     Route::get('/', [LaporanController::class, 'index'])->name('index');
 });

@@ -82,6 +82,33 @@ class LaporanController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $query = Laporan::with(['statusTelkom', 'statusMitra']);
+
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+
+            $query->where(function ($q) use ($keyword) {
+                $q->where('keterangan', 'like', '%' . $keyword . '%')
+                ->orWhere('status_telkom_id', 'like', '%' . $keyword . '%')
+                ->orWhere('status_mitra_id', 'like', '%' . $keyword . '%');
+            });
+        }
+
+        $filteredLaporan = $query->paginate(10)->appends(['keyword' => $request->keyword]);
+
+        return Inertia::render('Laporan/List', [
+            'laporan' => $filteredLaporan,
+            'filters' => [
+                'keyword' => $request->keyword,
+            ],
+            'auth' => [
+                'user' => Auth::user(),
+            ],
+        ]);
+    }
+
     public function edit(Laporan $laporan)
     {
         return Inertia::render('Laporan/Update', [

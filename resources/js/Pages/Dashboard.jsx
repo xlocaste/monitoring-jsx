@@ -4,8 +4,16 @@ import { AiFillDatabase } from 'react-icons/ai';
 import { BsFillClipboard2DataFill } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
 import { FaProjectDiagram } from 'react-icons/fa';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-export default function Dashboard({ auth, totalPic, totalMitra, totalProject, totalStatusMitra, totalStatusTelkom }) {
+export default function Dashboard({ auth, totalPic, totalMitra, totalProject, totalStatusMitra, totalStatusTelkom, monthlyChartData }) {
+    const chartData = [
+        { name: 'Status Telkom', value: totalStatusTelkom },
+        { name: 'Status Mitra', value: totalStatusMitra },
+    ];
+
+    const COLORS = ['#e11d48', '#f87171'];
+
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -48,6 +56,20 @@ export default function Dashboard({ auth, totalPic, totalMitra, totalProject, to
                     </div>
                     <h3 className="text-lg text-gray-700 font-bold relative z-10">Status Telkom</h3>
                     <p className="text-lg font-bold text-gray-700 relative z-10">{totalStatusTelkom}</p>
+                </div>
+                <div className="lg:col-span-5 col-span-1 bg-white p-4 rounded shadow">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-4">Perbandingan Status per Bulan</h3>
+                    <ResponsiveContainer width="100%" height={350}>
+                        <BarChart data={monthlyChartData}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="month" />
+                            <YAxis allowDecimals={false} />
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="Status Telkom" fill="#e11d48" />
+                            <Bar dataKey="Status Mitra" fill="#f87171" />
+                        </BarChart>
+                    </ResponsiveContainer>
                 </div>
             </div>
         </AuthenticatedLayout>

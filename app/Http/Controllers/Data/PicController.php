@@ -7,10 +7,12 @@ use App\Models\Mitra;
 use App\Models\Project;
 use App\Models\StatusMitra;
 use App\Models\StatusTelkom;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Pic;
 use App\Http\Requests\Data\PIC\StoreRequest;
 use App\Http\Requests\Data\PIC\UpdateRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -110,10 +112,33 @@ class PicController extends Controller
 
     public function dashboard()
     {
+        $statusTelkomMonthly = DB::table('status_telkom')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+            ->whereYear('created_at', now()->year)
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
+
+        $statusMitraMonthly = DB::table('status_mitra')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+            ->whereYear('created_at', now()->year)
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
+
+        $monthlyData = collect(range(1, 12))->map(function ($month) use ($statusTelkomMonthly, $statusMitraMonthly) {
+            return [
+                'month' => Carbon::create()->month($month)->format('M'),
+                'Status Telkom' => $statusTelkomMonthly->firstWhere('month', $month)->total ?? 0,
+                'Status Mitra' => $statusMitraMonthly->firstWhere('month', $month)->total ?? 0,
+            ];
+        });
+
         return Inertia::render('Dashboard', [
             'auth' => [
                 'user' => auth()->user()
             ],
+            'monthlyChartData' => $monthlyData,
             'totalPic' => Pic::count(),
             'totalMitra' => Mitra::count(),
             'totalProject' => Project::count(),

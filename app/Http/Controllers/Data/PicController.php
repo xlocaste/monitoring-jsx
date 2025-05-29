@@ -112,33 +112,25 @@ class PicController extends Controller
 
     public function dashboard()
     {
-        $statusTelkomMonthly = DB::table('status_telkom')
-            ->selectRaw('MONTH(created_at) as month, COUNT(*) as total')
-            ->whereYear('created_at', now()->year)
-            ->groupBy('month')
-            ->orderBy('month')
+        $nilaiPerMitra = DB::table('status_telkom')
+            ->join('project', 'status_telkom.project_id', '=', 'project.id')
+            ->join('mitra', 'project.mitra_id', '=', 'mitra.id')
+            ->select(
+                'mitra.nama_mitra as mitra',
+                DB::raw('SUM(nilai_sp_telkom) as nilai_sp_telkom'),
+                DB::raw('SUM(nilai_rekon_telkom) as nilai_rekon_telkom'),
+                DB::raw('SUM(gap_selisih) as gap_selisih')
+            )
+            ->groupBy('mitra.id', 'mitra.nama_mitra')
+            ->orderByDesc(DB::raw('SUM(nilai_sp_telkom)'))
+            ->limit(5)
             ->get();
-
-        $statusMitraMonthly = DB::table('status_mitra')
-            ->selectRaw('MONTH(created_at) as month, COUNT(*) as total')
-            ->whereYear('created_at', now()->year)
-            ->groupBy('month')
-            ->orderBy('month')
-            ->get();
-
-        $monthlyData = collect(range(1, 12))->map(function ($month) use ($statusTelkomMonthly, $statusMitraMonthly) {
-            return [
-                'month' => Carbon::create()->month($month)->format('M'),
-                'Status Telkom' => $statusTelkomMonthly->firstWhere('month', $month)->total ?? 0,
-                'Status Mitra' => $statusMitraMonthly->firstWhere('month', $month)->total ?? 0,
-            ];
-        });
 
         return Inertia::render('Dashboard', [
             'auth' => [
                 'user' => auth()->user()
             ],
-            'monthlyChartData' => $monthlyData,
+            'nilaiPerMitra' => $nilaiPerMitra,
             'totalPic' => Pic::count(),
             'totalMitra' => Mitra::count(),
             'totalProject' => Project::count(),

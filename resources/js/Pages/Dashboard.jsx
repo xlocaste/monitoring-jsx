@@ -6,13 +6,13 @@ import { CgProfile } from 'react-icons/cg';
 import { FaProjectDiagram } from 'react-icons/fa';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-export default function Dashboard({ auth, totalPic, totalMitra, totalProject, totalStatusMitra, totalStatusTelkom, monthlyChartData }) {
-    const chartData = [
-        { name: 'Status Telkom', value: totalStatusTelkom },
-        { name: 'Status Mitra', value: totalStatusMitra },
-    ];
-
-    const COLORS = ['#e11d48', '#f87171'];
+export default function Dashboard({ auth, totalPic, totalMitra, totalProject, totalStatusMitra, totalStatusTelkom, nilaiPerMitra }) {
+    const chartNilaiPerMitra = nilaiPerMitra.map(item => ({
+        mitra: item.mitra,
+        nilai_sp_telkom: item.nilai_sp_telkom,
+        nilai_rekon_telkom: item.nilai_rekon_telkom,
+        gap_selisih: item.gap_selisih,
+    }));
 
     return (
         <AuthenticatedLayout
@@ -58,16 +58,16 @@ export default function Dashboard({ auth, totalPic, totalMitra, totalProject, to
                     <p className="text-lg font-bold text-gray-700 relative z-10">{totalStatusTelkom}</p>
                 </div>
                 <div className="lg:col-span-5 col-span-1 bg-white p-4 rounded shadow">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4">Perbandingan Status per Bulan</h3>
-                    <ResponsiveContainer width="100%" height={350}>
-                        <BarChart data={monthlyChartData}>
+                    <ResponsiveContainer width="100%" height={400}>
+                        <BarChart data={chartNilaiPerMitra}>
                             <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="month" />
-                            <YAxis allowDecimals={false} />
+                            <XAxis dataKey="mitra" angle={0} textAnchor="end" interval={0} />
+                            <YAxis />
                             <Tooltip />
                             <Legend />
-                            <Bar dataKey="Status Telkom" fill="#e11d48" />
-                            <Bar dataKey="Status Mitra" fill="#f87171" />
+                            <Bar dataKey="nilai_sp_telkom" fill="#e11d48" name="SP Telkom" />
+                            <Bar dataKey="nilai_rekon_telkom" fill="#f87171" name="Rekon Telkom" />
+                            <Bar dataKey="gap_selisih" fill="#fbbf24" name="Gap Selisih" />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>

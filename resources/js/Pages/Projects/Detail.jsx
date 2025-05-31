@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, router } from '@inertiajs/react';
-import PrimaryButton from '@/Components/PrimaryButton';
-import SecondaryButton from '@/Components/SecondaryButton';
-import { FaRegEdit, FaTrash } from 'react-icons/fa';
 
 export default function Detail({ auth, projects }) {
     console.log(projects)
-    const [redirectUrl, setRedirectUrl] = useState('');
-
-    const handleDelete = () => {
-        if (confirm('Yakin ingin menghapus data ini?')) {
-            router.delete(route('project.destroy', projects.id_project));
-        }
-    };
 
     return (
         <AuthenticatedLayout user={auth.user}>
@@ -61,10 +51,6 @@ export default function Detail({ auth, projects }) {
                     <div>
                         <span className="font-semibold text-gray-700">Lokasi WO LOP:</span>
                         <p className="text-gray-900">{projects.lokasi_wo_lop}</p>
-                    </div>
-                    <div>
-                        <span className="font-semibold text-gray-700">No Kontrak:</span>
-                        <p className="text-gray-900">{projects.no_kontrak}</p>
                     </div>
                     <div>
                         <span className="font-semibold text-gray-700">Uraian Pekerjaan:</span>

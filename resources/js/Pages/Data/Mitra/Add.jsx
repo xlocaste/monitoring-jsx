@@ -7,6 +7,7 @@ export default function Add({ auth }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         nama_mitra: '',
         tipe_kemitraan: '',
+        no_kontrak: '',
         gl_account: '',
     });
 
@@ -53,6 +54,22 @@ export default function Add({ auth }) {
                         />
                         {errors.tipe_kemitraan && (
                             <div className="text-red-500 text-sm mt-1">{errors.tipe_kemitraan}</div>
+                        )}
+                    </div>
+
+                    <div>
+                        <label htmlFor="no_kontrak" className="block text-sm font-medium text-gray-700 mb-1">
+                            No Kontrak
+                        </label>
+                        <input
+                            id="no_kontrak"
+                            type="text"
+                            value={data.no_kontrak}
+                            onChange={(e) => setData('no_kontrak', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.no_kontrak && (
+                            <div className="text-red-500 text-sm mt-1">{errors.no_kontrak}</div>
                         )}
                     </div>
 

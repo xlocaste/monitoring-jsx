@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_mitra');
             $table->string('tipe_kemitraan');
             $table->string('gl_account');
+            $table->string('no_kontrak');
             $table->timestamps();
         });
     }

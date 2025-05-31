@@ -15,7 +15,6 @@ export default function Update({ auth, project, Tematik, Sto, Pic, Mitra }) {
         tahun: project.tahun || '',
         bulan: project.bulan || '',
         lokasi_wo_lop: project.lokasi_wo_lop || '',
-        no_kontrak: project.no_kontrak || '',
         uraian_pekerjaan: project.uraian_pekerjaan || '',
     });
 
@@ -101,7 +100,6 @@ export default function Update({ auth, project, Tematik, Sto, Pic, Mitra }) {
                         { id: 'tahun', label: 'Tahun' },
                         { id: 'bulan', label: 'Bulan' },
                         { id: 'lokasi_wo_lop', label: 'Lokasi WO LOP' },
-                        { id: 'no_kontrak', label: 'No Kontrak' },
                         { id: 'uraian_pekerjaan', label: 'Uraian Pekerjaan' },
                     ].map((field) => (
                         <div key={field.id}>

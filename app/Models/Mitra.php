@@ -15,6 +15,7 @@ class Mitra extends Model
         'nama_mitra',
         'tipe_kemitraan',
         'gl_account',
+        'no_kontrak',
     ];
 
     public function project()

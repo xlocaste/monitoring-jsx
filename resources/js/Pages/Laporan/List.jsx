@@ -4,7 +4,7 @@ import { Head, Link, router } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SecondaryButton from '@/Components/SecondaryButton';
 import { FaTrash } from "react-icons/fa6";
-import { FaEye, FaRegEdit } from "react-icons/fa";
+import { FaEye, FaPrint, FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, laporan, filters }) {
     console.log(laporan)
@@ -87,6 +87,14 @@ export default function List({ auth, laporan, filters }) {
                                                         <FaTrash />
                                                     </Link>
                                                     )}
+                                                    <Link
+                                                        href={route('laporan.show', item.id)}
+                                                        className="text-green-600"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        <FaPrint />
+                                                    </Link>
                                                 </div>
                                             </td>
                                         </tr>

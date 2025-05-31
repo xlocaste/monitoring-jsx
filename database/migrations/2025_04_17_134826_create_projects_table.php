@@ -22,7 +22,6 @@ return new class extends Migration
             $table->year('tahun');
             $table->string('bulan');
             $table->string('lokasi_wo_lop');
-            $table->string('no_kontrak');
             $table->string('uraian_pekerjaan');
             $table->timestamps();
 

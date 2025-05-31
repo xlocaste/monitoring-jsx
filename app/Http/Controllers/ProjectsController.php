@@ -50,7 +50,6 @@ class ProjectsController extends Controller
             'tahun' => $request -> tahun,
             'bulan' => $request -> bulan,
             'lokasi_wo_lop' => $request -> lokasi_wo_lop,
-            'no_kontrak' => $request -> no_kontrak,
             'uraian_pekerjaan' => $request -> uraian_pekerjaan,
         ]);
 
@@ -69,7 +68,6 @@ class ProjectsController extends Controller
             'tahun' => $request -> tahun,
             'bulan' => $request -> bulan,
             'lokasi_wo_lop' => $request -> lokasi_wo_lop,
-            'no_kontrak' => $request -> no_kontrak,
             'uraian_pekerjaan' => $request -> uraian_pekerjaan,
         ]);
 
@@ -96,7 +94,6 @@ class ProjectsController extends Controller
                 ->orWhere('tahun', 'like', '%' . $keyword . '%')
                 ->orWhere('bulan', 'like', '%' . $keyword . '%')
                 ->orWhere('lokasi_wo_lop', 'like', '%' . $keyword . '%')
-                ->orWhere('no_kontrak', 'like', '%' . $keyword . '%')
                 ->orWhere('uraian_pekerjaan', 'like', '%' . $keyword . '%');
             });
         }

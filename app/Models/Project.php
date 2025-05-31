@@ -21,7 +21,6 @@ class Project extends Model
         'tahun',
         'bulan',
         'lokasi_wo_lop',
-        'no_kontrak',
         'uraian_pekerjaan',
     ];
 

@@ -14,7 +14,6 @@ export default function AddProject({ auth, Sto, Tematik, Pic, Mitra }) {
         tahun: '',
         bulan: '',
         lokasi_wo_lop: '',
-        no_kontrak: '',
         uraian_pekerjaan: '',
     });
 
@@ -75,7 +74,6 @@ export default function AddProject({ auth, Sto, Tematik, Pic, Mitra }) {
                     { id: 'tahun', label: 'Tahun' },
                     { id: 'bulan', label: 'Bulan' },
                     { id: 'lokasi_wo_lop', label: 'Lokasi WO LOP' },
-                    { id: 'no_kontrak', label: 'No Kontrak' },
                     { id: 'uraian_pekerjaan', label: 'Uraian Pekerjaan' },
                 ].map((field) => (
                     <div key={field.id}>

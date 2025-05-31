@@ -7,7 +7,7 @@ import { FaTrash } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, Pic, filters }) {
-    console.log(auth)
+    console.log(Pic)
     const [keyword, setKeyword] = useState(filters?.keyword || '');
 
     const handleSearch = (e) => {

@@ -24,7 +24,6 @@ class ProjectSeeder extends Seeder
                 'tahun' => 2023,
                 'bulan' => 'Oktober',
                 'lokasi_wo_lop' => 'MTEL-XL-PTK-2023-DF001 WO#38 Pontianak',
-                'no_kontrak' => '01026/HK.810/TA-370000/11-2021 Tanggal 01 November 2021' . rand(1000, 9999),
                 'uraian_pekerjaan' => 'Pengadaan Penarikan Dan Pemasangan OSP FO MTEL WO#38 WO#39 Pontianak WITEL KALBAR',
             ],
             [
@@ -37,7 +36,6 @@ class ProjectSeeder extends Seeder
                 'tahun' => 2023,
                 'bulan' => 'Oktober',
                 'lokasi_wo_lop' => 'PT2P-STG-FU-RUMAH BUPATI',
-                'no_kontrak' => '00964/HK.810/TA-370000/11-2021 Tanggal 01 November 2021' . rand(1000, 9999),
                 'uraian_pekerjaan' => 'Pengadaan Penarikan Dan Pemasangan OSP FO HEM RUMAH BUPATI & REPAIR PT JAYA CM (BAI)  WITEL KALBAR',
             ],
             [
@@ -50,7 +48,6 @@ class ProjectSeeder extends Seeder
                 'tahun' => 2023,
                 'bulan' => 'Oktober',
                 'lokasi_wo_lop' => 'REPAIR PT JAYA CM (BAI)',
-                'no_kontrak' => '00964/HK.810/TA-370000/11-2021 Tanggal 01 November 2021' . rand(1000, 9999),
                 'uraian_pekerjaan' => 'Pengadaan Penarikan Dan Pemasangan OSP FO HEM RUMAH BUPATI & REPAIR PT JAYA CM (BAI)  WITEL KALBAR',
             ],
             [
@@ -63,7 +60,6 @@ class ProjectSeeder extends Seeder
                 'tahun' => 2023,
                 'bulan' => 'Oktober',
                 'lokasi_wo_lop' => 'HEM223-PMK-FE-PELABUHAN SINTETE',
-                'no_kontrak' => '00553/HK.810/TA-370000/11-2021 Tanggal 1 November 2021' . rand(1000, 9999),
                 'uraian_pekerjaan' => 'Pengadaan Penarikan Dan Pemasangan OSP FO HEM FIF SEKURA, AVIA AVIAN DAN PELABUHAN SINTETE WITEL KALBAR',
             ],
         ]);

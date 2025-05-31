@@ -28,6 +28,7 @@ class MitraController extends Controller
             'nama_mitra'=>$request->nama_mitra,
             'tipe_kemitraan'=>$request->tipe_kemitraan,
             'gl_account'=>$request->gl_account,
+            'no_kontrak'=>$request->no_kontrak,
         ]);
 
         return redirect()->route('mitra.index');
@@ -39,6 +40,7 @@ class MitraController extends Controller
             'nama_mitra'=>$request->nama_mitra,
             'tipe_kemitraan'=>$request->tipe_kemitraan,
             'gl_account'=>$request->gl_account,
+            'no_kontrak'=>$request->no_kontrak,
         ]);
 
         return redirect()->route('mitra.index');
@@ -60,6 +62,7 @@ class MitraController extends Controller
             $query->where(function ($q) use ($keyword) {
                 $q->where('nama_mitra', 'like', '%' . $keyword . '%')
                 ->orWhere('tipe_kemitraan', 'like', '%' . $keyword . '%')
+                ->orWhere('no_kontrak', 'like', '%' . $keyword . '%')
                 ->orWhere('gl_account', 'like', '%' . $keyword . '%');
             });
         }

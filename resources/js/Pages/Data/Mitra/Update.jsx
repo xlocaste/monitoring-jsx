@@ -9,6 +9,7 @@ export default function Update({ auth, mitra }) {
         nama_mitra: mitra.nama_mitra || '',
         tipe_kemitraan: mitra.tipe_kemitraan || '',
         gl_account: mitra.gl_account || '',
+        no_kontrak: mitra.no_kontrak || '',
     });
 
     const handleSubmit = (e) => {
@@ -43,6 +44,17 @@ export default function Update({ auth, mitra }) {
                             className="w-full mt-1 p-2 border border-gray-300 rounded-md"
                         />
                         {errors.tipe_kemitraan && <div className="text-red-500 text-sm">{errors.tipe_kemitraan}</div>}
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">No Kontrak</label>
+                        <input
+                            type="text"
+                            value={data.no_kontrak}
+                            onChange={(e) => setData('no_kontrak', e.target.value)}
+                            className="w-full mt-1 p-2 border border-gray-300 rounded-md"
+                        />
+                        {errors.no_kontrak && <div className="text-red-500 text-sm">{errors.no_kontrak}</div>}
                     </div>
 
                     <div>

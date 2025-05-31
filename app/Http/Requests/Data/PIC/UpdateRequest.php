@@ -25,6 +25,7 @@ class UpdateRequest extends FormRequest
             'pic_admin'=>['required'],
             'pic_project'=>['required'],
             'waspang_ta'=>['required'],
+            'no_kontrak'=>['required'],
         ];
     }
 }

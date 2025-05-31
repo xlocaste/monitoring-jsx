@@ -30,8 +30,7 @@ class StoreRequest extends FormRequest
             'id_sap' => ['required'], 
             'tahun' => ['required'], 
             'bulan' => ['required'], 
-            'lokasi_wo_lop' => ['required'], 
-            'no_kontrak' => ['required'], 
+            'lokasi_wo_lop' => ['required'],
             'uraian_pekerjaan' => ['required'], 
         ];
     }

@@ -39,7 +39,7 @@ export default function Show({ auth, Laporan }) {
                     <DetailField label="Tahun" value={Laporan.status_telkom?.project?.tahun} />
                     <DetailField label="Bulan" value={Laporan.status_telkom?.project?.bulan} />
                     <DetailField label="Lokasi WO LOP" value={Laporan.status_telkom?.project?.lokasi_wo_lop} />
-                    <DetailField label="No Kontrak" value={Laporan.status_telkom?.project?.no_kontrak} />
+                    <DetailField label="No Kontrak" value={Laporan.status_telkom?.project?.mitra?.no_kontrak} />
                     <DetailField label="Uraian Pekerjaan" value={Laporan.status_telkom?.project?.uraian_pekerjaan} />
                     <DetailField label="ID Status Telkom" value={Laporan.status_telkom?.id_status_telkom} />
                     <DetailField label="Project" value={Laporan.status_mitra?.project?.id_project} />

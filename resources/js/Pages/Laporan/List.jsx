@@ -87,14 +87,14 @@ export default function List({ auth, laporan, filters }) {
                                                         <FaTrash />
                                                     </Link>
                                                     )}
-                                                    <Link
+                                                    <a
                                                         href={route('laporan.pdf', item.id)}
                                                         className="text-green-600"
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                     >
                                                         <FaPrint />
-                                                    </Link>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>

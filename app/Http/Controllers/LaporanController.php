@@ -128,9 +128,9 @@ class LaporanController extends Controller
             'statusTelkom.project.tematik',
         ]);
 
-        $pdf = Pdf::loadView('pdf.laporan', compact('laporan'))->setPaper('f4', 'potrait');
+        $pdf = Pdf::loadView('pdf.laporan', compact('laporan'))->setPaper('f4', 'portrait');
 
-        return $pdf->stream('laporan.pdf');
+        return $pdf->stream('laporan_' . $laporan->id . '.pdf');
     }
 
     public function edit(Laporan $laporan)

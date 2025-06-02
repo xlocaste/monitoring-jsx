@@ -7,7 +7,7 @@
 </head>
 <body>
     <div style="text-align: right">
-        <img src="{{ public_path('images/logo.png') }}" alt="" class="logo">
+        <img src="images/logo.png" alt="" class="logo">
     </div>
     <table>
         <thead>

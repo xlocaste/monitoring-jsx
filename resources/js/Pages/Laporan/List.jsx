@@ -88,7 +88,7 @@ export default function List({ auth, laporan, filters }) {
                                                     </Link>
                                                     )}
                                                     <Link
-                                                        href={route('laporan.show', item.id)}
+                                                        href={route('laporan.pdf', item.id)}
                                                         className="text-green-600"
                                                         target="_blank"
                                                         rel="noopener noreferrer"

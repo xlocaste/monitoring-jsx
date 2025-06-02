@@ -108,6 +108,7 @@ Route::prefix('/status-telkom')->name('status-telkom.')->group(function() {
 Route::prefix('/laporan')->name('laporan.')->group(function() {
     Route::group(['middleware' => ['auth']], function() {
         Route::get('/create', [LaporanController::class, 'create'])->name('create');
+        Route::get('/print/{laporan}', [LaporanController::class, 'pdf'])->name('pdf');
         Route::post('/', [LaporanController::class, 'store'])->name('store');
         Route::put('/{laporan}', [LaporanController::class, 'update'])->name('update');
         Route::delete('/{laporan}', [LaporanController::class, 'destroy'])->name('destroy');

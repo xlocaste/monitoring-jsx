@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Models\Laporan;
 use App\Models\StatusTelkom;
@@ -107,6 +108,29 @@ class LaporanController extends Controller
                 'user' => Auth::user(),
             ],
         ]);
+    }
+
+    public function pdf(Laporan $laporan)
+    {
+        $laporan->load([
+            'statusMitra.project',
+            'statusMitra.statusPekerjaan',
+            'statusMitra.statusRekonMitra',
+            'statusMitra.statusTagihanMitra',
+            'statusMitra.ketStatusTagihanMitra',
+            'statusTelkom.project',
+            'statusTelkom.statusPo',
+            'statusTelkom.statusRekonTelkom',
+            'statusTelkom.statusBastTelkom',
+            'statusTelkom.project.pic',
+            'statusTelkom.project.mitra',
+            'statusTelkom.project.sto',
+            'statusTelkom.project.tematik',
+        ]);
+
+        $pdf = Pdf::loadView('pdf.laporan', compact('laporan'))->setPaper('f4', 'potrait');
+
+        return $pdf->stream('laporan.pdf');
     }
 
     public function edit(Laporan $laporan)

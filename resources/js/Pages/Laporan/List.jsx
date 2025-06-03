@@ -87,6 +87,7 @@ export default function List({ auth, laporan, filters }) {
                                                         <FaTrash />
                                                     </Link>
                                                     )}
+                                                    {auth?.user?.roles?.some(role => role.name === 'admin') && (
                                                     <a
                                                         href={route('laporan.pdf', item.id)}
                                                         className="text-green-600"
@@ -95,6 +96,7 @@ export default function List({ auth, laporan, filters }) {
                                                     >
                                                         <FaPrint />
                                                     </a>
+                                                    )}
                                                 </div>
                                             </td>
                                         </tr>

@@ -34,6 +34,8 @@ export default function AddStatusMitra({
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
+        if (!confirmed) return;
         post(route('status-mitra.store'), {
             onSuccess: () => reset(),
         });

@@ -13,6 +13,8 @@ export default function Update({ auth, laporan, StatusTelkom, StatusMitra }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
+        if (!confirmed) return;
         put(route('laporan.update', laporan.id));
     };
 

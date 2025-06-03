@@ -14,6 +14,8 @@ export default function Update({ auth, mitra }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
+        if (!confirmed) return;
         put(route('mitra.update', mitra.id));
     };
 

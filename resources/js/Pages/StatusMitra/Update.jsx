@@ -27,6 +27,8 @@ export default function Update({ auth, statusMitra, Projects, StatusPekerjaan, S
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
+        if (!confirmed) return;
         put(route('status-mitra.update', statusMitra.id));
     };
 

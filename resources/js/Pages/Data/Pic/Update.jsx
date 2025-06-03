@@ -13,6 +13,8 @@ export default function Update({ auth, pic }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
+        if (!confirmed) return;
         put(route('pic.update', pic.id));
     };
 
@@ -55,7 +57,7 @@ export default function Update({ auth, pic }) {
                         {errors.waspang_ta && <div className="text-red-500 text-sm">{errors.waspang_ta}</div>}
                     </div>
 
-                    <div className='flex justify-end mt-4'> 
+                    <div className='flex justify-end mt-4'>
                         <PrimaryButton type="submit" disabled={processing}>
                             Simpan Perubahan
                         </PrimaryButton>

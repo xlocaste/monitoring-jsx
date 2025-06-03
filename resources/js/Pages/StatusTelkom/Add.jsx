@@ -34,6 +34,8 @@ export default function AddStatusTelkom({
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
+        if (!confirmed) return;
         post(route('status-telkom.store'), {
             onSuccess: () => reset(),
         });

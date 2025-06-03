@@ -12,6 +12,8 @@ export default function Add({ auth, StatusTelkom, StatusMitra }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
+        if (!confirmed) return;
         post(route('laporan.store'), {
             onSuccess: () => reset(),
         });

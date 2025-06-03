@@ -19,6 +19,8 @@ export default function AddProject({ auth, Sto, Tematik, Pic, Mitra }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
+        if (!confirmed) return;
         post(route('project.store'), {
             onSuccess: () => reset(),
         });

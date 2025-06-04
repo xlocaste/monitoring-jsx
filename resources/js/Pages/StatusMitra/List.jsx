@@ -18,7 +18,7 @@ export default function List({ auth, statusMitra, filters }) {
     };
 
     const handlePageChange = (url) => {
-        if (url) {
+        if (url)
             router.visit(url);
         }
     };
@@ -145,4 +145,3 @@ export default function List({ auth, statusMitra, filters }) {
             </div>
         </AuthenticatedLayout>
     );
-}

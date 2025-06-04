@@ -62,7 +62,7 @@ export default function Dashboard({ auth, totalPic, totalMitra, totalProject, to
                         <BarChart data={chartNilaiPerMitra}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="mitra" angle={0} textAnchor="end" interval={0} />
-                            <YAxis />
+                            <YAxis angle={-70}/>
                             <Tooltip />
                             <Legend />
                             <Bar dataKey="nilai_sp_telkom" fill="#e11d48" name="SP Telkom" />

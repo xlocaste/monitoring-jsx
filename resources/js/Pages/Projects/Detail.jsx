@@ -56,6 +56,18 @@ export default function Detail({ auth, projects }) {
                         <span className="font-semibold text-gray-700">Uraian Pekerjaan:</span>
                         <p className="text-gray-900">{projects.uraian_pekerjaan}</p>
                     </div>
+                    <div>
+                        <span className="font-semibold text-gray-700">No Kontrak:</span>
+                        <p className="text-gray-900">{projects.mitra.no_kontrak}</p>
+                    </div>
+                    <div>
+                        <span className="font-semibold text-gray-700">Tipe Kemitraan:</span>
+                        <p className="text-gray-900">{projects.mitra.tipe_kemitraan}</p>
+                    </div>
+                    <div>
+                        <span className="font-semibold text-gray-700">GL Account:</span>
+                        <p className="text-gray-900">{projects.mitra.gl_account}</p>
+                    </div>
                 </div>
             </div>
         </AuthenticatedLayout>

@@ -64,7 +64,7 @@ export default function AddProject({ auth, Sto, Tematik, Pic, Mitra }) {
                         <option value="">Pilih Mitra</option>
                         {Mitra.map((mitra) => (
                             <option key={mitra.id} value={mitra.id}>
-                                {mitra.nama_mitra}
+                                {mitra.nama_mitra} - {mitra.tipe_kemitraan}
                             </option>
                         ))}
                     </select>

@@ -118,7 +118,7 @@ class ProjectsController extends Controller
             'Tematik' => Tematik::all(),
             'Sto' => Sto::all(['id', 'sto']),
             'Pic' => Pic::all(),
-            'Mitra' => Mitra::all(['id', 'nama_mitra']),
+            'Mitra' => Mitra::all(),
         ]);
     }
 

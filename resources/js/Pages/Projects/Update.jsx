@@ -58,7 +58,9 @@ export default function Update({ auth, project, Tematik, Sto, Pic, Mitra }) {
                         >
                             <option value="">Pilih Mitra</option>
                             {Mitra.map((mitra) => (
-                                <option key={mitra.id} value={mitra.id}>{mitra.nama_mitra}</option>
+                                <option key={mitra.id} value={mitra.id}>
+                                    {mitra.nama_mitra} - {mitra.tipe_kemitraan}
+                                </option>
                             ))}
                         </select>
                         {errors.mitra_id && <div className="text-red-500 text-sm mt-1">{errors.mitra_id}</div>}

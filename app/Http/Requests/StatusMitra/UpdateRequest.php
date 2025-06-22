@@ -32,7 +32,7 @@ class UpdateRequest extends FormRequest
             'toc_mitra' => ['required'],
             'material_mitra' => ['required'],
             'jasa_mitra' => ['required'],
-            'nilai_sp_mitra' => ['required', 'numeric'],
+            'nilai_sp_mitra' => ['required'],
             'rekon_material_mitra' => ['required'],
             'rekon_jasa_mitra' => ['required'],
             'nilai_rekon_mitra' => ['required'],

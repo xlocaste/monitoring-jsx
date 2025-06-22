@@ -4,6 +4,7 @@ import { Head, useForm } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 
 export default function Update({ auth, statusMitra, Projects, StatusPekerjaan, StatusRekonMitra, StatusTagihanMitra, KetStatusTagihanMitra }) {
+    console.log(statusMitra)
     const { data, setData, put, processing, errors } = useForm({
         project_id: statusMitra.project_id || '',
         id_status_mitra: statusMitra.id_status_mitra || '',
@@ -29,7 +30,15 @@ export default function Update({ auth, statusMitra, Projects, StatusPekerjaan, S
         e.preventDefault();
         const confirmed = window.confirm("Apakah Anda yakin ingin menyimpan data ini?");
         if (!confirmed) return;
-        put(route('status-mitra.update', statusMitra.id));
+
+        const cleanedData = {
+            ...data,
+            nilai_sp_mitra: data.nilai_sp_mitra.replace(/\./g, ''),
+        };
+
+        put(route('status-mitra.update', statusMitra.id), {
+            data: cleanedData,
+        });
     };
 
     return (
@@ -101,6 +110,114 @@ export default function Update({ auth, statusMitra, Projects, StatusPekerjaan, S
                             className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         />
                         {errors.no_po_mitra && <div className="text-red-500 text-sm mt-1">{errors.no_po_mitra}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="id_pr" className="block text-sm font-medium text-gray-700 mb-1">ID PR</label>
+                        <input
+                            id="id_pr"
+                            type="text"
+                            value={data.id_pr}
+                            onChange={(e) => setData('id_pr', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.id_pr && <div className="text-red-500 text-sm mt-1">{errors.id_pr}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="id_gr" className="block text-sm font-medium text-gray-700 mb-1">ID GR</label>
+                        <input
+                            id="id_gr"
+                            type="text"
+                            value={data.id_gr}
+                            onChange={(e) => setData('id_gr', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.id_gr && <div className="text-red-500 text-sm mt-1">{errors.id_gr}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="toc_mitra" className="block text-sm font-medium text-gray-700 mb-1">TOC Mitra</label>
+                        <input
+                            id="toc_mitra"
+                            type="text"
+                            value={data.toc_mitra}
+                            onChange={(e) => setData('toc_mitra', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.toc_mitra && <div className="text-red-500 text-sm mt-1">{errors.toc_mitra}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="material_mitra" className="block text-sm font-medium text-gray-700 mb-1">Material Mitra</label>
+                        <input
+                            id="material_mitra"
+                            type="text"
+                            value={data.material_mitra}
+                            onChange={(e) => setData('material_mitra', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.material_mitra && <div className="text-red-500 text-sm mt-1">{errors.material_mitra}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="jasa_mitra" className="block text-sm font-medium text-gray-700 mb-1">Jasa Mitra</label>
+                        <input
+                            id="jasa_mitra"
+                            type="text"
+                            value={data.jasa_mitra}
+                            onChange={(e) => setData('jasa_mitra', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.jasa_mitra && <div className="text-red-500 text-sm mt-1">{errors.jasa_mitra}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="nilai_sp_mitra" className="block text-sm font-medium text-gray-700 mb-1">Nilai SP Mitra</label>
+                        <input
+                            id="nilai_sp_mitra"
+                            type="text"
+                            value={data.nilai_sp_mitra}
+                            onChange={(e) => setData('nilai_sp_mitra', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.nilai_sp_mitra && <div className="text-red-500 text-sm mt-1">{errors.nilai_sp_mitra}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="rekon_material_mitra" className="block text-sm font-medium text-gray-700 mb-1">Rekon Material Mitra</label>
+                        <input
+                            id="rekon_material_mitra"
+                            type="text"
+                            value={data.rekon_material_mitra}
+                            onChange={(e) => setData('rekon_material_mitra', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.rekon_material_mitra && <div className="text-red-500 text-sm mt-1">{errors.rekon_material_mitra}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="rekon_jasa_mitra" className="block text-sm font-medium text-gray-700 mb-1">Rekon Jasa Mitra</label>
+                        <input
+                            id="rekon_jasa_mitra"
+                            type="text"
+                            value={data.rekon_jasa_mitra}
+                            onChange={(e) => setData('rekon_jasa_mitra', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.rekon_jasa_mitra && <div className="text-red-500 text-sm mt-1">{errors.rekon_jasa_mitra}</div>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="nilai_rekon_mitra" className="block text-sm font-medium text-gray-700 mb-1">Nilai Rekon Mitra</label>
+                        <input
+                            id="nilai_rekon_mitra"
+                            type="text"
+                            value={data.nilai_rekon_mitra}
+                            onChange={(e) => setData('nilai_rekon_mitra', e.target.value)}
+                            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                        {errors.nilai_rekon_mitra && <div className="text-red-500 text-sm mt-1">{errors.nilai_rekon_mitra}</div>}
                     </div>
 
                     <div>

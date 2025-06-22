@@ -285,7 +285,11 @@ export default function Update({
                         {errors.bulan_bast_telkom && <div className="text-red-500 text-sm mt-1">{errors.bulan_bast_telkom}</div>}
                     </div>
 
-                    <PrimaryButton type="submit" disabled={processing}>Simpan</PrimaryButton>
+                    <div className="flex justify-end mt-6">
+                        <PrimaryButton type="submit" disabled={processing}>
+                            Update
+                        </PrimaryButton>
+                    </div>
                 </form>
             </div>
         </AuthenticatedLayout>

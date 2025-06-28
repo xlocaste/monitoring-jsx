@@ -54,7 +54,6 @@ export default function List({ auth, statusMitra, filters }) {
                             <thead className="bg-gray-100">
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">ID Status Mitra</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Bulan Order</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">TOC Mitra</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Pekerjaan</th>
@@ -71,7 +70,6 @@ export default function List({ auth, statusMitra, filters }) {
                                                 {item.project?.id_project || '-'}
                                             </Link>
                                             </td>
-                                            <td className="px-4 py-1 border-b text-center">{item.id_status_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.bulan_order}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.toc_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_pekerjaan?.status_pekerjaan || '-'}</td>

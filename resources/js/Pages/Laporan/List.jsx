@@ -56,6 +56,9 @@ export default function List({ auth, laporan, filters }) {
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Project Status Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Project Status Mitra</th>
+                                    <th className="px-4 py-2 border-b text-center font-semibold">Nama Mitra</th>
+                                    <th className="px-4 py-2 border-b text-center font-semibold">PIC Project</th>
+                                    <th className="px-4 py-2 border-b text-center font-semibold">No BAST Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                                 </tr>
                             </thead>
@@ -65,6 +68,9 @@ export default function List({ auth, laporan, filters }) {
                                         <tr key={item.id} className="hover:bg-gray-50">
                                             <td className="px-4 py-1 border-b text-center">{item.status_telkom?.project?.id_project}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_mitra?.project?.id_project}</td>
+                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.project?.mitra?.nama_mitra}</td>
+                                            <td className="px-4 py-1 border-b text-center">{item.status_mitra?.project?.pic?.pic_project}</td>
+                                            <td className="px-4 py-1 border-b text-center">{item.status_telkom?.no_bast_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">
                                                 <div className="flex justify-center gap-2">
                                                     <Link

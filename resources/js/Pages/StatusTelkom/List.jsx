@@ -54,7 +54,6 @@ export default function List({ auth, statusTelkom, filters }) {
                             <thead className="bg-gray-100">
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">ID Status Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Rekon Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">No BAST Telkom</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status BAST Telkom</th>
@@ -70,7 +69,6 @@ export default function List({ auth, statusTelkom, filters }) {
                                                 {item.project?.id_project || '-'}
                                             </Link>
                                             </td>
-                                            <td className="px-4 py-1 border-b text-center">{item.id_status_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_rekon_telkom?.status_rekon_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.no_bast_telkom}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_bast_telkom?.status_bast_telkom}</td>

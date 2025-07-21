@@ -20,7 +20,7 @@ class StatusMitraController extends Controller
     public function index()
     {
         $daftarStatusMitra = StatusMitra::with([
-            'project',
+            'project.mitra',
             'statusPekerjaan',
             'statusRekonMitra',
             'statusTagihanMitra',
@@ -94,7 +94,7 @@ class StatusMitraController extends Controller
     public function show(StatusMitra $statusMitra)
     {
         $statusMitra->load([
-            'project',
+            'project.mitra',
             'statusPekerjaan',
             'statusRekonMitra',
             'statusTagihanMitra',

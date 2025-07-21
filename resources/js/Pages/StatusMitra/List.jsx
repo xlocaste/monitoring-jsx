@@ -7,6 +7,7 @@ import { FaTrash } from "react-icons/fa6";
 import { FaEye, FaRegEdit } from "react-icons/fa";
 
 export default function List({ auth, statusMitra, filters }) {
+    console.log(statusMitra)
     const [keyword, setKeyword] = useState(filters?.keyword || '');
 
     const handleSearch = (e) => {
@@ -54,11 +55,12 @@ export default function List({ auth, statusMitra, filters }) {
                             <thead className="bg-gray-100">
                                 <tr>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ID Project</th>
-                                    <th className="px-4 py-2 border-b text-center font-semibold">ID Status Mitra</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Bulan Order</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">TOC Mitra</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Pekerjaan</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">Status Rekon Mitra</th>
+                                    <th className="px-4 py-2 border-b text-center font-semibold">Tipe Kemitraan</th>
+                                    <th className="px-4 py-2 border-b text-center font-semibold">GL Account</th>
                                     <th className="px-4 py-2 border-b text-center font-semibold">ACTION</th>
                                 </tr>
                             </thead>
@@ -71,11 +73,12 @@ export default function List({ auth, statusMitra, filters }) {
                                                 {item.project?.id_project || '-'}
                                             </Link>
                                             </td>
-                                            <td className="px-4 py-1 border-b text-center">{item.id_status_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.bulan_order}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.toc_mitra}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_pekerjaan?.status_pekerjaan || '-'}</td>
                                             <td className="px-4 py-1 border-b text-center">{item.status_rekon_mitra?.status_rekon_mitra || '-'}</td>
+                                            <td className="px-4 py-1 border-b text-center">{item.project.mitra?.tipe_kemitraan || '-'}</td>
+                                            <td className="px-4 py-1 border-b text-center">{item.project.mitra?.gl_account || '-'}</td>
                                                 <td className="px-4 py-1 border-b text-center">
                                                     <div className="flex justify-center gap-2">
                                                         <Link

@@ -23,7 +23,9 @@ class LaporanController extends Controller
             'statusTelkom.project.tematik',
             'statusTelkom.statusRekonTelkom',
             'statusMitra.statusTagihanMitra',
-            'statusMitra.project.tematik'
+            'statusMitra.project.tematik',
+            'statusMitra.project.mitra',
+            'statusMitra.project.pic',
         ])->paginate(10);
 
         return Inertia::render('Laporan/List', [

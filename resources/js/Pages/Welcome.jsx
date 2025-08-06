@@ -46,6 +46,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             </div>
                         </div>
                     </div>
+                    <div className='absolute bottom-0 text-white w-full bg-black/25 backdrop-blur-xl flex justify-center py-1'>
+                        <p className='text-sm'>
+                            © 2025 Sely | Politeknik Negeri Sambas. All rights reserved.
+                        </p>
+                    </div>
                 </div>
             </div>
         </>
